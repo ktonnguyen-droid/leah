@@ -15,11 +15,16 @@ export function Portfolio() {
           {PORTFOLIO.map((p) => (
             <figure
               key={p.label}
-              className="group relative photo-box aspect-square w-full overflow-hidden border border-border bg-card"
+              className="group relative aspect-square w-full overflow-hidden border border-border bg-card"
               aria-label={p.alt}
             >
-              <figcaption className="sr-only">{p.alt}</figcaption>
-              <span className="photo-box-label">{p.label}</span>
+              <img
+                src={p.src}
+                alt={p.alt}
+                loading="lazy"
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <figcaption className="sr-only">{p.label}</figcaption>
             </figure>
           ))}
         </div>
