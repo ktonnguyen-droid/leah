@@ -1,3 +1,4 @@
+import { ABOUT_IMAGE } from "@/lib/site-data";
 import { SectionLabel } from "./services";
 
 const TRAITS = [
@@ -12,7 +13,12 @@ export function About() {
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-5 py-20 sm:px-8 lg:grid-cols-12 lg:py-28">
         <div className="lg:col-span-5">
           <div className="photo-box aspect-[4/5] w-full overflow-hidden border border-border bg-secondary">
-            <span className="photo-box-label">Portrait · Leah at Work</span>
+            <img
+              src={ABOUT_IMAGE}
+              alt="Leah Bernal performing a facial treatment at Faded Blue Lounge in Fort Worth"
+              className="h-full w-full object-cover"
+              style={{ objectPosition: "60% center" }}
+            />
           </div>
         </div>
 

@@ -1,5 +1,5 @@
 import { Star } from "lucide-react";
-import { BOOKSY_URL } from "@/lib/site-data";
+import { BOOKSY_URL, HERO_IMAGE } from "@/lib/site-data";
 
 export function Hero() {
   return (
@@ -68,7 +68,12 @@ export function Hero() {
         <div className="lg:col-span-6">
           <div className="relative">
             <div className="photo-box aspect-[4/5] w-full overflow-hidden border border-border bg-secondary">
-              <span className="photo-box-label">Hero Photo · Leah at the Chair</span>
+              <img
+                src={HERO_IMAGE}
+                alt="Leah Bernal, professional barber, at her chair in Fort Worth"
+                className="h-full w-full object-cover"
+                style={{ objectPosition: "center 30%" }}
+              />
             </div>
             <div className="absolute -bottom-4 -left-4 hidden bg-background/90 px-4 py-3 backdrop-blur-sm sm:block">
               <p className="text-[0.6rem] tracking-mega text-muted-foreground uppercase">

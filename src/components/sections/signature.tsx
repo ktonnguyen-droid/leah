@@ -1,4 +1,4 @@
-import { BOOKSY_URL } from "@/lib/site-data";
+import { BOOKSY_URL, HEAD_SHAVE_IMAGE, FACIAL_IMAGE } from "@/lib/site-data";
 import { SectionLabel } from "./services";
 
 const SIGNATURE = [
@@ -8,7 +8,7 @@ const SIGNATURE = [
     price: "$75",
     duration: "60 Minutes",
     body: "A full straight razor head shave with warm lather, finished with a clean face shave. Smooth from crown to chin. Also offered as head shave only, or head shave with beard.",
-    label: "Photo · Hot Towel and Lather",
+    src: HEAD_SHAVE_IMAGE,
     alt: "Hot lather head shave by Leah Bernal in Fort Worth",
   },
   {
@@ -17,7 +17,7 @@ const SIGNATURE = [
     price: "$95",
     duration: "80 Minutes",
     body: "A professional six-step facial using Dermalogica products. Deep cleanse, exfoliation and treatment that leaves your skin as sharp as your fade.",
-    label: "Photo · Facial Treatment",
+    src: FACIAL_IMAGE,
     alt: "Dermalogica facial treatment by Leah Bernal in Fort Worth",
   },
 ];
@@ -37,8 +37,13 @@ export function Signature() {
         <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-2">
           {SIGNATURE.map((s) => (
             <article key={s.title} className="flex flex-col">
-              <div className="photo-box aspect-[4/3] w-full border border-border bg-card">
-                <span className="photo-box-label">{s.label}</span>
+              <div className="photo-box aspect-[4/3] w-full overflow-hidden border border-border bg-card">
+                <img
+                  src={s.src}
+                  alt={s.alt}
+                  loading="lazy"
+                  className="h-full w-full object-cover"
+                />
               </div>
               <p className="mt-6 text-[0.6rem] tracking-mega text-primary uppercase">{s.kicker}</p>
               <h3 className="display-serif mt-2 text-2xl text-foreground">{s.title}</h3>
