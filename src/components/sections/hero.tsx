@@ -3,18 +3,32 @@ import { BOOKSY_URL, HERO_IMAGE } from "@/lib/site-data";
 
 export function Hero() {
   return (
-    <section
-      id="top"
-      className="relative overflow-hidden surface-dark"
-      style={{
-        background: "radial-gradient(ellipse at 75% 40%, #4A2A6B 0%, #2A1640 55%, #1E1030 100%)",
-      }}
-    >
-      <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-5 sm:px-8 lg:grid-cols-[55fr_45fr] lg:gap-10 lg:min-h-[560px] lg:max-h-[820px] lg:h-[calc(100svh-64px)]">
+    <section id="top" className="relative overflow-hidden border-b border-border bg-background">
+      {/* soft glows: lavender behind the photo, faint gold in the bottom-left */}
+      <div aria-hidden className="pointer-events-none absolute inset-0">
+        <div
+          className="absolute right-[-12%] top-[2%] h-[58%] w-[46%] rounded-full"
+          style={{
+            background:
+              "radial-gradient(circle, color-mix(in oklab, #6a3d9e 22%, transparent), transparent 70%)",
+            filter: "blur(26px)",
+          }}
+        />
+        <div
+          className="absolute bottom-[-8%] left-[-10%] h-[42%] w-[36%] rounded-full"
+          style={{
+            background:
+              "radial-gradient(circle, color-mix(in oklab, #a07728 16%, transparent), transparent 70%)",
+            filter: "blur(28px)",
+          }}
+        />
+      </div>
+
+      <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-5 py-[clamp(48px,8vh,88px)] sm:px-8 lg:grid-cols-[55fr_45fr] lg:gap-10 lg:min-h-[560px] lg:max-h-[820px] lg:py-0 lg:h-[calc(100svh-64px)]">
         {/* Right: hero photo (photo first on mobile) */}
         <div className="order-1 lg:order-2">
           <div className="relative">
-            <div className="photo-box aspect-[4/3] w-full max-h-[45svh] overflow-hidden border border-border bg-secondary lg:aspect-[4/5] lg:max-h-[calc(100svh-260px)]">
+            <div className="photo-box aspect-[4/3] w-full max-h-[45svh] overflow-hidden border-[5px] border-double border-primary bg-secondary lg:aspect-[4/5] lg:max-h-[calc(100svh-260px)]">
               <img
                 src={HERO_IMAGE}
                 alt="Leah Bernal, professional barber, at her chair in Fort Worth"
@@ -22,11 +36,11 @@ export function Hero() {
                 style={{ objectPosition: "30% 35%" }}
               />
             </div>
-            <div className="absolute -bottom-4 -left-4 hidden bg-background/90 px-4 py-3 backdrop-blur-sm sm:block">
+            <div className="absolute -bottom-4 -left-4 hidden bg-white px-4 py-3 shadow-xl sm:block">
               <p className="text-[0.6rem] tracking-mega text-muted-foreground uppercase">
                 Most Booked
               </p>
-              <p className="display-serif text-lg text-foreground">Haircut & Beard Trim</p>
+              <p className="display-serif text-lg text-foreground">Haircut &amp; Beard Trim</p>
               <p className="text-xs text-primary">$45 · one hour</p>
             </div>
           </div>
@@ -56,7 +70,7 @@ export function Hero() {
               href={BOOKSY_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-none bg-primary px-7 py-3.5 text-xs font-semibold tracking-wide-2 text-primary-foreground uppercase transition-opacity hover:opacity-90"
+              className="btn-primary rounded-none px-7 py-3.5 text-xs font-semibold tracking-wide-2 uppercase transition-colors"
             >
               Reserve Your Chair
             </a>

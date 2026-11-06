@@ -6,12 +6,10 @@
 
 /*
  * Leah the Barber — design system.
- * Deep plum ground, lavender cream light sections, gold highlights.
+ * Warm ivory ground, soft beige cards, deep aubergine ink,
+ * royal-purple italic accents, muted gold labels, deep-purple buttons.
+ * Three dark-purple contrast sections: Reviews, final CTA, footer.
  * Display: Bodoni Moda (serif). Body: Jost (sans).
- *
- * Two surfaces are themed with the `.surface-dark` / `.surface-light`
- * classes; each remaps the semantic tokens so components keep using
- * `bg-background`, `bg-card`, `text-foreground`, etc. without change.
  */
 
 @theme inline {
@@ -46,7 +44,6 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-ring-offset-background: var(--background);
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
@@ -65,119 +62,133 @@
 :root {
   --radius: 0.375rem;
 
-  /* Fixed plum for the sticky header (always #241433, regardless of section) */
-  --header-solid: oklch(0.2299 0.0605 306.03);
+  /* Sticky header bg (ivory, blends with the light hero) */
+  --header-solid: oklch(0.971 0.012 80);
 
-  /* ---- DARK surface (default) ---- */
-  /* Deep plum ground */
-  --background: oklch(0.2309 0.0632 316.2);
-  --foreground: oklch(0.9607 0.0381 42.24);
+  /* ---- LIGHT surface (default) ---- */
+  /* Page background — warm ivory #fbf8f3 */
+  --background: oklch(0.971 0.012 80);
+  /* Headings & main text — deep aubergine #24143a */
+  --foreground: oklch(0.165 0.09 315);
 
-  /* Raised surfaces and cards */
-  --card: oklch(0.2815 0.0805 315.05);
-  --card-foreground: oklch(0.9607 0.0381 42.24);
-  --popover: oklch(0.2815 0.0805 315.05);
-  --popover-foreground: oklch(0.9607 0.0381 42.24);
+  /* Cards & alternate surfaces — soft beige #f3ece1 */
+  --card: oklch(0.939 0.022 80);
+  --card-foreground: oklch(0.165 0.09 315);
+  --popover: oklch(0.939 0.022 80);
+  --popover-foreground: oklch(0.165 0.09 315);
 
-  /* Gold primary (buttons, prices, stars, badges, hairlines) */
-  --primary: oklch(0.7461 0.0999 75.79);
-  --primary-foreground: oklch(0.1934 0.0312 73.48);
+  /* Gold for labels, prices, stars, thin rules — #a07728 */
+  --primary: oklch(0.555 0.09 80);
+  --primary-foreground: oklch(0.971 0.012 80);
 
-  --secondary: oklch(0.2815 0.0805 315.05);
-  --secondary-foreground: oklch(0.9607 0.0381 42.24);
+  --secondary: oklch(0.939 0.022 80);
+  --secondary-foreground: oklch(0.165 0.09 315);
 
-  --muted: oklch(0.2815 0.0805 315.05);
-  --muted-foreground: oklch(0.8132 0.0503 337.92);
+  --muted: oklch(0.939 0.022 80);
+  /* Secondary text — muted plum gray #6b5e78 */
+  --muted-foreground: oklch(0.455 0.04 315);
 
-  /* Lavender accent (italic words) */
-  --accent: oklch(0.8076 0.0891 321.82);
-  --accent-foreground: oklch(0.2309 0.0632 316.2);
+  /* Italic accents — royal purple #6a3d9e */
+  --accent: oklch(0.385 0.13 305);
+  --accent-foreground: oklch(0.971 0.012 80);
 
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
 
-  /* Borders and quiet lines */
-  --border: oklch(0.3569 0.0839 314.98);
-  --input: oklch(0.3569 0.0839 314.98);
-  --ring: oklch(0.7461 0.0999 75.79);
+  /* Thin divider lines & borders — #e5dacb */
+  --border: oklch(0.876 0.032 80);
+  --input: oklch(0.876 0.032 80);
+  --ring: oklch(0.555 0.09 80);
 
-  --chart-1: oklch(0.7461 0.0999 75.79);
-  --chart-2: oklch(0.8076 0.0891 321.82);
-  --chart-3: oklch(0.8132 0.0503 337.92);
-  --chart-4: oklch(0.5281 0.1354 313.62);
+  /* Primary buttons — deep purple #3d1f63, ivory text #f6f0e5;
+     hover turns gold #cfa652 with dark ink #1b1305 */
+  --btn: oklch(0.265 0.11 315);
+  --btn-foreground: oklch(0.955 0.016 80);
+  --btn-hover: oklch(0.706 0.09 80);
+  --btn-hover-foreground: oklch(0.16 0.02 70);
+
+  --chart-1: oklch(0.385 0.13 305);
+  --chart-2: oklch(0.555 0.09 80);
+  --chart-3: oklch(0.455 0.04 315);
+  --chart-4: oklch(0.265 0.11 315);
   --chart-5: oklch(0.645 0.246 16.439);
 
-  --sidebar: oklch(0.2815 0.0805 315.05);
-  --sidebar-foreground: oklch(0.9607 0.0381 42.24);
-  --sidebar-primary: oklch(0.7461 0.0999 75.79);
-  --sidebar-primary-foreground: oklch(0.1934 0.0312 73.48);
-  --sidebar-accent: oklch(0.2815 0.0805 315.05);
-  --sidebar-accent-foreground: oklch(0.9607 0.0381 42.24);
-  --sidebar-border: oklch(0.3569 0.0839 314.98);
-  --sidebar-ring: oklch(0.7461 0.0999 75.79);
+  --sidebar: oklch(0.939 0.022 80);
+  --sidebar-foreground: oklch(0.165 0.09 315);
+  --sidebar-primary: oklch(0.555 0.09 80);
+  --sidebar-primary-foreground: oklch(0.165 0.09 315);
+  --sidebar-accent: oklch(0.939 0.022 80);
+  --sidebar-accent-foreground: oklch(0.165 0.09 315);
+  --sidebar-border: oklch(0.876 0.032 80);
+  --sidebar-ring: oklch(0.555 0.09 80);
 }
 
-/* ---- LIGHT surface (cool lavender, no pink/rose) ---- */
-.surface-light {
-  /* Light section background — cool lavender cream #F1ECF8 */
-  --background: oklch(0.9504 0.0168 304.8);
-  --foreground: oklch(0.2517 0.0779 303.21);
+/* ---- DARK surface (Reviews, final CTA, footer) ---- */
+.surface-dark {
+  /* Background — dark purple #24133b */
+  --background: oklch(0.165 0.095 310);
+  /* Text — ivory #f6f0e5 */
+  --foreground: oklch(0.955 0.016 80);
 
-  /* Cards — white #FFFFFF with a cool lavender #DDD3EC hairline */
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.2517 0.0779 303.21);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.2517 0.0779 303.21);
+  /* Raised cards on the dark section */
+  --card: oklch(0.21 0.085 310);
+  --card-foreground: oklch(0.955 0.016 80);
+  --popover: oklch(0.21 0.085 310);
+  --popover-foreground: oklch(0.955 0.016 80);
 
-  /* Small gold labels & prices — readable #8C6A2E on light */
-  --primary: oklch(0.5463 0.0885 79.19);
-  --primary-foreground: oklch(0.1928 0.029 81.35);
+  /* Gold — brighter #d8b062 for labels, stars, buttons */
+  --primary: oklch(0.745 0.095 80);
+  --primary-foreground: oklch(0.16 0.02 70);
 
-  --secondary: oklch(1 0 0);
-  --secondary-foreground: oklch(0.2517 0.0779 303.21);
+  --secondary: oklch(0.21 0.085 310);
+  --secondary-foreground: oklch(0.955 0.016 80);
 
-  --muted: oklch(0.9258 0.0242 304.8);
-  /* Body text on light — #54476A */
-  --muted-foreground: oklch(0.4257 0.0589 300.99);
+  --muted: oklch(0.21 0.085 310);
+  /* Secondary text — light lavender gray #c9bdd9 */
+  --muted-foreground: oklch(0.787 0.04 305);
 
-  /* Italic accents on light — cool violet #6E4BA0 */
-  --accent: oklch(0.4913 0.134 300.57);
-  --accent-foreground: oklch(0.9504 0.0168 304.8);
+  /* Italic accents — light lavender #c8b0f0 */
+  --accent: oklch(0.767 0.09 295);
+  --accent-foreground: oklch(0.165 0.095 310);
 
-  /* Cool lavender #DDD3EC borders */
-  --border: oklch(0.8824 0.0356 303.77);
-  --input: oklch(0.8824 0.0356 303.77);
-  --ring: oklch(0.5463 0.0885 79.19);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+
+  --border: oklch(0.28 0.06 310);
+  --input: oklch(0.28 0.06 310);
+  --ring: oklch(0.745 0.095 80);
+
+  /* Buttons in dark sections — gold #d8b062, dark ink #1b1305 */
+  --btn: oklch(0.745 0.095 80);
+  --btn-foreground: oklch(0.16 0.02 70);
+  --btn-hover: oklch(0.706 0.09 80);
+  --btn-hover-foreground: oklch(0.16 0.02 70);
 }
 
 .dark {
-  --background: oklch(0.2309 0.0632 316.2);
-  --foreground: oklch(0.9607 0.0381 42.24);
-  --card: oklch(0.2815 0.0805 315.05);
-  --card-foreground: oklch(0.9607 0.0381 42.24);
-  --popover: oklch(0.2815 0.0805 315.05);
-  --popover-foreground: oklch(0.9607 0.0381 42.24);
-  --primary: oklch(0.7461 0.0999 75.79);
-  --primary-foreground: oklch(0.1934 0.0312 73.48);
-  --secondary: oklch(0.2815 0.0805 315.05);
-  --secondary-foreground: oklch(0.9607 0.0381 42.24);
-  --muted: oklch(0.2815 0.0805 315.05);
-  --muted-foreground: oklch(0.8132 0.0503 337.92);
-  --accent: oklch(0.8076 0.0891 321.82);
-  --accent-foreground: oklch(0.2309 0.0632 316.2);
+  --background: oklch(0.165 0.095 310);
+  --foreground: oklch(0.955 0.016 80);
+  --card: oklch(0.21 0.085 310);
+  --card-foreground: oklch(0.955 0.016 80);
+  --popover: oklch(0.21 0.085 310);
+  --popover-foreground: oklch(0.955 0.016 80);
+  --primary: oklch(0.745 0.095 80);
+  --primary-foreground: oklch(0.16 0.02 70);
+  --secondary: oklch(0.21 0.085 310);
+  --secondary-foreground: oklch(0.955 0.016 80);
+  --muted: oklch(0.21 0.085 310);
+  --muted-foreground: oklch(0.787 0.04 305);
+  --accent: oklch(0.767 0.09 295);
+  --accent-foreground: oklch(0.165 0.095 310);
   --destructive: oklch(0.704 0.191 22.216);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.3569 0.0839 314.98);
-  --input: oklch(0.3569 0.0839 314.98);
-  --ring: oklch(0.7461 0.0999 75.79);
-  --sidebar: oklch(0.2815 0.0805 315.05);
-  --sidebar-foreground: oklch(0.9607 0.0381 42.24);
-  --sidebar-primary: oklch(0.7461 0.0999 75.79);
-  --sidebar-primary-foreground: oklch(0.1934 0.0312 73.48);
-  --sidebar-accent: oklch(0.2815 0.0805 315.05);
-  --sidebar-accent-foreground: oklch(0.9607 0.0381 42.24);
-  --sidebar-border: oklch(0.3569 0.0839 314.98);
-  --sidebar-ring: oklch(0.7461 0.0999 75.79);
+  --border: oklch(0.28 0.06 310);
+  --input: oklch(0.28 0.06 310);
+  --ring: oklch(0.745 0.095 80);
+  --btn: oklch(0.745 0.095 80);
+  --btn-foreground: oklch(0.16 0.02 70);
+  --btn-hover: oklch(0.706 0.09 80);
+  --btn-hover-foreground: oklch(0.16 0.02 70);
 }
 
 @layer base {
@@ -209,6 +220,17 @@
 
 @utility tracking-wide-2 {
   letter-spacing: 0.18em;
+}
+
+/* Primary button: deep purple on light, gold on dark; hover -> gold w/ dark ink */
+@utility btn-primary {
+  background-color: var(--btn);
+  color: var(--btn-foreground);
+
+  &:hover {
+    background-color: var(--btn-hover);
+    color: var(--btn-hover-foreground);
+  }
 }
 
 /* Smooth in-page anchor scrolling with offset for the sticky header */

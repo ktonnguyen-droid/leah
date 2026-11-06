@@ -28,7 +28,7 @@ export function MobileBookBar() {
           href={BOOKSY_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="rounded-none bg-primary px-6 py-3 text-[0.65rem] font-semibold tracking-wide-2 text-primary-foreground uppercase"
+          className="btn-primary rounded-none px-6 py-3 text-[0.65rem] font-semibold tracking-wide-2 uppercase"
         >
           Book Now
         </a>

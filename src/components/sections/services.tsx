@@ -17,7 +17,7 @@ export function Services() {
   const spanLast = visible.length % 2 === 1;
 
   return (
-    <section id="services" className="surface-light border-t border-border bg-background">
+    <section id="services" className="border-t border-border bg-background">
       <div className="mx-auto max-w-7xl px-5 py-[clamp(48px,8vh,88px)] sm:px-8">
         <SectionLabel>The Menu</SectionLabel>
         <h2 className="display-serif mt-4 text-[clamp(36px,5vw,56px)] text-foreground">
@@ -64,7 +64,7 @@ export function Services() {
                   <div className="flex items-center gap-3">
                     <h3 className="display-serif text-lg text-foreground">{s.name}</h3>
                     {s.badge && (
-                      <span className="bg-primary px-2 py-0.5 text-[0.5rem] font-bold tracking-wide-2 text-primary-foreground uppercase">
+                      <span className="bg-primary px-2 py-0.5 text-[0.5rem] font-bold tracking-wide-2 text-[#1b1305] uppercase">
                         {s.badge}
                       </span>
                     )}

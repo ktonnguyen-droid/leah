@@ -4,7 +4,7 @@ import { SectionLabel } from "./services";
 
 export function Portfolio() {
   return (
-    <section id="work" className="surface-light border-t border-border bg-background">
+    <section id="work" className="border-t border-border bg-background">
       <div className="mx-auto max-w-[1100px] px-5 py-[clamp(48px,8vh,88px)] sm:px-8">
         <SectionLabel>Portfolio</SectionLabel>
         <h2 className="display-serif mt-4 text-[clamp(36px,5vw,56px)] text-foreground">

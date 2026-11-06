@@ -11,7 +11,7 @@ import { SectionLabel } from "./services";
 
 export function Visit() {
   return (
-    <section id="visit" className="surface-light border-t border-border bg-background">
+    <section id="visit" className="border-t border-border bg-background">
       <div className="mx-auto max-w-7xl px-5 py-[clamp(48px,8vh,88px)] sm:px-8">
         <SectionLabel>Visit</SectionLabel>
         <h2 className="display-serif mt-4 text-[clamp(36px,5vw,56px)] text-foreground">
@@ -137,7 +137,7 @@ export function Cta() {
           href={BOOKSY_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-9 inline-block rounded-none bg-primary px-8 py-4 text-xs font-semibold tracking-wide-2 text-primary-foreground uppercase transition-opacity hover:opacity-90"
+          className="btn-primary mt-9 inline-block rounded-none px-8 py-4 text-xs font-semibold tracking-wide-2 uppercase transition-colors"
         >
           Reserve on Booksy
         </a>

@@ -62,7 +62,7 @@ export function Header() {
             href={BOOKSY_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden rounded-none bg-primary px-5 py-2.5 text-[0.7rem] font-semibold tracking-wide-2 text-primary-foreground uppercase transition-opacity hover:opacity-90 sm:inline-block"
+            className="btn-primary hidden rounded-none px-5 py-2.5 text-[0.7rem] font-semibold tracking-wide-2 uppercase transition-colors sm:inline-block"
           >
             Book Now
           </a>
@@ -94,7 +94,7 @@ export function Header() {
               href={BOOKSY_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 rounded-none bg-primary px-5 py-3 text-center text-xs font-semibold tracking-wide-2 text-primary-foreground uppercase"
+              className="btn-primary mt-4 rounded-none px-5 py-3 text-center text-xs font-semibold tracking-wide-2 uppercase"
             >
               Book Now
             </a>
@@ -107,7 +107,7 @@ export function Header() {
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-background">
+    <footer className="surface-dark border-t border-border bg-background">
       <div className="mx-auto max-w-7xl px-5 py-10 sm:px-8">
         <div className="flex flex-col items-center gap-4 text-center">
           <div className="display-serif text-2xl text-foreground">Leah the Barber</div>
@@ -115,19 +115,19 @@ export function Footer() {
             Faded Blue Lounge · Fort Worth, Texas
           </div>
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-muted-foreground">
-            <a href="#services" className="hover:text-foreground">
+            <a href="#services" className="transition-colors hover:text-foreground">
               Services
             </a>
-            <a href="#about" className="hover:text-foreground">
+            <a href="#about" className="transition-colors hover:text-foreground">
               About
             </a>
-            <a href="#work" className="hover:text-foreground">
+            <a href="#work" className="transition-colors hover:text-foreground">
               Work
             </a>
-            <a href="#reviews" className="hover:text-foreground">
+            <a href="#reviews" className="transition-colors hover:text-foreground">
               Reviews
             </a>
-            <a href="#visit" className="hover:text-foreground">
+            <a href="#visit" className="transition-colors hover:text-foreground">
               Visit
             </a>
           </div>
@@ -136,7 +136,7 @@ export function Footer() {
               href={SHOP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-foreground"
+              className="transition-colors hover:text-foreground"
             >
               Faded Blue Lounge
             </a>
@@ -145,7 +145,7 @@ export function Footer() {
               href="https://fadedbluelounge.com/barbers/leah"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-foreground"
+              className="transition-colors hover:text-foreground"
             >
               Leah's Shop Profile
             </a>
@@ -154,7 +154,7 @@ export function Footer() {
             href={BOOKSY_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-2 rounded-none bg-primary px-6 py-3 text-xs font-semibold tracking-wide-2 text-primary-foreground uppercase"
+            className="btn-primary mt-2 rounded-none px-6 py-3 text-xs font-semibold tracking-wide-2 uppercase"
           >
             Reserve on Booksy
           </a>

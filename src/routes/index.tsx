@@ -60,6 +60,13 @@ export const Route = createFileRoute("/")({
           },
           openingHours: "Mo-Su 09:00-21:00",
           sameAs: [BOOKSY_URL, SHOP_TEAM_URL],
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: "5.0",
+            reviewCount: "115",
+            bestRating: "5",
+            worstRating: "1",
+          },
           makesOffer: [
             { "@type": "Offer", name: "Haircut", price: "35", priceCurrency: "USD" },
             { "@type": "Offer", name: "Haircut & Beard Trim", price: "45", priceCurrency: "USD" },
@@ -80,7 +87,7 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <div className="min-h-screen surface-dark">
+    <div className="min-h-screen">
       <Header />
       <main>
         <Hero />
