@@ -72,7 +72,7 @@ export function Hero() {
                 src={HERO_IMAGE}
                 alt="Leah Bernal, professional barber, at her chair in Fort Worth"
                 className="h-full w-full object-cover"
-                style={{ objectPosition: "center 30%" }}
+                style={{ objectPosition: "20% center" }}
               />
             </div>
             <div className="absolute -bottom-4 -left-4 hidden bg-background/90 px-4 py-3 backdrop-blur-sm sm:block">

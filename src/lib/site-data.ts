@@ -95,44 +95,40 @@ export const FILTER_TABS: { id: "all" | ServiceCategory; label: string }[] = [
 export const PORTFOLIO = [
   {
     label: "Styled Cut",
-    src: "https://vibe.filesafe.space/1794001815039021537/assets/1947f2ea-9e15-4c3c-9620-3cb4a386e7c0.png",
+    src: "/leah-08-styled-cut.jpg",
     alt: "Styled haircut by Leah Bernal in Fort Worth",
   },
   {
     label: "Kids Cut",
-    src: "https://vibe.filesafe.space/1794001815039021537/assets/5381b7ce-fdaa-4168-b71c-c1896ffeced8.png",
+    src: "/leah-05-kids-cut.jpg",
     alt: "Kids haircut by Leah Bernal in Fort Worth",
   },
   {
     label: "Beard Work",
-    src: "https://vibe.filesafe.space/1794001815039021537/assets/006c8b6d-4fff-449d-9ab8-e77e4bd71fbd.png",
+    src: "/leah-04-beard.jpg",
     alt: "Beard shaping by Leah Bernal in Fort Worth",
   },
   {
     label: "Hot Lather Head Shave",
-    src: "https://vibe.filesafe.space/1794001815039021537/assets/be47a534-d7dd-4591-8925-de4efe2e1b1f.png",
+    src: "/leah-03-head-shave.jpg",
     alt: "Hot lather head shave by Leah Bernal in Fort Worth",
   },
   {
     label: "Fade",
-    src: "https://vibe.filesafe.space/1794001815039021537/assets/a4d00063-4ee2-450f-a7c3-bdb5fbf68fae.png",
+    src: "/leah-06-fade.jpg",
     alt: "Skin fade haircut by Leah Bernal in Fort Worth",
   },
   {
     label: "Dermalogica Facial",
-    src: "https://vibe.filesafe.space/1794001815039021537/assets/6d48312a-3ca3-44e6-8f65-73fbcd4ce287.png",
+    src: "/leah-07-facial.jpg",
     alt: "Dermalogica facial by Leah Bernal in Fort Worth",
   },
 ];
 
-export const HERO_IMAGE =
-  "https://vibe.filesafe.space/1794001815039021537/assets/5ae2a677-0d74-4bf0-a4ea-6663b8f09572.png";
-export const ABOUT_IMAGE =
-  "https://vibe.filesafe.space/1794001815039021537/assets/f6832bae-e122-4505-bd7d-0f4ebfa1ae00.png";
-export const HEAD_SHAVE_IMAGE =
-  "https://vibe.filesafe.space/1794001815039021537/assets/0571cb0c-8522-4a16-b628-dd25ae28d9c6.png";
-export const FACIAL_IMAGE =
-  "https://vibe.filesafe.space/1794001815039021537/assets/04202fd1-a9aa-4588-a40f-4dbc376a71f2.png";
+export const HERO_IMAGE = "/leah-portrait-at-work.jpg";
+export const ABOUT_IMAGE = "/leah-02-facial-at-work.jpg";
+export const HEAD_SHAVE_IMAGE = "/leah-03-head-shave.jpg";
+export const FACIAL_IMAGE = "/leah-07-facial.jpg";
 
 export const REVIEWS = [
   {
