@@ -12,16 +12,16 @@ import { SectionLabel } from "./services";
 export function Visit() {
   return (
     <section id="visit" className="border-t border-border bg-secondary/40">
-      <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
+      <div className="mx-auto max-w-7xl px-5 py-[clamp(48px,8vh,88px)] sm:px-8">
         <SectionLabel>Visit</SectionLabel>
-        <h2 className="display-serif mt-4 text-4xl text-foreground sm:text-5xl">
+        <h2 className="display-serif mt-4 text-[clamp(36px,5vw,56px)] text-foreground">
           Find the <span className="italic text-accent">chair</span>
         </h2>
         <p className="mt-4 max-w-xl text-sm font-light leading-relaxed text-muted-foreground">
           Inside Faded Blue Lounge, just off Sycamore School Road in southwest Fort Worth.
         </p>
 
-        <div className="mt-12 grid grid-cols-1 gap-px border border-border bg-border md:grid-cols-3">
+        <div className="mt-10 grid grid-cols-1 gap-px border border-border bg-border md:grid-cols-3">
           {/* Location */}
           <div className="bg-card p-7">
             <div className="flex items-center gap-2 text-primary">
@@ -124,9 +124,9 @@ export function Cta() {
             "radial-gradient(50% 60% at 80% 50%, color-mix(in oklab, #6e5a93 30%, transparent), transparent)",
         }}
       />
-      <div className="relative mx-auto max-w-4xl px-5 py-24 text-center sm:px-8">
+      <div className="relative mx-auto max-w-4xl px-5 py-[clamp(48px,8vh,88px)] text-center sm:px-8">
         <SectionLabel>Your Next Appointment</SectionLabel>
-        <h2 className="display-serif mt-5 text-4xl leading-tight text-foreground sm:text-6xl">
+        <h2 className="display-serif mt-5 text-[clamp(36px,5vw,56px)] leading-tight text-foreground">
           Sit down. Walk out <span className="italic text-accent">sharp</span>.
         </h2>
         <p className="mx-auto mt-5 max-w-xl text-sm font-light leading-relaxed text-muted-foreground">

@@ -5,13 +5,13 @@ import { SectionLabel } from "./services";
 export function Portfolio() {
   return (
     <section id="work" className="border-t border-border bg-secondary/40">
-      <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
+      <div className="mx-auto max-w-[1100px] px-5 py-[clamp(48px,8vh,88px)] sm:px-8">
         <SectionLabel>Portfolio</SectionLabel>
-        <h2 className="display-serif mt-4 text-4xl text-foreground sm:text-5xl">
+        <h2 className="display-serif mt-4 text-[clamp(36px,5vw,56px)] text-foreground">
           Recent <span className="italic text-accent">work</span>
         </h2>
 
-        <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-3">
+        <div className="mt-10 grid grid-cols-2 gap-3 lg:grid-cols-3">
           {PORTFOLIO.map((p) => (
             <figure
               key={p.label}

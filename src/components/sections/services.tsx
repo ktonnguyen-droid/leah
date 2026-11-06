@@ -18,9 +18,9 @@ export function Services() {
 
   return (
     <section id="services" className="border-t border-border bg-background">
-      <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
+      <div className="mx-auto max-w-7xl px-5 py-[clamp(48px,8vh,88px)] sm:px-8">
         <SectionLabel>The Menu</SectionLabel>
-        <h2 className="display-serif mt-4 text-4xl text-foreground sm:text-5xl">
+        <h2 className="display-serif mt-4 text-[clamp(36px,5vw,56px)] text-foreground">
           Services &amp; pricing
         </h2>
         <p className="mt-4 max-w-xl text-sm font-light leading-relaxed text-muted-foreground">
@@ -55,40 +55,40 @@ export function Services() {
             return (
               <div
                 key={s.name}
-                className={`group flex flex-col justify-between bg-card p-6 transition-colors hover:bg-secondary ${
+                className={`group flex flex-col bg-card transition-colors hover:bg-secondary ${
                   isLastSpan ? "sm:col-span-2" : ""
                 }`}
+                style={{ padding: "18px 24px" }}
               >
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <div className="flex items-center gap-3">
-                      <h3 className="display-serif text-xl text-foreground">{s.name}</h3>
-                      {s.badge && (
-                        <span className="bg-primary px-2 py-0.5 text-[0.55rem] font-bold tracking-wide-2 text-primary-foreground uppercase">
-                          {s.badge}
-                        </span>
-                      )}
-                    </div>
-                    {s.note && (
-                      <p className="mt-1 text-xs font-light text-muted-foreground">{s.note}</p>
+                <div className="flex items-baseline justify-between gap-4">
+                  <div className="flex items-center gap-3">
+                    <h3 className="display-serif text-lg text-foreground">{s.name}</h3>
+                    {s.badge && (
+                      <span className="bg-primary px-2 py-0.5 text-[0.5rem] font-bold tracking-wide-2 text-primary-foreground uppercase">
+                        {s.badge}
+                      </span>
                     )}
                   </div>
-                  <div className="text-right">
-                    <div className="display-serif text-2xl text-primary">${s.price}</div>
-                    <div className="text-[0.6rem] tracking-wide-2 text-muted-foreground uppercase">
-                      {s.duration}
-                    </div>
-                  </div>
+                  <div className="display-serif text-xl text-primary">${s.price}</div>
                 </div>
 
-                <a
-                  href={BOOKSY_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-5 inline-flex items-center gap-1 self-start border-b border-foreground/40 pb-0.5 text-[0.65rem] font-semibold tracking-wide-2 text-foreground uppercase transition-colors hover:border-primary hover:text-primary"
-                >
-                  Book <ArrowUpRight size={12} />
-                </a>
+                <div className="mt-2 flex items-center justify-between gap-4">
+                  <span className="text-[0.6rem] font-medium tracking-wide-2 text-muted-foreground uppercase">
+                    {s.duration}
+                  </span>
+                  <a
+                    href={BOOKSY_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-[0.65rem] font-semibold tracking-wide-2 text-foreground uppercase transition-colors hover:text-primary"
+                  >
+                    Book <ArrowUpRight size={12} />
+                  </a>
+                </div>
+
+                {s.note && (
+                  <p className="mt-1 text-[0.7rem] font-light text-muted-foreground">{s.note}</p>
+                )}
               </div>
             );
           })}

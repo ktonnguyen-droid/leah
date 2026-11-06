@@ -5,9 +5,9 @@ import { SectionLabel } from "./services";
 export function Reviews() {
   return (
     <section id="reviews" className="border-t border-border bg-background">
-      <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
+      <div className="mx-auto max-w-7xl px-5 py-[clamp(48px,8vh,88px)] sm:px-8">
         <SectionLabel>Client Reviews</SectionLabel>
-        <h2 className="display-serif mt-4 text-4xl text-foreground sm:text-5xl">
+        <h2 className="display-serif mt-4 text-[clamp(36px,5vw,56px)] text-foreground">
           Five <span className="italic text-accent">stars</span>. Every one.
         </h2>
 
@@ -23,7 +23,7 @@ export function Reviews() {
           </span>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+        <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
           {REVIEWS.map((r) => (
             <figure key={r.name} className="flex flex-col border border-border bg-card p-7">
               <div className="flex gap-1">

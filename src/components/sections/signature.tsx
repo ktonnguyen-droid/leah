@@ -3,49 +3,52 @@ import { SectionLabel } from "./services";
 
 const SIGNATURE = [
   {
-    kicker: "Hot Lather Skin",
+    kicker: "Hot Lather",
     title: "Head Shave & Shave",
     price: "$75",
     duration: "60 Minutes",
     body: "A full straight razor head shave with warm lather, finished with a clean face shave. Smooth from crown to chin. Also offered as head shave only, or head shave with beard.",
     src: HEAD_SHAVE_IMAGE,
     alt: "Hot lather head shave by Leah Bernal in Fort Worth",
+    pos: "center 25%",
   },
   {
-    kicker: "Hot Lather Skin",
+    kicker: "Skin Care",
     title: "Dermalogica Facial",
     price: "$95",
     duration: "80 Minutes",
     body: "A professional six-step facial using Dermalogica products. Deep cleanse, exfoliation and treatment that leaves your skin as sharp as your fade.",
     src: FACIAL_IMAGE,
     alt: "Dermalogica facial treatment by Leah Bernal in Fort Worth",
+    pos: "70% 30%",
   },
 ];
 
 export function Signature() {
   return (
     <section className="border-t border-border bg-secondary/40">
-      <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
+      <div className="mx-auto max-w-7xl px-5 py-[clamp(48px,8vh,88px)] sm:px-8">
         <SectionLabel>Signature Services</SectionLabel>
-        <h2 className="display-serif mt-4 text-4xl text-foreground sm:text-5xl">
+        <h2 className="display-serif mt-4 text-[clamp(36px,5vw,56px)] text-foreground">
           Worth the <span className="italic text-accent">hour</span>
         </h2>
         <p className="mt-4 max-w-xl text-sm font-light leading-relaxed text-muted-foreground">
           Two services that go past the basics. Book one as a reset, or pair it with your next cut.
         </p>
 
-        <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-2">
+        <div className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-2">
           {SIGNATURE.map((s) => (
             <article key={s.title} className="flex flex-col">
-              <div className="photo-box aspect-[4/3] w-full overflow-hidden border border-border bg-card">
+              <div className="photo-box aspect-[16/10] w-full max-h-[320px] overflow-hidden border border-border bg-card">
                 <img
                   src={s.src}
                   alt={s.alt}
                   loading="lazy"
                   className="h-full w-full object-cover"
+                  style={{ objectPosition: s.pos }}
                 />
               </div>
-              <p className="mt-6 text-[0.6rem] tracking-mega text-primary uppercase">{s.kicker}</p>
+              <p className="mt-5 text-[0.6rem] tracking-mega text-primary uppercase">{s.kicker}</p>
               <h3 className="display-serif mt-2 text-2xl text-foreground">{s.title}</h3>
               <p className="mt-3 text-sm font-light leading-relaxed text-muted-foreground">
                 {s.body}

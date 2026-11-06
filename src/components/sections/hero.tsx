@@ -14,17 +14,46 @@ export function Hero() {
         }}
       />
 
-      <div className="relative mx-auto grid min-h-screen max-w-7xl grid-cols-1 items-center gap-10 px-5 pt-28 pb-16 sm:px-8 lg:grid-cols-12 lg:gap-8 lg:pt-24">
+      <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-5 sm:px-8 lg:grid-cols-[55fr_45fr] lg:gap-10 lg:min-h-[560px] lg:max-h-[820px] lg:h-[calc(100svh-64px)]">
+        {/* Right: hero photo + stat strip (photo first on mobile) */}
+        <div className="order-1 lg:order-2">
+          <div className="relative">
+            <div className="photo-box aspect-[4/3] w-full max-h-[45svh] overflow-hidden border border-border bg-secondary lg:aspect-[4/5] lg:max-h-[calc(100svh-260px)]">
+              <img
+                src={HERO_IMAGE}
+                alt="Leah Bernal, professional barber, at her chair in Fort Worth"
+                className="h-full w-full object-cover"
+                style={{ objectPosition: "30% 35%" }}
+              />
+            </div>
+            <div className="absolute -bottom-4 -left-4 hidden bg-background/90 px-4 py-3 backdrop-blur-sm sm:block">
+              <p className="text-[0.6rem] tracking-mega text-muted-foreground uppercase">
+                Most Booked
+              </p>
+              <p className="display-serif text-lg text-foreground">Haircut & Beard Trim</p>
+              <p className="text-xs text-primary">$45 · one hour</p>
+            </div>
+          </div>
+
+          <div className="mt-8 grid grid-cols-3 divide-x divide-border border-y border-border">
+            <Stat value="5.0" label="Average Rating" />
+            <Stat value="115" label="Five-Star Reviews" />
+            <Stat value="9 pm" label="Open Late" />
+          </div>
+        </div>
+
         {/* Left: copy */}
-        <div className="lg:col-span-6">
+        <div className="order-2 lg:order-1">
           <p className="text-[0.7rem] font-medium tracking-wide-2 text-muted-foreground uppercase">
             Fort Worth, Texas · By Appointment
           </p>
 
-          <h1 className="display-serif mt-6 text-7xl leading-[0.95] text-foreground sm:text-8xl lg:text-[8.5rem]">
+          <h1 className="display-serif mt-6 text-[clamp(64px,11vh,112px)] leading-[0.95] text-foreground">
             Leah
           </h1>
-          <p className="display-serif mt-2 text-2xl italic text-accent sm:text-3xl">the Barber</p>
+          <p className="display-serif mt-2 text-[clamp(28.8px,4.95vh,50.4px)] italic text-accent">
+            the Barber
+          </p>
 
           <p className="mt-7 max-w-xl text-base font-light leading-relaxed text-muted-foreground">
             Precision haircuts, razor line-ups, hot lather head shaves and Dermalogica facials at
@@ -61,33 +90,6 @@ export function Hero() {
             <p className="text-xs tracking-wide-2 text-muted-foreground uppercase">
               from 115 verified client reviews
             </p>
-          </div>
-        </div>
-
-        {/* Right: hero photo + stat strip */}
-        <div className="lg:col-span-6">
-          <div className="relative">
-            <div className="photo-box aspect-[4/5] w-full overflow-hidden border border-border bg-secondary">
-              <img
-                src={HERO_IMAGE}
-                alt="Leah Bernal, professional barber, at her chair in Fort Worth"
-                className="h-full w-full object-cover"
-                style={{ objectPosition: "20% center" }}
-              />
-            </div>
-            <div className="absolute -bottom-4 -left-4 hidden bg-background/90 px-4 py-3 backdrop-blur-sm sm:block">
-              <p className="text-[0.6rem] tracking-mega text-muted-foreground uppercase">
-                Most Booked
-              </p>
-              <p className="display-serif text-lg text-foreground">Haircut & Beard Trim</p>
-              <p className="text-xs text-primary">$45 · one hour</p>
-            </div>
-          </div>
-
-          <div className="mt-10 grid grid-cols-3 divide-x divide-border border-y border-border">
-            <Stat value="5.0" label="Average Rating" />
-            <Stat value="115" label="Five-Star Reviews" />
-            <Stat value="9 pm" label="Open Late" />
           </div>
         </div>
       </div>

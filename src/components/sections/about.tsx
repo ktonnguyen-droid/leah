@@ -10,9 +10,9 @@ const TRAITS = [
 export function About() {
   return (
     <section id="about" className="border-t border-border bg-background">
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-5 py-20 sm:px-8 lg:grid-cols-12 lg:py-28">
-        <div className="lg:col-span-5">
-          <div className="photo-box aspect-[4/5] w-full overflow-hidden border border-border bg-secondary">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-5 py-[clamp(48px,8vh,88px)] sm:px-8 lg:grid-cols-[45fr_55fr] lg:gap-14">
+        <div>
+          <div className="photo-box aspect-[4/5] w-full max-h-[520px] overflow-hidden border border-border bg-secondary">
             <img
               src={ABOUT_IMAGE}
               alt="Leah Bernal performing a facial treatment at Faded Blue Lounge in Fort Worth"
@@ -22,9 +22,11 @@ export function About() {
           </div>
         </div>
 
-        <div className="lg:col-span-7">
+        <div>
           <SectionLabel>Meet Your Barber</SectionLabel>
-          <h2 className="display-serif mt-4 text-4xl text-foreground sm:text-5xl">Leah Bernal</h2>
+          <h2 className="display-serif mt-4 text-[clamp(36px,5vw,56px)] text-foreground">
+            Leah Bernal
+          </h2>
 
           <p className="display-serif mt-4 text-lg italic text-accent">
             Clients come to Faded Blue Lounge for a clean cut.
@@ -39,7 +41,7 @@ export function About() {
             That is how a barber earns 115 reviews without a single one under five stars.
           </p>
 
-          <div className="mt-10 grid grid-cols-1 gap-px border border-border bg-border sm:grid-cols-3">
+          <div className="mt-8 grid grid-cols-1 gap-px border border-border bg-border sm:grid-cols-3">
             {TRAITS.map((t) => (
               <div key={t.label} className="bg-card p-6">
                 <p className="text-[0.6rem] tracking-mega text-primary uppercase">{t.label}</p>
