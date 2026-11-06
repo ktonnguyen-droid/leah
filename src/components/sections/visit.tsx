@@ -1,10 +1,11 @@
-import { MapPin, Clock, Phone, Copy } from "lucide-react";
+import { MapPin, Clock, Phone, Copy, ExternalLink } from "lucide-react";
 import {
   ADDRESS,
   BOOKSY_URL,
   MAPS_URL,
   PHONE_DISPLAY,
   PHONE_HREF,
+  SHOP_TEAM_URL,
 } from "@/lib/site-data";
 import { SectionLabel } from "./services";
 
@@ -14,17 +15,16 @@ export function Visit() {
       <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
         <SectionLabel>Visit</SectionLabel>
         <h2 className="display-serif mt-4 text-4xl text-foreground sm:text-5xl">
-          Find the chair
+          Find the <span className="italic text-accent">chair</span>
         </h2>
         <p className="mt-4 max-w-xl text-sm font-light leading-relaxed text-muted-foreground">
-          Inside Faded Blue Lounge, just off Sycamore School Road in southwest
-          Fort Worth.
+          Inside Faded Blue Lounge, just off Sycamore School Road in southwest Fort Worth.
         </p>
 
         <div className="mt-12 grid grid-cols-1 gap-px border border-border bg-border md:grid-cols-3">
           {/* Location */}
           <div className="bg-card p-7">
-            <div className="flex items-center gap-2 text-accent">
+            <div className="flex items-center gap-2 text-primary">
               <MapPin size={16} />
               <span className="text-[0.6rem] tracking-mega uppercase">Location</span>
             </div>
@@ -50,7 +50,7 @@ export function Visit() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 block border-b border-accent pb-0.5 text-[0.65rem] font-semibold tracking-wide-2 text-accent uppercase"
+              className="mt-4 block border-b border-primary pb-0.5 text-[0.65rem] font-semibold tracking-wide-2 text-primary uppercase"
             >
               Get Directions
             </a>
@@ -58,14 +58,12 @@ export function Visit() {
 
           {/* Hours */}
           <div className="bg-card p-7">
-            <div className="flex items-center gap-2 text-accent">
+            <div className="flex items-center gap-2 text-primary">
               <Clock size={16} />
               <span className="text-[0.6rem] tracking-mega uppercase">Hours</span>
             </div>
             <p className="mt-4 text-sm font-light text-foreground">By appointment</p>
-            <p className="mt-1 text-sm font-light text-muted-foreground">
-              Open until 9 pm
-            </p>
+            <p className="mt-1 text-sm font-light text-muted-foreground">Open until 9 pm</p>
             <p className="mt-4 text-xs font-light leading-relaxed text-muted-foreground">
               Live availability on Booksy. Booking online is the fastest way in.
             </p>
@@ -73,7 +71,7 @@ export function Visit() {
               href={BOOKSY_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 block border-b border-accent pb-0.5 text-[0.65rem] font-semibold tracking-wide-2 text-accent uppercase"
+              className="mt-4 block border-b border-primary pb-0.5 text-[0.65rem] font-semibold tracking-wide-2 text-primary uppercase"
             >
               See Open Times
             </a>
@@ -81,14 +79,11 @@ export function Visit() {
 
           {/* Contact */}
           <div className="bg-card p-7">
-            <div className="flex items-center gap-2 text-accent">
+            <div className="flex items-center gap-2 text-primary">
               <Phone size={16} />
               <span className="text-[0.6rem] tracking-mega uppercase">Contact</span>
             </div>
-            <a
-              href={PHONE_HREF}
-              className="display-serif mt-4 block text-2xl text-foreground"
-            >
+            <a href={PHONE_HREF} className="display-serif mt-4 block text-2xl text-foreground">
               {PHONE_DISPLAY}
             </a>
             <p className="mt-2 text-xs font-light text-muted-foreground">
@@ -96,12 +91,22 @@ export function Visit() {
             </p>
             <a
               href={PHONE_HREF}
-              className="mt-4 block border-b border-accent pb-0.5 text-[0.65rem] font-semibold tracking-wide-2 text-accent uppercase"
+              className="mt-4 block border-b border-primary pb-0.5 text-[0.65rem] font-semibold tracking-wide-2 text-primary uppercase"
             >
               Call Leah
             </a>
           </div>
         </div>
+
+        <a
+          href={SHOP_TEAM_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-8 inline-flex items-center gap-1 text-sm font-light text-muted-foreground transition-colors hover:text-foreground"
+        >
+          Leah works inside Faded Blue Lounge. Meet the rest of the team
+          <ExternalLink size={14} />
+        </a>
       </div>
     </section>
   );
@@ -109,15 +114,24 @@ export function Visit() {
 
 export function Cta() {
   return (
-    <section className="border-t border-border bg-background">
-      <div className="mx-auto max-w-4xl px-5 py-24 text-center sm:px-8">
+    <section className="relative overflow-hidden border-t border-border bg-background">
+      {/* lavender glow behind the final call to action */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(50% 60% at 80% 50%, color-mix(in oklab, #6e5a93 30%, transparent), transparent)",
+        }}
+      />
+      <div className="relative mx-auto max-w-4xl px-5 py-24 text-center sm:px-8">
         <SectionLabel>Your Next Appointment</SectionLabel>
         <h2 className="display-serif mt-5 text-4xl leading-tight text-foreground sm:text-6xl">
-          Sit down. Walk out sharp.
+          Sit down. Walk out <span className="italic text-accent">sharp</span>.
         </h2>
         <p className="mx-auto mt-5 max-w-xl text-sm font-light leading-relaxed text-muted-foreground">
-          Book online in under a minute. Pick your service, pick your time, and
-          Leah takes it from there.
+          Book online in under a minute. Pick your service, pick your time, and Leah takes it from
+          there.
         </p>
         <a
           href={BOOKSY_URL}

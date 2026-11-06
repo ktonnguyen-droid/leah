@@ -8,16 +8,18 @@ export function Portfolio() {
       <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
         <SectionLabel>Portfolio</SectionLabel>
         <h2 className="display-serif mt-4 text-4xl text-foreground sm:text-5xl">
-          Recent work
+          Recent <span className="italic text-accent">work</span>
         </h2>
 
-        <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
-          {PORTFOLIO.map((label) => (
+        <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-3">
+          {PORTFOLIO.map((p) => (
             <figure
-              key={label}
-              className="group relative photo-box aspect-square w-full border border-border bg-card"
+              key={p.label}
+              className="group relative photo-box aspect-square w-full overflow-hidden border border-border bg-card"
+              aria-label={p.alt}
             >
-              <span className="photo-box-label">{label}</span>
+              <figcaption className="sr-only">{p.alt}</figcaption>
+              <span className="photo-box-label">{p.label}</span>
             </figure>
           ))}
         </div>
@@ -26,7 +28,7 @@ export function Portfolio() {
           href={BOOKSY_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-10 inline-flex items-center gap-2 border-b border-accent pb-1 text-[0.7rem] font-semibold tracking-wide-2 text-accent uppercase"
+          className="mt-10 inline-flex items-center gap-2 border-b border-primary pb-1 text-[0.7rem] font-semibold tracking-wide-2 text-primary uppercase"
         >
           See 50+ more on Booksy <ArrowUpRight size={14} />
         </a>

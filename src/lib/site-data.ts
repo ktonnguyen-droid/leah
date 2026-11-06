@@ -1,6 +1,9 @@
 export const BOOKSY_URL =
   "https://booksy.com/en-us/1232086_leah-the-barber-at-faded-blue-lounge_barber-shop_134610_fort-worth";
 
+export const SHOP_URL = "https://fadedbluelounge.com/";
+export const SHOP_TEAM_URL = "https://fadedbluelounge.com/barbers/leah";
+
 export const PHONE_DISPLAY = "(682) 233-0606";
 export const PHONE_HREF = "tel:+16822330606";
 
@@ -15,11 +18,7 @@ export const ADDRESS = {
 export const MAPS_URL =
   "https://www.google.com/maps/search/?api=1&query=3951+Sycamore+School+Rd+Ste+121+Fort+Worth+TX+76133";
 
-export type ServiceCategory =
-  | "cuts"
-  | "beard"
-  | "shaves"
-  | "skin";
+export type ServiceCategory = "cuts" | "beard" | "shaves" | "skin";
 
 export interface Service {
   name: string;
@@ -94,14 +93,12 @@ export const FILTER_TABS: { id: "all" | ServiceCategory; label: string }[] = [
 ];
 
 export const PORTFOLIO = [
-  "Kids Cut",
-  "Razor Edge Up",
-  "Fade + Beard Line-up",
-  "Hot Lather Head Shave",
-  "Beard Shaping",
-  "Classic Taper",
-  "Leah at Work",
-  "Shop Interior",
+  { label: "Styled Cut", alt: "Styled haircut by Leah Bernal in Fort Worth" },
+  { label: "Kids Cut", alt: "Kids haircut by Leah Bernal in Fort Worth" },
+  { label: "Beard Work", alt: "Beard shaping by Leah Bernal in Fort Worth" },
+  { label: "Hot Lather Head Shave", alt: "Hot lather head shave by Leah Bernal in Fort Worth" },
+  { label: "Fade", alt: "Skin fade haircut by Leah Bernal in Fort Worth" },
+  { label: "Dermalogica Facial", alt: "Dermalogica facial by Leah Bernal in Fort Worth" },
 ];
 
 export const REVIEWS = [

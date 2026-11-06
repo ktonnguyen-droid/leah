@@ -8,29 +8,27 @@ import { About } from "@/components/sections/about";
 import { Portfolio } from "@/components/sections/portfolio";
 import { Reviews } from "@/components/sections/reviews";
 import { Visit, Cta } from "@/components/sections/visit";
-import {
-  ADDRESS,
-  BOOKSY_URL,
-  PHONE_DISPLAY,
-} from "@/lib/site-data";
+import { ADDRESS, BOOKSY_URL, PHONE_DISPLAY, SHOP_TEAM_URL } from "@/lib/site-data";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Leah the Barber — Faded Blue Lounge | Fort Worth, TX" },
+      {
+        title: "Leah the Barber | Head Shaves, Facials & Haircuts in Fort Worth, TX",
+      },
       {
         name: "description",
         content:
-          "Precision haircuts, razor line-ups, hot lather head shaves and Dermalogica facials by Leah Bernal at Faded Blue Lounge in Fort Worth, TX. Book online — 5.0 from 115 reviews.",
+          "Precision haircuts, razor line-ups, hot lather head shaves and Dermalogica facials by Leah Bernal at Faded Blue Lounge in Fort Worth, TX. 5.0 stars from 115 reviews. Book online.",
       },
       {
         property: "og:title",
-        content: "Leah the Barber — Faded Blue Lounge | Fort Worth, TX",
+        content: "Leah the Barber | Head Shaves, Facials & Haircuts in Fort Worth, TX",
       },
       {
         property: "og:description",
         content:
-          "Precision haircuts, razor line-ups, hot lather shaves and Dermalogica facials by Leah Bernal at Faded Blue Lounge, Fort Worth. Book online — 5.0 from 115 reviews.",
+          "Precision haircuts, razor line-ups, hot lather head shaves and Dermalogica facials by Leah Bernal at Faded Blue Lounge in Fort Worth, TX. 5.0 stars from 115 reviews. Book online.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -44,7 +42,6 @@ export const Route = createFileRoute("/")({
           name: "Leah the Barber at Faded Blue Lounge",
           description:
             "Precision haircuts, razor line-ups, hot lather head shaves and Dermalogica facials by Leah Bernal at Faded Blue Lounge in Fort Worth, TX.",
-          image: undefined,
           url: BOOKSY_URL,
           telephone: PHONE_DISPLAY,
           priceRange: "$$",
@@ -62,18 +59,17 @@ export const Route = createFileRoute("/")({
             longitude: -97.4157,
           },
           openingHours: "Mo-Su 09:00-21:00",
-          aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: "5.0",
-            reviewCount: "115",
-            bestRating: "5",
-            worstRating: "1",
-          },
+          sameAs: [BOOKSY_URL, SHOP_TEAM_URL],
           makesOffer: [
             { "@type": "Offer", name: "Haircut", price: "35", priceCurrency: "USD" },
             { "@type": "Offer", name: "Haircut & Beard Trim", price: "45", priceCurrency: "USD" },
             { "@type": "Offer", name: "Hot Lather Head Shave", price: "55", priceCurrency: "USD" },
-            { "@type": "Offer", name: "6-Step Dermalogica Facial", price: "95", priceCurrency: "USD" },
+            {
+              "@type": "Offer",
+              name: "6-Step Dermalogica Facial",
+              price: "95",
+              priceCurrency: "USD",
+            },
           ],
         }),
       },

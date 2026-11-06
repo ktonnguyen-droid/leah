@@ -1,7 +1,6 @@
-import { Link } from "@tanstack/react-router";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ExternalLink } from "lucide-react";
 import { useEffect, useState } from "react";
-import { BOOKSY_URL } from "@/lib/site-data";
+import { BOOKSY_URL, SHOP_URL } from "@/lib/site-data";
 
 const NAV = [
   { label: "Services", href: "#services" },
@@ -35,9 +34,15 @@ export function Header() {
           <span className="display-serif text-xl font-medium tracking-wide-2 text-foreground">
             Leah
           </span>
-          <span className="text-[0.6rem] font-light tracking-mega text-muted-foreground uppercase">
-            the Barber
-          </span>
+          <a
+            href={SHOP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-0.5 inline-flex items-center gap-1 text-[0.55rem] font-light tracking-wide-2 text-primary uppercase transition-opacity hover:opacity-80"
+          >
+            A Faded Blue Lounge Barber
+            <ExternalLink size={9} />
+          </a>
         </a>
 
         <nav className="hidden items-center gap-8 md:flex">
@@ -110,11 +115,40 @@ export function Footer() {
             Faded Blue Lounge · Fort Worth, Texas
           </div>
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-muted-foreground">
-            <a href="#services" className="hover:text-foreground">Services</a>
-            <a href="#about" className="hover:text-foreground">About</a>
-            <a href="#work" className="hover:text-foreground">Work</a>
-            <a href="#reviews" className="hover:text-foreground">Reviews</a>
-            <a href="#visit" className="hover:text-foreground">Visit</a>
+            <a href="#services" className="hover:text-foreground">
+              Services
+            </a>
+            <a href="#about" className="hover:text-foreground">
+              About
+            </a>
+            <a href="#work" className="hover:text-foreground">
+              Work
+            </a>
+            <a href="#reviews" className="hover:text-foreground">
+              Reviews
+            </a>
+            <a href="#visit" className="hover:text-foreground">
+              Visit
+            </a>
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs text-muted-foreground">
+            <a
+              href={SHOP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-foreground"
+            >
+              Faded Blue Lounge
+            </a>
+            <span className="text-border">·</span>
+            <a
+              href="https://fadedbluelounge.com/barbers/leah"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-foreground"
+            >
+              Leah's Shop Profile
+            </a>
           </div>
           <a
             href={BOOKSY_URL}
@@ -126,6 +160,9 @@ export function Footer() {
           </a>
           <p className="mt-4 text-[0.65rem] tracking-wide-2 text-muted-foreground uppercase">
             © 2026 Leah the Barber · Faded Blue Lounge · Fort Worth, Texas
+          </p>
+          <p className="text-[0.6rem] tracking-wide-2 text-muted-foreground uppercase">
+            Website by SureMade Web Co.
           </p>
         </div>
       </div>
