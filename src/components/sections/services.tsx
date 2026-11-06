@@ -1,0 +1,125 @@
+import { useMemo, useState } from "react";
+import { ArrowUpRight } from "lucide-react";
+import {
+  BOOKSY_URL,
+  FILTER_TABS,
+  SERVICES,
+  type ServiceCategory,
+} from "@/lib/site-data";
+
+type FilterId = "all" | ServiceCategory;
+
+export function Services() {
+  const [filter, setFilter] = useState<FilterId>("all");
+
+  const visible = useMemo(
+    () =>
+      filter === "all"
+        ? SERVICES
+        : SERVICES.filter((s) => s.category === filter),
+    [filter],
+  );
+
+  return (
+    <section id="services" className="border-t border-border bg-background">
+      <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
+        <SectionLabel>The Menu</SectionLabel>
+        <h2 className="display-serif mt-4 text-4xl text-foreground sm:text-5xl">
+          Services &amp; pricing
+        </h2>
+        <p className="mt-4 max-w-xl text-sm font-light leading-relaxed text-muted-foreground">
+          Every service is by appointment, so your time in the chair is never
+          rushed.
+        </p>
+
+        {/* Filter tabs */}
+        <div className="mt-10 flex flex-wrap gap-2 border-b border-border pb-4">
+          {FILTER_TABS.map((tab) => {
+            const active = filter === tab.id;
+            return (
+              <button
+                key={tab.id}
+                type="button"
+                onClick={() => setFilter(tab.id)}
+                className={`rounded-none px-4 py-2 text-[0.65rem] font-semibold tracking-wide-2 uppercase transition-colors ${
+                  active
+                    ? "bg-primary text-primary-foreground"
+                    : "border border-border text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {tab.label}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Service grid */}
+        <div className="mt-8 grid grid-cols-1 gap-px border border-border bg-border sm:grid-cols-2">
+          {visible.map((s) => (
+            <div
+              key={s.name}
+              className="group flex flex-col justify-between bg-card p-6 transition-colors hover:bg-secondary"
+            >
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <div className="flex items-center gap-3">
+                    <h3 className="display-serif text-xl text-foreground">
+                      {s.name}
+                    </h3>
+                    {s.badge && (
+                      <span className="bg-accent px-2 py-0.5 text-[0.55rem] font-bold tracking-wide-2 text-accent-foreground uppercase">
+                        {s.badge}
+                      </span>
+                    )}
+                  </div>
+                  {s.note && (
+                    <p className="mt-1 text-xs font-light text-muted-foreground">
+                      {s.note}
+                    </p>
+                  )}
+                </div>
+                <div className="text-right">
+                  <div className="display-serif text-2xl text-accent">
+                    ${s.price}
+                  </div>
+                  <div className="text-[0.6rem] tracking-wide-2 text-muted-foreground uppercase">
+                    {s.duration}
+                  </div>
+                </div>
+              </div>
+
+              <a
+                href={BOOKSY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-5 inline-flex items-center gap-1 self-start border-b border-foreground/40 pb-0.5 text-[0.65rem] font-semibold tracking-wide-2 text-foreground uppercase transition-colors hover:border-accent hover:text-accent"
+              >
+                Book <ArrowUpRight size={12} />
+              </a>
+            </div>
+          ))}
+        </div>
+
+        <p className="mt-6 text-xs font-light text-muted-foreground">
+          Standard rates shown. Online booking specials may apply on Booksy.
+        </p>
+        <a
+          href={BOOKSY_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-6 inline-block border-b border-accent pb-0.5 text-[0.7rem] font-semibold tracking-wide-2 text-accent uppercase"
+        >
+          Check Availability
+        </a>
+      </div>
+    </section>
+  );
+}
+
+export function SectionLabel({ children }: { children: React.ReactNode }) {
+  return (
+    <span className="text-[0.65rem] font-light tracking-mega text-accent uppercase">
+      {children}
+    </span>
+  );
+}
