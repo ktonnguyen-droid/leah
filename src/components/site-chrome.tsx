@@ -10,6 +10,33 @@ const NAV = [
   { label: "Visit", href: "#visit" },
 ];
 
+export function TopTrim() {
+  return (
+    <div className="surface-dark flex h-[34px] w-full items-center justify-center border-b border-primary/40 bg-background px-4 sm:h-[38px]">
+      <p className="flex items-center gap-[0.4em] whitespace-nowrap text-[11px] font-medium uppercase tracking-[0.24em] text-foreground">
+        {/* desktop */}
+        <span className="hidden items-center gap-[0.4em] sm:flex">
+          <span>Fort Worth, TX</span>
+          <span className="text-primary">·</span>
+          <span>By appointment</span>
+          <span className="text-primary">·</span>
+          <span>Open until 9 PM</span>
+          <span className="text-primary">·</span>
+          <span className="text-primary">★★★★★</span>
+          <span>5.0 on Booksy</span>
+        </span>
+        {/* mobile */}
+        <span className="flex items-center gap-[0.4em] sm:hidden">
+          <span className="text-primary">★★★★★</span>
+          <span>5.0</span>
+          <span className="text-primary">·</span>
+          <span>Book online 24/7</span>
+        </span>
+      </p>
+    </div>
+  );
+}
+
 export function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -23,7 +50,7 @@ export function Header() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+      className={`sticky inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
           ? "border-b border-border bg-header-solid/92 backdrop-blur-md"
           : "border-b border-transparent bg-transparent"

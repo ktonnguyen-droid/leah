@@ -24,7 +24,7 @@ export function Hero() {
         />
       </div>
 
-      <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-5 py-[clamp(48px,8vh,88px)] sm:px-8 lg:grid-cols-[55fr_45fr] lg:gap-10 lg:min-h-[560px] lg:max-h-[820px] lg:py-0 lg:h-[calc(100svh-64px)]">
+      <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-5 py-[clamp(48px,8vh,88px)] sm:px-8 lg:grid-cols-[55fr_45fr] lg:gap-10 lg:min-h-[560px] lg:max-h-[820px] lg:py-0 lg:h-[calc(100svh-102px)]">
         {/* Right: hero photo (photo first on mobile) */}
         <div className="order-1 lg:order-2">
           <div className="relative">

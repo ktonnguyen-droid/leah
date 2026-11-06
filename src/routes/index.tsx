@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Header, Footer } from "@/components/site-chrome";
+import { TopTrim, Header, Footer } from "@/components/site-chrome";
 import { MobileBookBar } from "@/components/mobile-book-bar";
 import { Hero } from "@/components/sections/hero";
 import { Services } from "@/components/sections/services";
@@ -88,6 +88,7 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <div className="min-h-screen">
+      <TopTrim />
       <Header />
       <main>
         <Hero />
