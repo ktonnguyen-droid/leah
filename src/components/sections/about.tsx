@@ -9,7 +9,7 @@ const TRAITS = [
 
 export function About() {
   return (
-    <section id="about" className="border-t border-border bg-background">
+    <section id="about" className="surface-light border-t border-border bg-background">
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-5 py-[clamp(48px,8vh,88px)] sm:px-8 lg:grid-cols-[45fr_55fr] lg:gap-14">
         <div>
           <div className="photo-box aspect-[4/5] w-full max-h-[520px] overflow-hidden border border-border bg-secondary">

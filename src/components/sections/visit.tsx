@@ -11,7 +11,7 @@ import { SectionLabel } from "./services";
 
 export function Visit() {
   return (
-    <section id="visit" className="border-t border-border bg-secondary/40">
+    <section id="visit" className="surface-light border-t border-border bg-background">
       <div className="mx-auto max-w-7xl px-5 py-[clamp(48px,8vh,88px)] sm:px-8">
         <SectionLabel>Visit</SectionLabel>
         <h2 className="display-serif mt-4 text-[clamp(36px,5vw,56px)] text-foreground">
@@ -114,14 +114,14 @@ export function Visit() {
 
 export function Cta() {
   return (
-    <section className="relative overflow-hidden border-t border-border bg-background">
-      {/* lavender glow behind the final call to action */}
+    <section className="surface-dark relative overflow-hidden border-t border-border bg-background">
+      {/* soft lavender glow behind the final call to action */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(50% 60% at 80% 50%, color-mix(in oklab, #6e5a93 30%, transparent), transparent)",
+            "radial-gradient(50% 60% at 80% 50%, color-mix(in oklab, #7A55A8 25%, transparent), transparent)",
         }}
       />
       <div className="relative mx-auto max-w-4xl px-5 py-[clamp(48px,8vh,88px)] text-center sm:px-8">

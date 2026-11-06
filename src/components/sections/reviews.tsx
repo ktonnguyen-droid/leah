@@ -4,7 +4,7 @@ import { SectionLabel } from "./services";
 
 export function Reviews() {
   return (
-    <section id="reviews" className="border-t border-border bg-background">
+    <section id="reviews" className="surface-dark border-t border-border bg-background">
       <div className="mx-auto max-w-7xl px-5 py-[clamp(48px,8vh,88px)] sm:px-8">
         <SectionLabel>Client Reviews</SectionLabel>
         <h2 className="display-serif mt-4 text-[clamp(36px,5vw,56px)] text-foreground">
