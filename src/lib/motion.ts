@@ -2,30 +2,10 @@ import { useEffect, useLayoutEffect, useRef, type CSSProperties } from "react";
 
 const useIsoLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
-/** Total duration of the opening "cut" transition, in ms. */
-export const CUT_DURATION_MS = 820;
-
+/** Returns true if the visitor prefers reduced motion. */
 export function prefersReducedMotion(): boolean {
   if (typeof window === "undefined") return false;
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-}
-
-/** First visit in this session? (repeat visits skip the cut). */
-export function shouldPlayCut(): boolean {
-  if (prefersReducedMotion()) return false;
-  try {
-    return !sessionStorage.getItem("leah:visited");
-  } catch {
-    return false;
-  }
-}
-
-export function markVisited(): void {
-  try {
-    sessionStorage.setItem("leah:visited", "1");
-  } catch {
-    /* ignore */
-  }
 }
 
 /** Stagger delay as a CSS custom property consumed by the reveal CSS. */

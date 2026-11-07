@@ -1,22 +1,38 @@
 import { useEffect, useState } from "react";
 import { Star } from "lucide-react";
 import { BOOKSY_URL, HERO_IMAGE } from "@/lib/site-data";
-import { CUT_DURATION_MS, delay, prefersReducedMotion } from "@/lib/motion";
+import { delay, prefersReducedMotion } from "@/lib/motion";
 
-export function Hero({ cutActive }: { cutActive: boolean }) {
+export function Hero() {
   const [entered, setEntered] = useState(false);
 
   useEffect(() => {
+    const root = document.documentElement;
+    const has = (n: string) => root.classList.contains(n);
+
+    // Reduced motion: never wait, show the hero immediately.
     if (prefersReducedMotion()) {
       setEntered(true);
       return;
     }
-    // Start the hero entrance right after the cut opens (first visit),
-    // or immediately on repeat visits.
-    const ms = cutActive ? CUT_DURATION_MS : 0;
-    const t = window.setTimeout(() => setEntered(true), ms);
-    return () => window.clearTimeout(t);
-  }, [cutActive]);
+    // The opening intro already opened (intro-open) or was skipped
+    // (no-intro), or the intro script never ran at all (no
+    // intro-on / no-intro present) — start the entrance right away.
+    if (has("intro-open") || has("no-intro") || (!has("intro-on") && !has("no-intro"))) {
+      setEntered(true);
+      return;
+    }
+    // The intro is active (intro-on): reveal the hero the moment it
+    // opens, watched via a class mutation observer on <html>.
+    const mo = new MutationObserver(() => {
+      if (has("intro-open") || has("no-intro")) {
+        setEntered(true);
+        mo.disconnect();
+      }
+    });
+    mo.observe(root, { attributes: true, attributeFilter: ["class"] });
+    return () => mo.disconnect();
+  }, []);
 
   return (
     <section

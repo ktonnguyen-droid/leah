@@ -316,61 +316,10 @@ html {
 }
 
 /* ============================================================
-   MOTION — opening cut, hero entrance, scroll reveals, hovers.
+   MOTION — hero entrance, scroll reveals, hovers.
    Hidden start states are scoped to .js-anim (added client-side
    before first paint), so the page is fully visible without JS.
    ============================================================ */
-
-/* ---- Opening "cut" transition (first visit only) ---- */
-.cut-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 100;
-  pointer-events: none;
-}
-.cut-panel {
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 50%;
-  background-color: #24133b;
-  will-change: transform;
-}
-.cut-top {
-  top: 0;
-  animation: cut-top-out 450ms cubic-bezier(0.65, 0, 0.35, 1) 350ms both;
-}
-.cut-bottom {
-  bottom: 0;
-  animation: cut-bottom-out 450ms cubic-bezier(0.65, 0, 0.35, 1) 350ms both;
-}
-.cut-line {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  height: 1.5px;
-  margin-top: -0.75px;
-  background-color: #d8b062;
-  transform: scaleX(0);
-  transform-origin: left center;
-  animation: cut-line-draw 350ms cubic-bezier(0.65, 0, 0.35, 1) both;
-}
-@keyframes cut-line-draw {
-  to {
-    transform: scaleX(1);
-  }
-}
-@keyframes cut-top-out {
-  to {
-    transform: translateY(-100%);
-  }
-}
-@keyframes cut-bottom-out {
-  to {
-    transform: translateY(100%);
-  }
-}
 
 /* ---- Hero entrance (gated by .hero-in on the section) ---- */
 .js-anim .hero-rise {
@@ -522,11 +471,5 @@ html {
     clip-path: none !important;
     transition: none !important;
     animation: none !important;
-  }
-  .cut-overlay,
-  .cut-panel,
-  .cut-line {
-    animation: none !important;
-    display: none !important;
   }
 }
