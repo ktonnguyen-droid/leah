@@ -97,38 +97,45 @@ export const PORTFOLIO = [
     label: "Styled Cut",
     src: "/leah-08-styled-cut.jpg",
     alt: "Styled haircut by Leah Bernal in Fort Worth",
+    pos: "50% 40%",
   },
   {
     label: "Kids Cut",
     src: "/leah-05-kids-cut.jpg",
     alt: "Kids haircut by Leah Bernal in Fort Worth",
+    pos: "50% 25%",
   },
   {
     label: "Beard Work",
     src: "/leah-04-beard.jpg",
     alt: "Beard shaping by Leah Bernal in Fort Worth",
+    pos: "75% 40%",
   },
   {
     label: "Hot Lather Head Shave",
-    src: "/leah-03-head-shave.jpg",
-    alt: "Hot lather head shave by Leah Bernal in Fort Worth",
+    src: "https://vibe.filesafe.space/1794001815039021537/attachments/c547ebbb-a6a0-4d4c-8de8-2b1036b6c700.png",
+    alt: "Hot lather head shave by Leah the Barber in Fort Worth, TX",
+    pos: "50% 45%",
   },
   {
     label: "Fade",
     src: "/leah-06-fade.jpg",
     alt: "Skin fade haircut by Leah Bernal in Fort Worth",
+    pos: "50% 40%",
   },
   {
     label: "Dermalogica Facial",
     src: "/leah-07-facial.jpg",
     alt: "Dermalogica facial by Leah Bernal in Fort Worth",
+    pos: "70% 30%",
   },
 ];
 
 export const HERO_IMAGE =
   "https://vibe.filesafe.space/1794001815039021537/attachments/f06c558a-c5c6-40e7-beee-baa683dbf77c.png";
 export const ABOUT_IMAGE = "/leah-02-facial-at-work.jpg";
-export const HEAD_SHAVE_IMAGE = "/leah-03-head-shave.jpg";
+export const HEAD_SHAVE_IMAGE =
+  "https://vibe.filesafe.space/1794001815039021537/attachments/c547ebbb-a6a0-4d4c-8de8-2b1036b6c700.png";
 export const FACIAL_IMAGE = "/leah-07-facial.jpg";
 
 export const REVIEWS = [

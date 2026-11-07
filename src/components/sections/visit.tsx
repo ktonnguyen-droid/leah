@@ -30,84 +30,98 @@ export function Visit() {
 
         <div
           ref={cardsRef}
-          className="reveal-stagger mt-10 grid grid-cols-1 gap-px border border-border bg-border md:grid-cols-3"
+          className="reveal-stagger mt-10 grid grid-cols-1 items-stretch gap-px border border-border bg-border md:grid-cols-3"
         >
           {/* Location */}
-          <div className="bg-card p-7" style={delay(0)}>
+          <div className="flex h-full flex-col bg-card p-7" style={delay(0)}>
             <div className="flex items-center gap-2 text-primary">
               <MapPin size={16} />
               <span className="text-[12px] font-semibold tracking-mega uppercase">Location</span>
             </div>
-            <div className="mt-4 space-y-1 text-[16px] font-normal text-foreground">
-              <p>{ADDRESS.street}</p>
+            <div className="mt-4 flex flex-col gap-1 text-[16px] font-normal text-foreground">
+              <div className="flex items-center justify-between gap-2">
+                <p className="font-semibold text-foreground">{ADDRESS.street}</p>
+                <button
+                  type="button"
+                  onClick={() =>
+                    navigator.clipboard?.writeText(
+                      `${ADDRESS.street}, ${ADDRESS.suite}, ${ADDRESS.city}, ${ADDRESS.state} ${ADDRESS.zip}`,
+                    )
+                  }
+                  className="inline-flex items-center gap-1 text-[11px] font-semibold tracking-wide-2 text-muted-foreground uppercase hover:text-foreground"
+                  title="Copy address"
+                >
+                  <Copy size={11} /> Copy
+                </button>
+              </div>
               <p>{ADDRESS.suite}</p>
               <p>
                 {ADDRESS.city}, {ADDRESS.state} {ADDRESS.zip}
               </p>
             </div>
-            <button
-              type="button"
-              onClick={() =>
-                navigator.clipboard?.writeText(
-                  `${ADDRESS.street}, ${ADDRESS.suite}, ${ADDRESS.city}, ${ADDRESS.state} ${ADDRESS.zip}`,
-                )
-              }
-              className="mt-4 inline-flex items-center gap-1 text-[12px] font-semibold tracking-wide-2 text-muted-foreground uppercase hover:text-foreground"
-            >
-              <Copy size={11} /> Copy
-            </button>
-            <a
-              href={MAPS_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="book-link arrow-link mt-4 block border-b border-primary pb-0.5 text-[12px] font-semibold tracking-wide-2 text-primary uppercase"
-            >
-              Get Directions
-            </a>
+            <div className="mt-auto pt-6">
+              <a
+                href={MAPS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="book-link arrow-link inline-block border-b border-primary pb-0.5 text-[12px] font-semibold tracking-wide-2 text-primary uppercase"
+              >
+                Get Directions
+              </a>
+            </div>
           </div>
 
           {/* Hours */}
-          <div className="bg-card p-7" style={delay(60)}>
+          <div className="flex h-full flex-col bg-card p-7" style={delay(60)}>
             <div className="flex items-center gap-2 text-primary">
               <Clock size={16} />
               <span className="text-[12px] font-semibold tracking-mega uppercase">Hours</span>
             </div>
-            <p className="mt-4 text-[16px] font-normal text-foreground">By appointment</p>
-            <p className="mt-1 text-[16px] font-normal text-muted-foreground">Open until 9 pm</p>
-            <p className="mt-4 text-[14px] font-normal leading-[1.65] text-muted-foreground">
-              Live availability on Booksy. Booking online is the fastest way in.
-            </p>
-            <a
-              href={BOOKSY_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="book-link arrow-link mt-4 block border-b border-primary pb-0.5 text-[12px] font-semibold tracking-wide-2 text-primary uppercase"
-            >
-              See Open Times
-            </a>
+            <div className="mt-4 flex flex-col gap-1 text-[16px] font-normal text-foreground">
+              <p className="font-semibold text-foreground">By appointment</p>
+              <p className="text-muted-foreground">Open until 9 pm</p>
+              <p className="mt-1 text-[14px] font-normal leading-[1.65] text-muted-foreground">
+                Live availability on Booksy. Booking online is the fastest way in.
+              </p>
+            </div>
+            <div className="mt-auto pt-6">
+              <a
+                href={BOOKSY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="book-link arrow-link inline-block border-b border-primary pb-0.5 text-[12px] font-semibold tracking-wide-2 text-primary uppercase"
+              >
+                See Open Times
+              </a>
+            </div>
           </div>
 
           {/* Contact */}
-          <div className="bg-card p-7" style={delay(120)}>
+          <div className="flex h-full flex-col bg-card p-7" style={delay(120)}>
             <div className="flex items-center gap-2 text-primary">
               <Phone size={16} />
               <span className="text-[12px] font-semibold tracking-mega uppercase">Contact</span>
             </div>
-            <a
-              href={PHONE_HREF}
-              className="display-serif mt-4 block text-2xl font-semibold text-foreground"
-            >
-              {PHONE_DISPLAY}
-            </a>
-            <p className="mt-2 text-[14px] font-normal text-muted-foreground">
-              Booking online is the fastest way in.
-            </p>
-            <a
-              href={PHONE_HREF}
-              className="book-link arrow-link mt-4 block border-b border-primary pb-0.5 text-[12px] font-semibold tracking-wide-2 text-primary uppercase"
-            >
-              Call Leah
-            </a>
+            <div className="mt-4 flex flex-col gap-1 text-[16px] font-normal text-foreground">
+              <a
+                href={PHONE_HREF}
+                className="font-semibold text-foreground transition-colors hover:text-primary"
+              >
+                {PHONE_DISPLAY}
+              </a>
+              <p className="text-muted-foreground">Direct telephone</p>
+              <p className="mt-1 text-[14px] font-normal leading-[1.65] text-muted-foreground">
+                Booking online is the fastest way in.
+              </p>
+            </div>
+            <div className="mt-auto pt-6">
+              <a
+                href={PHONE_HREF}
+                className="book-link arrow-link inline-block border-b border-primary pb-0.5 text-[12px] font-semibold tracking-wide-2 text-primary uppercase"
+              >
+                Call Leah
+              </a>
+            </div>
           </div>
         </div>
 
