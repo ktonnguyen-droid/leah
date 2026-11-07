@@ -4,8 +4,10 @@ import { BOOKSY_URL, HERO_IMAGE } from "@/lib/site-data";
 export function Hero() {
   return (
     <section id="top" className="relative w-full overflow-hidden bg-background">
-      {/* DESKTOP / TABLET (md and up): Full-width background image with left-to-right readability gradient */}
-      <div className="relative hidden w-full md:block md:h-[88svh] md:min-h-[620px] md:max-h-[860px]">
+      {/* DESKTOP / TABLET (md and up): Full-width background image with left-to-right readability gradient.
+          Height = visible screen below the trim bar (38px) and the nav (64px) = 100svh - 102px,
+          clamped to [520px, 820px] so everything fits on load even on short laptops. */}
+      <div className="relative hidden w-full md:block md:h-[calc(100svh-102px)] md:min-h-[520px] md:max-h-[820px]">
         {/* Full-width photo */}
         <img
           src={HERO_IMAGE}
@@ -18,7 +20,7 @@ export function Hero() {
         />
 
         {/* Readability gradient overlay:
-            Ivory #fbf8f3 at 92% on far left, 60% at 35%, fully transparent by 60% across so Leah stays crisp. */}
+            Ivory #fbf8f3 at 94% on far left, 60% at 38%, fully transparent by 62% across so Leah stays crisp. */}
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0"
@@ -37,9 +39,9 @@ export function Hero() {
           }}
         />
 
-        {/* Text content aligned vertically in the left half, within max-w-7xl page margins */}
+        {/* Text content vertically centered in the left half, within max-w-7xl page margins */}
         <div className="relative mx-auto flex h-full max-w-7xl items-center px-5 sm:px-8">
-          <div className="max-w-[560px]">
+          <div>
             {/* 1. Small label with short gold line */}
             <div className="flex items-center gap-2.5">
               <span aria-hidden className="h-[1px] w-6 bg-primary" />
@@ -48,43 +50,38 @@ export function Hero() {
               </p>
             </div>
 
-            {/* 2. Headline: "Leah" in deep aubergine, very large */}
-            <h1 className="display-serif mt-4 text-[clamp(76px,10vw,140px)] font-medium leading-[0.88] text-foreground">
-              Leah
+            {/* 2 + 3. Headline on a single line: "Leah" deep aubergine + "the Barber" royal purple italic */}
+            <h1 className="display-serif mt-3.5 text-[clamp(48px,min(7vw,11vh),96px)] font-medium leading-[1] text-foreground">
+              Leah <span className="italic text-accent">the Barber</span>
             </h1>
 
-            {/* 3. "the Barber" in royal purple italic */}
-            <p className="display-serif mt-1 text-[clamp(34px,4.6vw,62px)] italic text-accent">
-              the Barber
-            </p>
-
-            {/* 4. Intro paragraph in #4a3d58, max width ~46 chars */}
-            <p className="mt-6 max-w-[46ch] text-base font-light leading-relaxed text-[#4a3d58]">
+            {/* 4. Intro paragraph, ~44 chars, ~3 lines */}
+            <p className="mt-[18px] max-w-[44ch] text-[17px] font-light leading-[1.6] text-[#4a3d58]">
               Precision haircuts, razor line-ups, hot lather head shaves and Dermalogica facials at
               Faded Blue Lounge. One chair, one barber, and the kind of detail that keeps clients
               coming back for years.
             </p>
 
-            {/* 5. Buttons */}
-            <div className="mt-8 flex flex-wrap items-center gap-4">
+            {/* 5. Buttons side by side, 12px between */}
+            <div className="mt-[26px] flex flex-wrap items-center gap-3">
               <a
                 href={BOOKSY_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary rounded-none px-7 py-3.5 text-xs font-semibold tracking-wide-2 uppercase transition-colors"
+                className="btn-primary rounded-none px-[26px] py-[15px] text-xs font-semibold tracking-wide-2 uppercase transition-colors"
               >
                 Reserve Your Chair
               </a>
               <a
                 href="#services"
-                className="border border-border bg-[#fbf8f3]/80 px-7 py-3.5 text-xs font-semibold tracking-wide-2 text-foreground uppercase backdrop-blur-xs transition-colors hover:bg-secondary"
+                className="border border-border bg-[#fbf8f3]/80 px-[26px] py-[15px] text-xs font-semibold tracking-wide-2 text-foreground uppercase backdrop-blur-xs transition-colors hover:bg-secondary"
               >
                 View the Menu
               </a>
             </div>
 
-            {/* 6. Rating line */}
-            <div className="mt-7 flex flex-wrap items-center gap-x-3 gap-y-2">
+            {/* 6. Rating line directly under the buttons */}
+            <div className="mt-[18px] flex flex-wrap items-center gap-x-3 gap-y-2">
               <div className="flex">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star key={i} size={14} className="fill-primary text-primary" />
@@ -100,7 +97,8 @@ export function Hero() {
       </div>
 
       {/* MOBILE (under 768px):
-          Photo on top (420px tall, Leah at ~72% center), soft fade into ivory, text and buttons stacked below. */}
+          Photo on top (420px tall, Leah at ~72% center), soft fade into ivory, text and buttons stacked below.
+          Same one-line headline and tighter spacing. */}
       <div className="md:hidden">
         {/* Mobile photo container with bottom fade */}
         <div className="relative h-[420px] w-full overflow-hidden bg-secondary">
@@ -134,35 +132,35 @@ export function Hero() {
             </p>
           </div>
 
-          <h1 className="display-serif mt-3 text-[72px] font-medium leading-[0.9] text-foreground">
-            Leah
+          {/* One-line headline */}
+          <h1 className="display-serif mt-3.5 text-[clamp(40px,12vw,72px)] font-medium leading-[1] text-foreground">
+            Leah <span className="italic text-accent">the Barber</span>
           </h1>
-          <p className="display-serif mt-1 text-[32px] italic text-accent">the Barber</p>
 
-          <p className="mt-5 text-sm font-light leading-relaxed text-[#4a3d58]">
+          <p className="mt-[18px] max-w-[44ch] text-[17px] font-light leading-[1.6] text-[#4a3d58]">
             Precision haircuts, razor line-ups, hot lather head shaves and Dermalogica facials at
             Faded Blue Lounge. One chair, one barber, and the kind of detail that keeps clients
             coming back for years.
           </p>
 
-          <div className="mt-7 flex flex-col items-stretch gap-3">
+          <div className="mt-[26px] flex flex-col items-stretch gap-3">
             <a
               href={BOOKSY_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary rounded-none py-3.5 text-center text-xs font-semibold tracking-wide-2 uppercase transition-colors"
+              className="btn-primary rounded-none px-[26px] py-[15px] text-center text-xs font-semibold tracking-wide-2 uppercase transition-colors"
             >
               Reserve Your Chair
             </a>
             <a
               href="#services"
-              className="border border-border bg-card py-3.5 text-center text-xs font-semibold tracking-wide-2 text-foreground uppercase transition-colors hover:bg-secondary"
+              className="border border-border bg-card px-[26px] py-[15px] text-center text-xs font-semibold tracking-wide-2 text-foreground uppercase transition-colors hover:bg-secondary"
             >
               View the Menu
             </a>
           </div>
 
-          <div className="mt-6 flex items-center gap-x-2.5">
+          <div className="mt-[18px] flex items-center gap-x-2.5">
             <div className="flex">
               {Array.from({ length: 5 }).map((_, i) => (
                 <Star key={i} size={13} className="fill-primary text-primary" />
