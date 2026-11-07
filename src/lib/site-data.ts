@@ -125,7 +125,8 @@ export const PORTFOLIO = [
   },
 ];
 
-export const HERO_IMAGE = "/leah-portrait-at-work.jpg";
+export const HERO_IMAGE =
+  "https://vibe.filesafe.space/1794001815039021537/attachments/bdca4c29-85a1-46c0-9213-2f60789a8acd.png";
 export const ABOUT_IMAGE = "/leah-02-facial-at-work.jpg";
 export const HEAD_SHAVE_IMAGE = "/leah-03-head-shave.jpg";
 export const FACIAL_IMAGE = "/leah-07-facial.jpg";
