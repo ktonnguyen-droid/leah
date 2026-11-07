@@ -14,10 +14,10 @@ export function Visit() {
     <section id="visit" className="border-t border-border bg-background">
       <div className="mx-auto max-w-7xl px-5 py-[clamp(48px,8vh,88px)] sm:px-8">
         <SectionLabel>Visit</SectionLabel>
-        <h2 className="display-serif mt-4 text-[clamp(36px,5vw,56px)] text-foreground">
-          Find the <span className="italic text-accent">chair</span>
+        <h2 className="display-serif mt-4 text-[clamp(36px,5vw,56px)] font-semibold text-foreground">
+          Find the <span className="font-medium italic text-accent">chair</span>
         </h2>
-        <p className="mt-4 max-w-xl text-sm font-light leading-relaxed text-muted-foreground">
+        <p className="mt-4 max-w-xl text-[17px] font-normal leading-[1.65] text-body-text">
           Inside Faded Blue Lounge, just off Sycamore School Road in southwest Fort Worth.
         </p>
 
@@ -26,9 +26,9 @@ export function Visit() {
           <div className="bg-card p-7">
             <div className="flex items-center gap-2 text-primary">
               <MapPin size={16} />
-              <span className="text-[0.6rem] tracking-mega uppercase">Location</span>
+              <span className="text-[12px] font-semibold tracking-mega uppercase">Location</span>
             </div>
-            <div className="mt-4 space-y-1 text-sm font-light text-foreground">
+            <div className="mt-4 space-y-1 text-[16px] font-normal text-foreground">
               <p>{ADDRESS.street}</p>
               <p>{ADDRESS.suite}</p>
               <p>
@@ -42,7 +42,7 @@ export function Visit() {
                   `${ADDRESS.street}, ${ADDRESS.suite}, ${ADDRESS.city}, ${ADDRESS.state} ${ADDRESS.zip}`,
                 )
               }
-              className="mt-4 inline-flex items-center gap-1 text-[0.6rem] tracking-wide-2 text-muted-foreground uppercase hover:text-foreground"
+              className="mt-4 inline-flex items-center gap-1 text-[12px] font-semibold tracking-wide-2 text-muted-foreground uppercase hover:text-foreground"
             >
               <Copy size={11} /> Copy
             </button>
@@ -50,7 +50,7 @@ export function Visit() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 block border-b border-primary pb-0.5 text-[0.65rem] font-semibold tracking-wide-2 text-primary uppercase"
+              className="mt-4 block border-b border-primary pb-0.5 text-[12px] font-semibold tracking-wide-2 text-primary uppercase"
             >
               Get Directions
             </a>
@@ -60,18 +60,18 @@ export function Visit() {
           <div className="bg-card p-7">
             <div className="flex items-center gap-2 text-primary">
               <Clock size={16} />
-              <span className="text-[0.6rem] tracking-mega uppercase">Hours</span>
+              <span className="text-[12px] font-semibold tracking-mega uppercase">Hours</span>
             </div>
-            <p className="mt-4 text-sm font-light text-foreground">By appointment</p>
-            <p className="mt-1 text-sm font-light text-muted-foreground">Open until 9 pm</p>
-            <p className="mt-4 text-xs font-light leading-relaxed text-muted-foreground">
+            <p className="mt-4 text-[16px] font-normal text-foreground">By appointment</p>
+            <p className="mt-1 text-[16px] font-normal text-muted-foreground">Open until 9 pm</p>
+            <p className="mt-4 text-[14px] font-normal leading-[1.65] text-muted-foreground">
               Live availability on Booksy. Booking online is the fastest way in.
             </p>
             <a
               href={BOOKSY_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 block border-b border-primary pb-0.5 text-[0.65rem] font-semibold tracking-wide-2 text-primary uppercase"
+              className="mt-4 block border-b border-primary pb-0.5 text-[12px] font-semibold tracking-wide-2 text-primary uppercase"
             >
               See Open Times
             </a>
@@ -81,17 +81,20 @@ export function Visit() {
           <div className="bg-card p-7">
             <div className="flex items-center gap-2 text-primary">
               <Phone size={16} />
-              <span className="text-[0.6rem] tracking-mega uppercase">Contact</span>
+              <span className="text-[12px] font-semibold tracking-mega uppercase">Contact</span>
             </div>
-            <a href={PHONE_HREF} className="display-serif mt-4 block text-2xl text-foreground">
+            <a
+              href={PHONE_HREF}
+              className="display-serif mt-4 block text-2xl font-semibold text-foreground"
+            >
               {PHONE_DISPLAY}
             </a>
-            <p className="mt-2 text-xs font-light text-muted-foreground">
+            <p className="mt-2 text-[14px] font-normal text-muted-foreground">
               Booking online is the fastest way in.
             </p>
             <a
               href={PHONE_HREF}
-              className="mt-4 block border-b border-primary pb-0.5 text-[0.65rem] font-semibold tracking-wide-2 text-primary uppercase"
+              className="mt-4 block border-b border-primary pb-0.5 text-[12px] font-semibold tracking-wide-2 text-primary uppercase"
             >
               Call Leah
             </a>
@@ -102,7 +105,7 @@ export function Visit() {
           href={SHOP_TEAM_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-8 inline-flex items-center gap-1 text-sm font-light text-muted-foreground transition-colors hover:text-foreground"
+          className="mt-8 inline-flex items-center gap-1 text-[15px] font-normal text-muted-foreground transition-colors hover:text-foreground"
         >
           Leah works inside Faded Blue Lounge. Meet the rest of the team
           <ExternalLink size={14} />
@@ -126,10 +129,10 @@ export function Cta() {
       />
       <div className="relative mx-auto max-w-4xl px-5 py-[clamp(48px,8vh,88px)] text-center sm:px-8">
         <SectionLabel>Your Next Appointment</SectionLabel>
-        <h2 className="display-serif mt-5 text-[clamp(36px,5vw,56px)] leading-tight text-foreground">
-          Sit down. Walk out <span className="italic text-accent">sharp</span>.
+        <h2 className="display-serif mt-5 text-[clamp(36px,5vw,56px)] font-semibold leading-tight text-foreground">
+          Sit down. Walk out <span className="font-medium italic text-accent">sharp</span>.
         </h2>
-        <p className="mx-auto mt-5 max-w-xl text-sm font-light leading-relaxed text-muted-foreground">
+        <p className="mx-auto mt-5 max-w-xl text-[17px] font-normal leading-[1.65] text-muted-foreground">
           Book online in under a minute. Pick your service, pick your time, and Leah takes it from
           there.
         </p>
@@ -137,7 +140,7 @@ export function Cta() {
           href={BOOKSY_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="btn-primary mt-9 inline-block rounded-none px-8 py-4 text-xs font-semibold tracking-wide-2 uppercase transition-colors"
+          className="btn-primary mt-9 inline-block rounded-none px-8 py-4 text-[12px] font-semibold tracking-wide-2 uppercase transition-colors"
         >
           Reserve on Booksy
         </a>

@@ -20,10 +20,10 @@ export function Services() {
     <section id="services" className="border-t border-border bg-background">
       <div className="mx-auto max-w-7xl px-5 py-[clamp(48px,8vh,88px)] sm:px-8">
         <SectionLabel>The Menu</SectionLabel>
-        <h2 className="display-serif mt-4 text-[clamp(36px,5vw,56px)] text-foreground">
+        <h2 className="display-serif mt-4 text-[clamp(36px,5vw,56px)] font-semibold text-foreground">
           Services &amp; pricing
         </h2>
-        <p className="mt-4 max-w-xl text-sm font-light leading-relaxed text-muted-foreground">
+        <p className="mt-4 max-w-xl text-[17px] font-normal leading-[1.65] text-body-text">
           Every service is by appointment, so your time in the chair is never rushed.
         </p>
 
@@ -36,7 +36,7 @@ export function Services() {
                 key={tab.id}
                 type="button"
                 onClick={() => setFilter(tab.id)}
-                className={`rounded-none px-4 py-2 text-[0.65rem] font-semibold tracking-wide-2 uppercase transition-colors ${
+                className={`rounded-none px-4 py-2 text-[12px] font-semibold tracking-wide-2 uppercase transition-colors ${
                   active
                     ? "bg-primary text-primary-foreground"
                     : "border border-border text-muted-foreground hover:text-foreground"
@@ -62,46 +62,46 @@ export function Services() {
               >
                 <div className="flex items-baseline justify-between gap-4">
                   <div className="flex items-center gap-3">
-                    <h3 className="display-serif text-lg text-foreground">{s.name}</h3>
+                    <h3 className="display-serif text-[19px] font-semibold text-foreground">
+                      {s.name}
+                    </h3>
                     {s.badge && (
-                      <span className="bg-primary px-2 py-0.5 text-[0.5rem] font-bold tracking-wide-2 text-[#1b1305] uppercase">
+                      <span className="bg-primary px-2 py-0.5 text-[12px] font-bold tracking-wide-2 text-primary-foreground uppercase">
                         {s.badge}
                       </span>
                     )}
                   </div>
-                  <div className="display-serif text-xl text-primary">${s.price}</div>
+                  <div className="display-serif text-xl font-semibold text-primary">${s.price}</div>
                 </div>
 
                 <div className="mt-2 flex items-center justify-between gap-4">
-                  <span className="text-[0.6rem] font-medium tracking-wide-2 text-muted-foreground uppercase">
+                  <span className="text-[12px] font-semibold tracking-wide-2 text-duration uppercase">
                     {s.duration}
                   </span>
                   <a
                     href={BOOKSY_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-[0.65rem] font-semibold tracking-wide-2 text-foreground uppercase transition-colors hover:text-primary"
+                    className="inline-flex items-center gap-1 text-[12px] font-semibold tracking-wide-2 text-foreground uppercase transition-colors hover:text-primary"
                   >
                     Book <ArrowUpRight size={12} />
                   </a>
                 </div>
 
-                {s.note && (
-                  <p className="mt-1 text-[0.7rem] font-light text-muted-foreground">{s.note}</p>
-                )}
+                {s.note && <p className="mt-1 text-[13px] font-normal text-body-text">{s.note}</p>}
               </div>
             );
           })}
         </div>
 
-        <p className="mt-6 text-xs font-light text-muted-foreground">
+        <p className="mt-6 text-[14px] font-normal text-muted-foreground">
           Standard rates shown. Online booking specials may apply on Booksy.
         </p>
         <a
           href={BOOKSY_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-6 inline-block border-b border-primary pb-0.5 text-[0.7rem] font-semibold tracking-wide-2 text-primary uppercase"
+          className="mt-6 inline-block border-b border-primary pb-0.5 text-[12px] font-semibold tracking-wide-2 text-primary uppercase"
         >
           Check Availability
         </a>
@@ -112,7 +112,7 @@ export function Services() {
 
 export function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <span className="text-[0.65rem] font-light tracking-mega text-primary uppercase">
+    <span className="text-[12px] font-semibold tracking-mega text-primary uppercase">
       {children}
     </span>
   );

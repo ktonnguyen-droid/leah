@@ -7,18 +7,18 @@ export function Reviews() {
     <section id="reviews" className="surface-dark border-t border-border bg-background">
       <div className="mx-auto max-w-7xl px-5 py-[clamp(48px,8vh,88px)] sm:px-8">
         <SectionLabel>Client Reviews</SectionLabel>
-        <h2 className="display-serif mt-4 text-[clamp(36px,5vw,56px)] text-foreground">
-          Five <span className="italic text-accent">stars</span>. Every one.
+        <h2 className="display-serif mt-4 text-[clamp(36px,5vw,56px)] font-semibold text-foreground">
+          Five <span className="font-medium italic text-accent">stars</span>. Every one.
         </h2>
 
         <div className="mt-6 flex items-center gap-4">
-          <span className="display-serif text-4xl text-foreground">5.0</span>
+          <span className="display-serif text-4xl font-semibold text-foreground">5.0</span>
           <div className="flex">
             {Array.from({ length: 5 }).map((_, i) => (
               <Star key={i} size={16} className="fill-primary text-primary" />
             ))}
           </div>
-          <span className="text-xs tracking-wide-2 text-muted-foreground uppercase">
+          <span className="text-[12px] font-semibold tracking-wide-2 text-muted-foreground uppercase">
             115 reviews on Booksy
           </span>
         </div>
@@ -31,14 +31,14 @@ export function Reviews() {
                   <Star key={i} size={12} className="fill-primary text-primary" />
                 ))}
               </div>
-              <blockquote className="display-serif mt-5 flex-1 text-lg italic leading-relaxed text-foreground">
-                “{r.quote}”
+              <blockquote className="display-serif mt-5 flex-1 text-lg font-medium italic leading-relaxed text-foreground">
+                "{r.quote}"
               </blockquote>
               <figcaption className="mt-6 border-t border-border pt-4">
-                <div className="text-sm font-semibold tracking-wide-2 text-foreground uppercase">
+                <div className="text-[14px] font-semibold tracking-wide-2 text-foreground uppercase">
                   {r.name}
                 </div>
-                <div className="mt-1 text-[0.6rem] tracking-wide-2 text-muted-foreground uppercase">
+                <div className="mt-1 text-[12px] font-semibold tracking-wide-2 text-muted-foreground uppercase">
                   {r.service}
                 </div>
               </figcaption>
@@ -50,7 +50,7 @@ export function Reviews() {
           href={BOOKSY_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-10 inline-block border-b border-primary pb-0.5 text-[0.7rem] font-semibold tracking-wide-2 text-primary uppercase"
+          className="mt-10 inline-block border-b border-primary pb-0.5 text-[12px] font-semibold tracking-wide-2 text-primary uppercase"
         >
           Read all 115 reviews on Booksy
         </a>

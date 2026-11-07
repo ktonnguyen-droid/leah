@@ -24,18 +24,18 @@ export function About() {
 
         <div>
           <SectionLabel>Meet Your Barber</SectionLabel>
-          <h2 className="display-serif mt-4 text-[clamp(36px,5vw,56px)] text-foreground">
+          <h2 className="display-serif mt-4 text-[clamp(36px,5vw,56px)] font-semibold text-foreground">
             Leah Bernal
           </h2>
 
-          <p className="display-serif mt-4 text-lg italic text-accent">
+          <p className="display-serif mt-4 text-lg font-medium italic text-accent">
             Clients come to Faded Blue Lounge for a clean cut.
           </p>
-          <p className="display-serif text-lg italic text-accent">
+          <p className="display-serif text-lg font-medium italic text-accent">
             They stay for the experience in Leah's chair.
           </p>
 
-          <p className="mt-6 max-w-xl text-sm font-light leading-relaxed text-muted-foreground">
+          <p className="mt-6 max-w-xl text-[17px] font-normal leading-[1.65] text-body-text">
             From a kid's first real haircut to a full hot lather head shave, every appointment gets
             the same attention to detail. Fathers bring their sons. First-timers become regulars.
             That is how a barber earns 115 reviews without a single one under five stars.
@@ -44,8 +44,10 @@ export function About() {
           <div className="mt-8 grid grid-cols-1 gap-px border border-border bg-border sm:grid-cols-3">
             {TRAITS.map((t) => (
               <div key={t.label} className="bg-card p-6">
-                <p className="text-[0.6rem] tracking-mega text-primary uppercase">{t.label}</p>
-                <p className="mt-3 text-sm font-light leading-relaxed text-muted-foreground">
+                <p className="text-[12px] font-semibold tracking-mega text-primary uppercase">
+                  {t.label}
+                </p>
+                <p className="mt-3 text-[15px] font-normal leading-[1.65] text-body-text">
                   {t.body}
                 </p>
               </div>

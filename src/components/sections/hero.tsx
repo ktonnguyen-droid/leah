@@ -45,18 +45,18 @@ export function Hero() {
             {/* 1. Small label with short gold line */}
             <div className="flex items-center gap-2.5">
               <span aria-hidden className="h-[1px] w-6 bg-primary" />
-              <p className="text-[0.7rem] font-medium tracking-wide-2 text-primary uppercase">
+              <p className="text-[12px] font-semibold tracking-wide-2 text-primary uppercase">
                 Fort Worth, Texas
               </p>
             </div>
 
             {/* 2 + 3. Headline on a single line: "Leah" deep aubergine + "the Barber" royal purple italic */}
-            <h1 className="display-serif mt-3.5 text-[clamp(48px,min(7vw,11vh),96px)] font-medium leading-[1] text-foreground">
-              Leah <span className="italic text-accent">the Barber</span>
+            <h1 className="display-serif mt-3.5 text-[clamp(48px,min(7vw,11vh),96px)] font-semibold leading-[1] text-foreground">
+              Leah <span className="font-medium italic text-accent">the Barber</span>
             </h1>
 
             {/* 4. Intro paragraph, ~44 chars, ~3 lines */}
-            <p className="mt-[18px] max-w-[44ch] text-[17px] font-light leading-[1.6] text-[#4a3d58]">
+            <p className="mt-[18px] max-w-[44ch] text-[17px] font-normal leading-[1.65] text-[#2e2240]">
               Precision haircuts, razor line-ups, hot lather head shaves and Dermalogica facials at
               Faded Blue Lounge. One chair, one barber, and the kind of detail that keeps clients
               coming back for years.
@@ -68,13 +68,13 @@ export function Hero() {
                 href={BOOKSY_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary rounded-none px-[26px] py-[15px] text-xs font-semibold tracking-wide-2 uppercase transition-colors"
+                className="btn-primary rounded-none px-[26px] py-[15px] text-[12px] font-semibold tracking-wide-2 uppercase transition-colors"
               >
                 Reserve Your Chair
               </a>
               <a
                 href="#services"
-                className="border border-border bg-[#fbf8f3]/80 px-[26px] py-[15px] text-xs font-semibold tracking-wide-2 text-foreground uppercase backdrop-blur-xs transition-colors hover:bg-secondary"
+                className="border border-border bg-[#fbf8f3]/80 px-[26px] py-[15px] text-[12px] font-semibold tracking-wide-2 text-foreground uppercase backdrop-blur-xs transition-colors hover:bg-secondary"
               >
                 View the Menu
               </a>
@@ -84,11 +84,11 @@ export function Hero() {
             <div className="mt-[18px] flex flex-wrap items-center gap-x-3 gap-y-2">
               <div className="flex">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} size={14} className="fill-primary text-primary" />
+                  <Star key={i} size={14} className="fill-gold-star text-gold-star" />
                 ))}
               </div>
               <span className="display-serif text-lg text-foreground">5.0</span>
-              <p className="text-xs tracking-wide-2 text-muted-foreground uppercase">
+              <p className="text-[12px] font-semibold tracking-wide-2 text-ink uppercase">
                 from 115 verified client reviews
               </p>
             </div>
@@ -127,17 +127,17 @@ export function Hero() {
           {/* Label with gold line */}
           <div className="flex items-center gap-2.5">
             <span aria-hidden className="h-[1px] w-5 bg-primary" />
-            <p className="text-[0.65rem] font-medium tracking-wide-2 text-primary uppercase">
+            <p className="text-[12px] font-semibold tracking-wide-2 text-primary uppercase">
               Fort Worth, Texas
             </p>
           </div>
 
           {/* One-line headline */}
-          <h1 className="display-serif mt-3.5 text-[clamp(40px,12vw,72px)] font-medium leading-[1] text-foreground">
-            Leah <span className="italic text-accent">the Barber</span>
+          <h1 className="display-serif mt-3.5 text-[clamp(40px,12vw,72px)] font-semibold leading-[1] text-foreground">
+            Leah <span className="font-medium italic text-accent">the Barber</span>
           </h1>
 
-          <p className="mt-[18px] max-w-[44ch] text-[17px] font-light leading-[1.6] text-[#4a3d58]">
+          <p className="mt-[18px] max-w-[44ch] text-[16px] font-normal leading-[1.65] text-[#2e2240]">
             Precision haircuts, razor line-ups, hot lather head shaves and Dermalogica facials at
             Faded Blue Lounge. One chair, one barber, and the kind of detail that keeps clients
             coming back for years.
@@ -148,13 +148,13 @@ export function Hero() {
               href={BOOKSY_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary rounded-none px-[26px] py-[15px] text-center text-xs font-semibold tracking-wide-2 uppercase transition-colors"
+              className="btn-primary rounded-none px-[26px] py-[15px] text-center text-[12px] font-semibold tracking-wide-2 uppercase transition-colors"
             >
               Reserve Your Chair
             </a>
             <a
               href="#services"
-              className="border border-border bg-card px-[26px] py-[15px] text-center text-xs font-semibold tracking-wide-2 text-foreground uppercase transition-colors hover:bg-secondary"
+              className="border border-border bg-card px-[26px] py-[15px] text-center text-[12px] font-semibold tracking-wide-2 text-foreground uppercase transition-colors hover:bg-secondary"
             >
               View the Menu
             </a>
@@ -163,11 +163,11 @@ export function Hero() {
           <div className="mt-[18px] flex items-center gap-x-2.5">
             <div className="flex">
               {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} size={13} className="fill-primary text-primary" />
+                <Star key={i} size={13} className="fill-gold-star text-gold-star" />
               ))}
             </div>
             <span className="display-serif text-base text-foreground">5.0</span>
-            <p className="text-[0.65rem] tracking-wide-2 text-muted-foreground uppercase">
+            <p className="text-[12px] font-semibold tracking-wide-2 text-ink uppercase">
               from 115 verified client reviews
             </p>
           </div>

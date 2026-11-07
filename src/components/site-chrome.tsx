@@ -13,7 +13,7 @@ const NAV = [
 export function TopTrim() {
   return (
     <div className="surface-dark flex h-[34px] w-full items-center justify-center border-b border-primary/40 bg-background px-4 sm:h-[38px]">
-      <p className="flex items-center gap-[0.4em] whitespace-nowrap text-[11px] font-medium uppercase tracking-[0.24em] text-foreground">
+      <p className="flex items-center gap-[0.4em] whitespace-nowrap text-[11px] font-semibold uppercase tracking-[0.24em] text-foreground">
         {/* desktop */}
         <span className="hidden items-center gap-[0.4em] sm:flex">
           <span>Fort Worth, TX</span>
@@ -58,14 +58,14 @@ export function Header() {
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8">
         <a href="#top" className="flex flex-col leading-none">
-          <span className="display-serif text-xl font-medium tracking-wide-2 text-foreground">
+          <span className="display-serif text-xl font-semibold tracking-wide-2 text-foreground">
             Leah
           </span>
           <a
             href={SHOP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-0.5 inline-flex items-center gap-1 text-[0.55rem] font-light tracking-wide-2 text-primary uppercase transition-opacity hover:opacity-80"
+            className="mt-0.5 inline-flex items-center gap-1 text-[12px] font-semibold tracking-wide-2 text-primary uppercase transition-opacity hover:opacity-80"
           >
             A Faded Blue Lounge Barber
             <ExternalLink size={9} />
@@ -77,7 +77,7 @@ export function Header() {
             <a
               key={item.href}
               href={item.href}
-              className="text-[0.7rem] font-medium tracking-wide-2 text-muted-foreground uppercase transition-colors hover:text-foreground"
+              className="text-[12px] font-semibold tracking-wide-2 text-ink uppercase transition-colors hover:text-foreground"
             >
               {item.label}
             </a>
@@ -89,7 +89,7 @@ export function Header() {
             href={BOOKSY_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary hidden rounded-none px-5 py-2.5 text-[0.7rem] font-semibold tracking-wide-2 uppercase transition-colors sm:inline-block"
+            className="btn-primary hidden rounded-none px-5 py-2.5 text-[12px] font-semibold tracking-wide-2 uppercase transition-colors sm:inline-block"
           >
             Book Now
           </a>
@@ -112,7 +112,7 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="py-3 text-sm font-medium tracking-wide-2 text-muted-foreground uppercase border-b border-border/60 last:border-0"
+                className="py-3 text-[14px] font-semibold tracking-wide-2 text-ink uppercase border-b border-border/60 last:border-0"
               >
                 {item.label}
               </a>
@@ -121,7 +121,7 @@ export function Header() {
               href={BOOKSY_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary mt-4 rounded-none px-5 py-3 text-center text-xs font-semibold tracking-wide-2 uppercase"
+              className="btn-primary mt-4 rounded-none px-5 py-3 text-center text-[12px] font-semibold tracking-wide-2 uppercase"
             >
               Book Now
             </a>
@@ -137,11 +137,13 @@ export function Footer() {
     <footer className="surface-dark border-t border-border bg-background">
       <div className="mx-auto max-w-7xl px-5 py-10 sm:px-8">
         <div className="flex flex-col items-center gap-4 text-center">
-          <div className="display-serif text-2xl text-foreground">Leah the Barber</div>
-          <div className="text-[0.65rem] font-light tracking-mega text-muted-foreground uppercase">
+          <div className="display-serif text-2xl font-semibold text-foreground">
+            Leah the Barber
+          </div>
+          <div className="text-[12px] font-semibold tracking-mega text-muted-foreground uppercase">
             Faded Blue Lounge · Fort Worth, Texas
           </div>
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-muted-foreground">
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[13px] font-semibold text-muted-foreground">
             <a href="#services" className="transition-colors hover:text-foreground">
               Services
             </a>
@@ -158,7 +160,7 @@ export function Footer() {
               Visit
             </a>
           </div>
-          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs text-muted-foreground">
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[13px] font-semibold text-muted-foreground">
             <a
               href={SHOP_URL}
               target="_blank"
@@ -181,14 +183,14 @@ export function Footer() {
             href={BOOKSY_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary mt-2 rounded-none px-6 py-3 text-xs font-semibold tracking-wide-2 uppercase"
+            className="btn-primary mt-2 rounded-none px-6 py-3 text-[12px] font-semibold tracking-wide-2 uppercase"
           >
             Reserve on Booksy
           </a>
-          <p className="mt-4 text-[0.65rem] tracking-wide-2 text-muted-foreground uppercase">
+          <p className="mt-4 text-[12px] font-semibold tracking-wide-2 text-muted-foreground uppercase">
             © 2026 Leah the Barber · Faded Blue Lounge · Fort Worth, Texas
           </p>
-          <p className="text-[0.6rem] tracking-wide-2 text-muted-foreground uppercase">
+          <p className="text-[12px] font-semibold tracking-wide-2 text-muted-foreground uppercase">
             Website by SureMade Web Co.
           </p>
         </div>

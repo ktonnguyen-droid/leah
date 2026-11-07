@@ -57,138 +57,154 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Readability tokens (light surface) exposed as Tailwind utilities */
+  --color-body-text: var(--body-text);
+  --color-duration: var(--duration-text);
+  --color-ink: var(--ink);
+  --color-gold-star: var(--gold-star);
+  --color-hero-body: var(--hero-body);
 }
 
 :root {
   --radius: 0.375rem;
 
   /* Sticky header bg (ivory, blends with the light hero) */
-  --header-solid: oklch(0.971 0.012 80);
+  --header-solid: #fbf8f3;
 
   /* ---- LIGHT surface (default) ---- */
   /* Page background — warm ivory #fbf8f3 */
-  --background: oklch(0.971 0.012 80);
-  /* Headings & main text — deep aubergine #24143a */
-  --foreground: oklch(0.165 0.09 315);
+  --background: #fbf8f3;
+  /* Headings & main text — deep aubergine #1e1030 */
+  --foreground: #1e1030;
 
   /* Cards & alternate surfaces — soft beige #f3ece1 */
-  --card: oklch(0.939 0.022 80);
-  --card-foreground: oklch(0.165 0.09 315);
-  --popover: oklch(0.939 0.022 80);
-  --popover-foreground: oklch(0.165 0.09 315);
+  --card: #f3ece1;
+  --card-foreground: #1e1030;
+  --popover: #f3ece1;
+  --popover-foreground: #1e1030;
 
-  /* Gold for labels, prices, stars, thin rules — #a07728 */
-  --primary: oklch(0.555 0.09 80);
-  --primary-foreground: oklch(0.971 0.012 80);
+  /* Gold for labels, prices, stars, thin rules — #7d5a14 on light (passes 4.5:1) */
+  --primary: #7d5a14;
+  --primary-foreground: #fbf8f3;
 
-  --secondary: oklch(0.939 0.022 80);
-  --secondary-foreground: oklch(0.165 0.09 315);
+  --secondary: #f3ece1;
+  --secondary-foreground: #1e1030;
 
-  --muted: oklch(0.939 0.022 80);
-  /* Secondary text — muted plum gray #6b5e78 */
-  --muted-foreground: oklch(0.455 0.04 315);
+  --muted: #f3ece1;
+  /* Secondary text — contrast-safe plum gray #5a4a6b (#6b5e78 fails 4.5:1 on ivory) */
+  --muted-foreground: #5a4a6b;
 
-  /* Italic accents — royal purple #6a3d9e */
-  --accent: oklch(0.385 0.13 305);
-  --accent-foreground: oklch(0.971 0.012 80);
+  /* Italic accents — royal purple #5a2f8c */
+  --accent: #5a2f8c;
+  --accent-foreground: #fbf8f3;
 
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --destructive: #b91c1c;
+  --destructive-foreground: #7f1d1d;
 
   /* Thin divider lines & borders — #e5dacb */
-  --border: oklch(0.876 0.032 80);
-  --input: oklch(0.876 0.032 80);
-  --ring: oklch(0.555 0.09 80);
+  --border: #e5dacb;
+  --input: #e5dacb;
+  --ring: #7d5a14;
 
   /* Primary buttons — deep purple #3d1f63, ivory text #f6f0e5;
      hover turns gold #cfa652 with dark ink #1b1305 */
-  --btn: oklch(0.265 0.11 315);
-  --btn-foreground: oklch(0.955 0.016 80);
-  --btn-hover: oklch(0.706 0.09 80);
-  --btn-hover-foreground: oklch(0.16 0.02 70);
+  --btn: #3d1f63;
+  --btn-foreground: #f6f0e5;
+  --btn-hover: #cfa652;
+  --btn-hover-foreground: #1b1305;
 
-  --chart-1: oklch(0.385 0.13 305);
-  --chart-2: oklch(0.555 0.09 80);
-  --chart-3: oklch(0.455 0.04 315);
-  --chart-4: oklch(0.265 0.11 315);
-  --chart-5: oklch(0.645 0.246 16.439);
+  /* Readability accents (light surface) — explicit hex per the brief */
+  --body-text: #3f3350; /* paragraph text on ivory/beige */
+  --muted-strong: #5a4a6b; /* durations, small labels */
+  --ink: #2a1a40; /* nav links, rating line */
+  --gold-strong: #7d5a14; /* gold text on light */
+  --gold-star: #b8871f; /* stars on light */
+  --hero-body: #2e2240; /* hero paragraph over the photo */
+  --duration-text: #5a4a6b;
 
-  --sidebar: oklch(0.939 0.022 80);
-  --sidebar-foreground: oklch(0.165 0.09 315);
-  --sidebar-primary: oklch(0.555 0.09 80);
-  --sidebar-primary-foreground: oklch(0.165 0.09 315);
-  --sidebar-accent: oklch(0.939 0.022 80);
-  --sidebar-accent-foreground: oklch(0.165 0.09 315);
-  --sidebar-border: oklch(0.876 0.032 80);
-  --sidebar-ring: oklch(0.555 0.09 80);
+  --chart-1: #5a2f8c;
+  --chart-2: #a07728;
+  --chart-3: #6b5e78;
+  --chart-4: #3d1f63;
+  --chart-5: #cfa652;
+
+  --sidebar: #f3ece1;
+  --sidebar-foreground: #1e1030;
+  --sidebar-primary: #a07728;
+  --sidebar-primary-foreground: #1e1030;
+  --sidebar-accent: #f3ece1;
+  --sidebar-accent-foreground: #1e1030;
+  --sidebar-border: #e5dacb;
+  --sidebar-ring: #a07728;
 }
 
 /* ---- DARK surface (Reviews, final CTA, footer) ---- */
 .surface-dark {
   /* Background — dark purple #24133b */
-  --background: oklch(0.165 0.095 310);
+  --background: #24133b;
   /* Text — ivory #f6f0e5 */
-  --foreground: oklch(0.955 0.016 80);
+  --foreground: #f6f0e5;
 
   /* Raised cards on the dark section */
-  --card: oklch(0.21 0.085 310);
-  --card-foreground: oklch(0.955 0.016 80);
-  --popover: oklch(0.21 0.085 310);
-  --popover-foreground: oklch(0.955 0.016 80);
+  --card: #2c1949;
+  --card-foreground: #f6f0e5;
+  --popover: #2c1949;
+  --popover-foreground: #f6f0e5;
 
   /* Gold — brighter #d8b062 for labels, stars, buttons */
-  --primary: oklch(0.745 0.095 80);
-  --primary-foreground: oklch(0.16 0.02 70);
+  --primary: #d8b062;
+  --primary-foreground: #1b1305;
 
-  --secondary: oklch(0.21 0.085 310);
-  --secondary-foreground: oklch(0.955 0.016 80);
+  --secondary: #2c1949;
+  --secondary-foreground: #f6f0e5;
 
-  --muted: oklch(0.21 0.085 310);
+  --muted: #2c1949;
   /* Secondary text — light lavender gray #c9bdd9 */
-  --muted-foreground: oklch(0.787 0.04 305);
+  --muted-foreground: #c9bdd9;
 
   /* Italic accents — light lavender #c8b0f0 */
-  --accent: oklch(0.767 0.09 295);
-  --accent-foreground: oklch(0.165 0.095 310);
+  --accent: #c8b0f0;
+  --accent-foreground: #24133b;
 
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --destructive: #b91c1c;
+  --destructive-foreground: #7f1d1d;
 
-  --border: oklch(0.28 0.06 310);
-  --input: oklch(0.28 0.06 310);
-  --ring: oklch(0.745 0.095 80);
+  --border: #3a2557;
+  --input: #3a2557;
+  --ring: #d8b062;
 
   /* Buttons in dark sections — gold #d8b062, dark ink #1b1305 */
-  --btn: oklch(0.745 0.095 80);
-  --btn-foreground: oklch(0.16 0.02 70);
-  --btn-hover: oklch(0.706 0.09 80);
-  --btn-hover-foreground: oklch(0.16 0.02 70);
+  --btn: #d8b062;
+  --btn-foreground: #1b1305;
+  --btn-hover: #cfa652;
+  --btn-hover-foreground: #1b1305;
 }
 
 .dark {
-  --background: oklch(0.165 0.095 310);
-  --foreground: oklch(0.955 0.016 80);
-  --card: oklch(0.21 0.085 310);
-  --card-foreground: oklch(0.955 0.016 80);
-  --popover: oklch(0.21 0.085 310);
-  --popover-foreground: oklch(0.955 0.016 80);
-  --primary: oklch(0.745 0.095 80);
-  --primary-foreground: oklch(0.16 0.02 70);
-  --secondary: oklch(0.21 0.085 310);
-  --secondary-foreground: oklch(0.955 0.016 80);
-  --muted: oklch(0.21 0.085 310);
-  --muted-foreground: oklch(0.787 0.04 305);
-  --accent: oklch(0.767 0.09 295);
-  --accent-foreground: oklch(0.165 0.095 310);
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.28 0.06 310);
-  --input: oklch(0.28 0.06 310);
-  --ring: oklch(0.745 0.095 80);
-  --btn: oklch(0.745 0.095 80);
-  --btn-foreground: oklch(0.16 0.02 70);
-  --btn-hover: oklch(0.706 0.09 80);
-  --btn-hover-foreground: oklch(0.16 0.02 70);
+  --background: #24133b;
+  --foreground: #f6f0e5;
+  --card: #2c1949;
+  --card-foreground: #f6f0e5;
+  --popover: #2c1949;
+  --popover-foreground: #f6f0e5;
+  --primary: #d8b062;
+  --primary-foreground: #1b1305;
+  --secondary: #2c1949;
+  --secondary-foreground: #f6f0e5;
+  --muted: #2c1949;
+  --muted-foreground: #c9bdd9;
+  --accent: #c8b0f0;
+  --accent-foreground: #24133b;
+  --destructive: #b91c1c;
+  --destructive-foreground: #7f1d1d;
+  --border: #3a2557;
+  --input: #3a2557;
+  --ring: #d8b062;
+  --btn: #d8b062;
+  --btn-foreground: #1b1305;
+  --btn-hover: #cfa652;
+  --btn-hover-foreground: #1b1305;
 }
 
 @layer base {
@@ -202,6 +218,18 @@
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+  }
+
+  /* Body text: Jost 400, 17px desktop / 16px mobile, line-height 1.65 */
+  p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.65;
+  }
+  @media (min-width: 768px) {
+    p {
+      font-size: 17px;
+    }
   }
 
   ::selection {
@@ -226,11 +254,18 @@
 @utility btn-primary {
   background-color: var(--btn);
   color: var(--btn-foreground);
+  font-weight: 600;
 
   &:hover {
     background-color: var(--btn-hover);
     color: var(--btn-hover-foreground);
   }
+}
+
+/* Small-label base: Jost 600, min 12px */
+.label-strong {
+  font-weight: 600;
+  font-size: 12px;
 }
 
 /* Smooth in-page anchor scrolling with offset for the sticky header */

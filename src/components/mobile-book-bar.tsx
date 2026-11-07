@@ -19,16 +19,16 @@ export function MobileBookBar() {
     >
       <div className="flex items-center justify-between gap-3 px-5 py-3">
         <div className="leading-tight">
-          <p className="text-[0.55rem] tracking-mega text-muted-foreground uppercase">
+          <p className="text-[12px] font-semibold tracking-mega text-muted-foreground uppercase">
             Leah the Barber
           </p>
-          <p className="display-serif text-sm text-foreground">Faded Blue Lounge</p>
+          <p className="display-serif text-sm font-semibold text-foreground">Faded Blue Lounge</p>
         </div>
         <a
           href={BOOKSY_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="btn-primary rounded-none px-6 py-3 text-[0.65rem] font-semibold tracking-wide-2 uppercase"
+          className="btn-primary rounded-none px-6 py-3 text-[12px] font-semibold tracking-wide-2 uppercase"
         >
           Book Now
         </a>

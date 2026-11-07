@@ -29,10 +29,10 @@ export function Signature() {
     <section className="border-t border-border bg-background">
       <div className="mx-auto max-w-7xl px-5 py-[clamp(48px,8vh,88px)] sm:px-8">
         <SectionLabel>Signature Services</SectionLabel>
-        <h2 className="display-serif mt-4 text-[clamp(36px,5vw,56px)] text-foreground">
-          Worth the <span className="italic text-accent">hour</span>
+        <h2 className="display-serif mt-4 text-[clamp(36px,5vw,56px)] font-semibold text-foreground">
+          Worth the <span className="font-medium italic text-accent">hour</span>
         </h2>
-        <p className="mt-4 max-w-xl text-sm font-light leading-relaxed text-muted-foreground">
+        <p className="mt-4 max-w-xl text-[17px] font-normal leading-[1.65] text-body-text">
           Two services that go past the basics. Book one as a reset, or pair it with your next cut.
         </p>
 
@@ -48,15 +48,19 @@ export function Signature() {
                   style={{ objectPosition: s.pos }}
                 />
               </div>
-              <p className="mt-5 text-[0.6rem] tracking-mega text-primary uppercase">{s.kicker}</p>
-              <h3 className="display-serif mt-2 text-2xl text-foreground">{s.title}</h3>
-              <p className="mt-3 text-sm font-light leading-relaxed text-muted-foreground">
-                {s.body}
+              <p className="mt-5 text-[12px] font-semibold tracking-mega text-primary uppercase">
+                {s.kicker}
               </p>
+              <h3 className="display-serif mt-2 text-[19px] font-semibold text-foreground">
+                {s.title}
+              </h3>
+              <p className="mt-3 text-[16px] font-normal leading-[1.65] text-body-text">{s.body}</p>
               <div className="mt-5 flex items-end justify-between border-t border-border pt-4">
                 <div>
-                  <span className="display-serif text-3xl text-primary">{s.price}</span>
-                  <span className="ml-3 text-[0.6rem] tracking-wide-2 text-muted-foreground uppercase">
+                  <span className="display-serif text-3xl font-semibold text-primary">
+                    {s.price}
+                  </span>
+                  <span className="ml-3 text-[12px] font-semibold tracking-wide-2 text-duration uppercase">
                     {s.duration}
                   </span>
                 </div>
@@ -64,7 +68,7 @@ export function Signature() {
                   href={BOOKSY_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-primary rounded-none px-5 py-2.5 text-[0.65rem] font-semibold tracking-wide-2 uppercase transition-colors"
+                  className="btn-primary rounded-none px-5 py-2.5 text-[12px] font-semibold tracking-wide-2 uppercase transition-colors"
                 >
                   Book
                 </a>
