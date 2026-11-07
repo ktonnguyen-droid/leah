@@ -250,11 +250,15 @@
   letter-spacing: 0.18em;
 }
 
-/* Primary button: deep purple on light, gold on dark; hover -> gold w/ dark ink */
+/* Primary button: deep purple on light, gold on dark; hover -> gold w/ dark ink.
+   Background eases over 250ms on hover-capable devices. */
 @utility btn-primary {
   background-color: var(--btn);
   color: var(--btn-foreground);
   font-weight: 600;
+  transition:
+    background-color 250ms ease,
+    color 250ms ease;
 
   &:hover {
     background-color: var(--btn-hover);
@@ -309,4 +313,220 @@ html {
   color: color-mix(in oklab, var(--muted-foreground) 75%, var(--foreground));
   background-color: color-mix(in oklab, var(--background) 60%, transparent);
   border: 1px solid color-mix(in oklab, var(--muted-foreground) 22%, transparent);
+}
+
+/* ============================================================
+   MOTION — opening cut, hero entrance, scroll reveals, hovers.
+   Hidden start states are scoped to .js-anim (added client-side
+   before first paint), so the page is fully visible without JS.
+   ============================================================ */
+
+/* ---- Opening "cut" transition (first visit only) ---- */
+.cut-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+}
+.cut-panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background-color: #24133b;
+  will-change: transform;
+}
+.cut-top {
+  top: 0;
+  animation: cut-top-out 450ms cubic-bezier(0.65, 0, 0.35, 1) 350ms both;
+}
+.cut-bottom {
+  bottom: 0;
+  animation: cut-bottom-out 450ms cubic-bezier(0.65, 0, 0.35, 1) 350ms both;
+}
+.cut-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  margin-top: -0.75px;
+  background-color: #d8b062;
+  transform: scaleX(0);
+  transform-origin: left center;
+  animation: cut-line-draw 350ms cubic-bezier(0.65, 0, 0.35, 1) both;
+}
+@keyframes cut-line-draw {
+  to {
+    transform: scaleX(1);
+  }
+}
+@keyframes cut-top-out {
+  to {
+    transform: translateY(-100%);
+  }
+}
+@keyframes cut-bottom-out {
+  to {
+    transform: translateY(100%);
+  }
+}
+
+/* ---- Hero entrance (gated by .hero-in on the section) ---- */
+.js-anim .hero-rise {
+  opacity: 0;
+  transform: translateY(16px);
+  will-change: opacity, transform;
+}
+.js-anim .hero-in .hero-rise {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 600ms ease-out,
+    transform 600ms ease-out;
+  transition-delay: var(--d, 0ms);
+}
+.js-anim .hero-line {
+  transform: scaleX(0);
+  transform-origin: left center;
+  will-change: transform;
+}
+.js-anim .hero-in .hero-line {
+  transform: scaleX(1);
+  transition: transform 600ms cubic-bezier(0.65, 0, 0.35, 1);
+}
+.js-anim .hero-photo {
+  transform: scale(1.06);
+  will-change: transform;
+}
+.js-anim .hero-in .hero-photo {
+  transform: scale(1);
+  transition: transform 1600ms ease-out;
+}
+
+/* ---- Scroll reveals ---- */
+.js-anim .reveal-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 600ms ease-out,
+    transform 600ms ease-out;
+  will-change: opacity, transform;
+}
+.js-anim .reveal-up.is-revealed {
+  opacity: 1;
+  transform: none;
+}
+.js-anim .reveal-photo {
+  clip-path: inset(100% 0 0 0);
+  transition: clip-path 700ms ease-out;
+  will-change: clip-path;
+}
+.js-anim .reveal-photo.is-revealed {
+  clip-path: inset(0 0 0 0);
+}
+.js-anim .reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.js-anim .reveal-stagger.is-revealed > * {
+  animation: reveal-up 600ms ease-out both;
+  animation-delay: var(--d, 0ms);
+}
+.js-anim .reveal-wipe > * {
+  clip-path: inset(100% 0 0 0);
+}
+.js-anim .reveal-wipe.is-revealed > * {
+  animation: reveal-photo 700ms ease-out both;
+  animation-delay: var(--d, 0ms);
+}
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes reveal-photo {
+  from {
+    clip-path: inset(100% 0 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* ---- Hover anchors (desktop / hover-capable only) ---- */
+.book-link,
+.nav-link {
+  position: relative;
+}
+.book-link::after,
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 1px;
+  width: 100%;
+  background-color: var(--primary);
+  transform: scaleX(0);
+  transition: transform 300ms ease;
+}
+.book-link::after {
+  transform-origin: left center;
+}
+.nav-link::after {
+  transform-origin: center;
+  bottom: -4px;
+}
+.arrow-link .btn-arrow {
+  transition: transform 250ms ease;
+}
+.gallery-tile img {
+  transition: transform 600ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .book-link:hover::after {
+    transform: scaleX(1);
+  }
+  .nav-link:hover::after {
+    transform: scaleX(1);
+  }
+  .arrow-link:hover .btn-arrow {
+    transform: translateX(4px);
+  }
+  .gallery-tile:hover img {
+    transform: scale(1.04);
+  }
+}
+
+/* ---- Reduced motion: show everything instantly ---- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .js-anim .hero-rise,
+  .js-anim .hero-line,
+  .js-anim .hero-photo,
+  .js-anim .reveal-up,
+  .js-anim .reveal-photo,
+  .js-anim .reveal-stagger > *,
+  .js-anim .reveal-wipe > * {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+  .cut-overlay,
+  .cut-panel,
+  .cut-line {
+    animation: none !important;
+    display: none !important;
+  }
 }

@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useCallback, useLayoutEffect, useEffect, useRef, useState } from "react";
 import { TopTrim, Header, Footer } from "@/components/site-chrome";
 import { MobileBookBar } from "@/components/mobile-book-bar";
+import { CutTransition } from "@/components/cut-transition";
 import { Hero } from "@/components/sections/hero";
 import { Services } from "@/components/sections/services";
 import { Signature } from "@/components/sections/signature";
@@ -8,7 +10,10 @@ import { About } from "@/components/sections/about";
 import { Portfolio } from "@/components/sections/portfolio";
 import { Reviews } from "@/components/sections/reviews";
 import { Visit, Cta } from "@/components/sections/visit";
+import { markVisited, shouldPlayCut } from "@/lib/motion";
 import { ADDRESS, BOOKSY_URL, HERO_IMAGE, PHONE_DISPLAY, SHOP_TEAM_URL } from "@/lib/site-data";
+
+const useIsoLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -88,12 +93,27 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  const rootRef = useRef<HTMLDivElement | null>(null);
+  const [cut, setCut] = useState(false);
+
+  // Enable motion start states (client only, before first paint) and
+  // play the first-visit cut transition.
+  useIsoLayoutEffect(() => {
+    rootRef.current?.classList.add("js-anim");
+    if (shouldPlayCut()) {
+      markVisited();
+      setCut(true);
+    }
+  }, []);
+
+  const finishCut = useCallback(() => setCut(false), []);
+
   return (
-    <div className="min-h-screen">
+    <div ref={rootRef} className="min-h-screen">
       <TopTrim />
       <Header />
       <main>
-        <Hero />
+        <Hero cutActive={cut} />
         <Services />
         <Signature />
         <About />
@@ -104,6 +124,7 @@ function Index() {
       </main>
       <Footer />
       <MobileBookBar />
+      {cut && <CutTransition onDone={finishCut} />}
     </div>
   );
 }

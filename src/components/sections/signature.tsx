@@ -1,4 +1,5 @@
 import { BOOKSY_URL, HEAD_SHAVE_IMAGE, FACIAL_IMAGE } from "@/lib/site-data";
+import { delay, useReveal } from "@/lib/motion";
 import { SectionLabel } from "./services";
 
 const SIGNATURE = [
@@ -9,7 +10,7 @@ const SIGNATURE = [
     duration: "60 Minutes",
     body: "A full straight razor head shave with warm lather, finished with a clean face shave. Smooth from crown to chin. Also offered as head shave only, or head shave with beard.",
     src: HEAD_SHAVE_IMAGE,
-    alt: "Hot lather head shave by Leah Bernal in Fort Worth",
+    alt: "Hot lather head shave by Leah the Barber in Fort Worth",
     pos: "center 25%",
   },
   {
@@ -19,26 +20,32 @@ const SIGNATURE = [
     duration: "80 Minutes",
     body: "A professional six-step facial using Dermalogica products. Deep cleanse, exfoliation and treatment that leaves your skin as sharp as your fade.",
     src: FACIAL_IMAGE,
-    alt: "Dermalogica facial treatment by Leah Bernal in Fort Worth",
+    alt: "Dermalogica facial treatment by Leah the Barber in Fort Worth",
     pos: "70% 30%",
   },
 ];
 
 export function Signature() {
+  const introRef = useReveal<HTMLDivElement>();
+  const gridRef = useReveal<HTMLDivElement>();
+
   return (
     <section className="border-t border-border bg-background">
       <div className="mx-auto max-w-7xl px-5 py-[clamp(48px,8vh,88px)] sm:px-8">
-        <SectionLabel>Signature Services</SectionLabel>
-        <h2 className="display-serif mt-4 text-[clamp(36px,5vw,56px)] font-semibold text-foreground">
-          Worth the <span className="font-medium italic text-accent">hour</span>
-        </h2>
-        <p className="mt-4 max-w-xl text-[17px] font-normal leading-[1.65] text-body-text">
-          Two services that go past the basics. Book one as a reset, or pair it with your next cut.
-        </p>
+        <div ref={introRef} className="reveal-up">
+          <SectionLabel>Signature Services</SectionLabel>
+          <h2 className="display-serif mt-4 text-[clamp(36px,5vw,56px)] font-semibold text-foreground">
+            Worth the <span className="font-medium italic text-accent">hour</span>
+          </h2>
+          <p className="mt-4 max-w-xl text-[17px] font-normal leading-[1.65] text-body-text">
+            Two services that go past the basics. Book one as a reset, or pair it with your next
+            cut.
+          </p>
+        </div>
 
-        <div className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-2">
-          {SIGNATURE.map((s) => (
-            <article key={s.title} className="flex flex-col">
+        <div ref={gridRef} className="reveal-stagger mt-10 grid grid-cols-1 gap-8 lg:grid-cols-2">
+          {SIGNATURE.map((s, i) => (
+            <article key={s.title} className="flex flex-col" style={delay(i * 80)}>
               <div className="photo-box aspect-[16/10] w-full max-h-[320px] overflow-hidden border border-border bg-card">
                 <img
                   src={s.src}

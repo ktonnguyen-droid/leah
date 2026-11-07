@@ -1,26 +1,42 @@
+import { useEffect, useState } from "react";
 import { Star } from "lucide-react";
 import { BOOKSY_URL, HERO_IMAGE } from "@/lib/site-data";
+import { CUT_DURATION_MS, delay, prefersReducedMotion } from "@/lib/motion";
 
-export function Hero() {
+export function Hero({ cutActive }: { cutActive: boolean }) {
+  const [entered, setEntered] = useState(false);
+
+  useEffect(() => {
+    if (prefersReducedMotion()) {
+      setEntered(true);
+      return;
+    }
+    // Start the hero entrance right after the cut opens (first visit),
+    // or immediately on repeat visits.
+    const ms = cutActive ? CUT_DURATION_MS : 0;
+    const t = window.setTimeout(() => setEntered(true), ms);
+    return () => window.clearTimeout(t);
+  }, [cutActive]);
+
   return (
-    <section id="top" className="relative w-full overflow-hidden bg-background">
-      {/* DESKTOP / TABLET (md and up): Full-width background image with left-to-right readability gradient.
-          Height = visible screen below the trim bar (38px) and the nav (64px) = 100svh - 102px,
-          clamped to [520px, 820px] so everything fits on load even on short laptops. */}
+    <section
+      id="top"
+      className={`relative w-full overflow-hidden bg-background ${entered ? "hero-in" : ""}`}
+    >
+      {/* DESKTOP / TABLET (md and up): Full-width background image with left-to-right
+          readability gradient. Height = visible screen below trim bar + nav. */}
       <div className="relative hidden w-full md:block md:h-[calc(100svh-102px)] md:min-h-[520px] md:max-h-[820px]">
-        {/* Full-width photo */}
         <img
           src={HERO_IMAGE}
           alt="Leah, barber at Faded Blue Lounge in Fort Worth, standing behind her barber chair."
           fetchPriority="high"
           loading="eager"
           decoding="async"
-          className="absolute inset-0 h-full w-full object-cover"
+          className="hero-photo absolute inset-0 h-full w-full object-cover"
           style={{ objectPosition: "70% center" }}
         />
 
-        {/* Readability gradient overlay:
-            Ivory #fbf8f3 at 94% on far left, 60% at 38%, fully transparent by 62% across so Leah stays crisp. */}
+        {/* Readability gradient overlay */}
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0"
@@ -30,7 +46,7 @@ export function Hero() {
           }}
         />
 
-        {/* Soft bottom edge fade into the ivory page background (~80px tall) */}
+        {/* Soft bottom edge fade into the ivory page background */}
         <div
           aria-hidden
           className="pointer-events-none absolute inset-x-0 bottom-0 h-24"
@@ -39,36 +55,49 @@ export function Hero() {
           }}
         />
 
-        {/* Text content vertically centered in the left half, within max-w-7xl page margins */}
         <div className="relative mx-auto flex h-full max-w-7xl items-center px-5 sm:px-8">
           <div>
-            {/* 1. Small label with short gold line */}
             <div className="flex items-center gap-2.5">
-              <span aria-hidden className="h-[1px] w-6 bg-primary" />
-              <p className="text-[12px] font-semibold tracking-wide-2 text-primary uppercase">
+              <span aria-hidden className="hero-line h-[1px] w-6 bg-primary" />
+              <p
+                className="hero-rise text-[12px] font-semibold tracking-wide-2 text-primary uppercase"
+                style={delay(0)}
+              >
                 Fort Worth, Texas
               </p>
             </div>
 
-            {/* 2 + 3. Headline on a single line: "Leah" deep aubergine + "the Barber" royal purple italic */}
-            <h1 className="display-serif mt-3.5 text-[clamp(48px,min(7vw,11vh),96px)] font-semibold leading-[1] text-foreground">
-              Leah <span className="font-medium italic text-accent">the Barber</span>
+            <h1
+              className="hero-rise display-serif mt-3.5 text-[clamp(48px,min(7vw,11vh),96px)] font-semibold leading-[1] text-foreground"
+              style={delay(150)}
+            >
+              Leah{" "}
+              <span
+                className="hero-rise inline-block font-medium italic text-accent"
+                style={delay(270)}
+              >
+                the Barber
+              </span>
             </h1>
 
-            {/* 4. Intro paragraph, ~44 chars, ~3 lines */}
-            <p className="mt-[18px] max-w-[44ch] text-[17px] font-normal leading-[1.65] text-[#2e2240]">
+            <p
+              className="hero-rise mt-[18px] max-w-[44ch] text-[17px] font-normal leading-[1.65] text-[#2e2240]"
+              style={delay(350)}
+            >
               Precision haircuts, razor line-ups, hot lather head shaves and Dermalogica facials at
               Faded Blue Lounge. One chair, one barber, and the kind of detail that keeps clients
               coming back for years.
             </p>
 
-            {/* 5. Buttons side by side, 12px between */}
-            <div className="mt-[26px] flex flex-wrap items-center gap-3">
+            <div
+              className="hero-rise mt-[26px] flex flex-wrap items-center gap-3"
+              style={delay(430)}
+            >
               <a
                 href={BOOKSY_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary rounded-none px-[26px] py-[15px] text-[12px] font-semibold tracking-wide-2 uppercase transition-colors"
+                className="btn-primary arrow-link rounded-none px-[26px] py-[15px] text-[12px] font-semibold tracking-wide-2 uppercase transition-colors"
               >
                 Reserve Your Chair
               </a>
@@ -80,8 +109,10 @@ export function Hero() {
               </a>
             </div>
 
-            {/* 6. Rating line directly under the buttons */}
-            <div className="mt-[18px] flex flex-wrap items-center gap-x-3 gap-y-2">
+            <div
+              className="hero-rise mt-[18px] flex flex-wrap items-center gap-x-3 gap-y-2"
+              style={delay(510)}
+            >
               <div className="flex">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star key={i} size={14} className="fill-gold-star text-gold-star" />
@@ -96,11 +127,8 @@ export function Hero() {
         </div>
       </div>
 
-      {/* MOBILE (under 768px):
-          Photo on top (420px tall, Leah at ~72% center), soft fade into ivory, text and buttons stacked below.
-          Same one-line headline and tighter spacing. */}
+      {/* MOBILE (under 768px): photo on top, text stacked below on ivory. */}
       <div className="md:hidden">
-        {/* Mobile photo container with bottom fade */}
         <div className="relative h-[420px] w-full overflow-hidden bg-secondary">
           <img
             src={HERO_IMAGE}
@@ -108,10 +136,9 @@ export function Hero() {
             fetchPriority="high"
             loading="eager"
             decoding="async"
-            className="h-full w-full object-cover"
+            className="hero-photo h-full w-full object-cover"
             style={{ objectPosition: "72% center" }}
           />
-          {/* Fade bottom of photo into ivory so it flows into the text */}
           <div
             aria-hidden
             className="pointer-events-none absolute inset-x-0 bottom-0 h-28"
@@ -122,28 +149,40 @@ export function Hero() {
           />
         </div>
 
-        {/* Mobile text stacked below on ivory background */}
         <div className="relative -mt-6 px-5 pt-2 pb-12">
-          {/* Label with gold line */}
           <div className="flex items-center gap-2.5">
-            <span aria-hidden className="h-[1px] w-5 bg-primary" />
-            <p className="text-[12px] font-semibold tracking-wide-2 text-primary uppercase">
+            <span aria-hidden className="hero-line h-[1px] w-5 bg-primary" />
+            <p
+              className="hero-rise text-[12px] font-semibold tracking-wide-2 text-primary uppercase"
+              style={delay(0)}
+            >
               Fort Worth, Texas
             </p>
           </div>
 
-          {/* One-line headline */}
-          <h1 className="display-serif mt-3.5 text-[clamp(40px,12vw,72px)] font-semibold leading-[1] text-foreground">
-            Leah <span className="font-medium italic text-accent">the Barber</span>
+          <h1
+            className="hero-rise display-serif mt-3.5 text-[clamp(40px,12vw,72px)] font-semibold leading-[1] text-foreground"
+            style={delay(150)}
+          >
+            Leah{" "}
+            <span
+              className="hero-rise inline-block font-medium italic text-accent"
+              style={delay(270)}
+            >
+              the Barber
+            </span>
           </h1>
 
-          <p className="mt-[18px] max-w-[44ch] text-[16px] font-normal leading-[1.65] text-[#2e2240]">
+          <p
+            className="hero-rise mt-[18px] max-w-[44ch] text-[16px] font-normal leading-[1.65] text-[#2e2240]"
+            style={delay(350)}
+          >
             Precision haircuts, razor line-ups, hot lather head shaves and Dermalogica facials at
             Faded Blue Lounge. One chair, one barber, and the kind of detail that keeps clients
             coming back for years.
           </p>
 
-          <div className="mt-[26px] flex flex-col items-stretch gap-3">
+          <div className="hero-rise mt-[26px] flex flex-col items-stretch gap-3" style={delay(430)}>
             <a
               href={BOOKSY_URL}
               target="_blank"
@@ -160,7 +199,7 @@ export function Hero() {
             </a>
           </div>
 
-          <div className="mt-[18px] flex items-center gap-x-2.5">
+          <div className="hero-rise mt-[18px] flex items-center gap-x-2.5" style={delay(510)}>
             <div className="flex">
               {Array.from({ length: 5 }).map((_, i) => (
                 <Star key={i} size={13} className="fill-gold-star text-gold-star" />

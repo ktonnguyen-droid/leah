@@ -1,4 +1,5 @@
 import { ABOUT_IMAGE } from "@/lib/site-data";
+import { useReveal } from "@/lib/motion";
 import { SectionLabel } from "./services";
 
 const TRAITS = [
@@ -8,21 +9,24 @@ const TRAITS = [
 ];
 
 export function About() {
+  const photoRef = useReveal<HTMLDivElement>();
+  const textRef = useReveal<HTMLDivElement>();
+
   return (
     <section id="about" className="border-t border-border bg-background">
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-5 py-[clamp(48px,8vh,88px)] sm:px-8 lg:grid-cols-[45fr_55fr] lg:gap-14">
-        <div>
+        <div ref={photoRef} className="reveal-photo">
           <div className="photo-box aspect-[4/5] w-full max-h-[520px] overflow-hidden border border-border bg-secondary">
             <img
               src={ABOUT_IMAGE}
-              alt="Leah Bernal performing a facial treatment at Faded Blue Lounge in Fort Worth"
+              alt="Leah performing a facial treatment at Faded Blue Lounge in Fort Worth"
               className="h-full w-full object-cover"
               style={{ objectPosition: "60% center" }}
             />
           </div>
         </div>
 
-        <div>
+        <div ref={textRef} className="reveal-up">
           <SectionLabel>Meet Your Barber</SectionLabel>
           <h2 className="display-serif mt-4 text-[clamp(36px,5vw,56px)] font-semibold text-foreground">
             Leah Bernal

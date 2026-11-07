@@ -7,23 +7,33 @@ import {
   PHONE_HREF,
   SHOP_TEAM_URL,
 } from "@/lib/site-data";
+import { delay, useReveal } from "@/lib/motion";
 import { SectionLabel } from "./services";
 
 export function Visit() {
+  const introRef = useReveal<HTMLDivElement>();
+  const cardsRef = useReveal<HTMLDivElement>();
+  const teamRef = useReveal<HTMLDivElement>();
+
   return (
     <section id="visit" className="border-t border-border bg-background">
       <div className="mx-auto max-w-7xl px-5 py-[clamp(48px,8vh,88px)] sm:px-8">
-        <SectionLabel>Visit</SectionLabel>
-        <h2 className="display-serif mt-4 text-[clamp(36px,5vw,56px)] font-semibold text-foreground">
-          Find the <span className="font-medium italic text-accent">chair</span>
-        </h2>
-        <p className="mt-4 max-w-xl text-[17px] font-normal leading-[1.65] text-body-text">
-          Inside Faded Blue Lounge, just off Sycamore School Road in southwest Fort Worth.
-        </p>
+        <div ref={introRef} className="reveal-up">
+          <SectionLabel>Visit</SectionLabel>
+          <h2 className="display-serif mt-4 text-[clamp(36px,5vw,56px)] font-semibold text-foreground">
+            Find the <span className="font-medium italic text-accent">chair</span>
+          </h2>
+          <p className="mt-4 max-w-xl text-[17px] font-normal leading-[1.65] text-body-text">
+            Inside Faded Blue Lounge, just off Sycamore School Road in southwest Fort Worth.
+          </p>
+        </div>
 
-        <div className="mt-10 grid grid-cols-1 gap-px border border-border bg-border md:grid-cols-3">
+        <div
+          ref={cardsRef}
+          className="reveal-stagger mt-10 grid grid-cols-1 gap-px border border-border bg-border md:grid-cols-3"
+        >
           {/* Location */}
-          <div className="bg-card p-7">
+          <div className="bg-card p-7" style={delay(0)}>
             <div className="flex items-center gap-2 text-primary">
               <MapPin size={16} />
               <span className="text-[12px] font-semibold tracking-mega uppercase">Location</span>
@@ -50,14 +60,14 @@ export function Visit() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 block border-b border-primary pb-0.5 text-[12px] font-semibold tracking-wide-2 text-primary uppercase"
+              className="book-link arrow-link mt-4 block border-b border-primary pb-0.5 text-[12px] font-semibold tracking-wide-2 text-primary uppercase"
             >
               Get Directions
             </a>
           </div>
 
           {/* Hours */}
-          <div className="bg-card p-7">
+          <div className="bg-card p-7" style={delay(60)}>
             <div className="flex items-center gap-2 text-primary">
               <Clock size={16} />
               <span className="text-[12px] font-semibold tracking-mega uppercase">Hours</span>
@@ -71,14 +81,14 @@ export function Visit() {
               href={BOOKSY_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 block border-b border-primary pb-0.5 text-[12px] font-semibold tracking-wide-2 text-primary uppercase"
+              className="book-link arrow-link mt-4 block border-b border-primary pb-0.5 text-[12px] font-semibold tracking-wide-2 text-primary uppercase"
             >
               See Open Times
             </a>
           </div>
 
           {/* Contact */}
-          <div className="bg-card p-7">
+          <div className="bg-card p-7" style={delay(120)}>
             <div className="flex items-center gap-2 text-primary">
               <Phone size={16} />
               <span className="text-[12px] font-semibold tracking-mega uppercase">Contact</span>
@@ -94,28 +104,32 @@ export function Visit() {
             </p>
             <a
               href={PHONE_HREF}
-              className="mt-4 block border-b border-primary pb-0.5 text-[12px] font-semibold tracking-wide-2 text-primary uppercase"
+              className="book-link arrow-link mt-4 block border-b border-primary pb-0.5 text-[12px] font-semibold tracking-wide-2 text-primary uppercase"
             >
               Call Leah
             </a>
           </div>
         </div>
 
-        <a
-          href={SHOP_TEAM_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-8 inline-flex items-center gap-1 text-[15px] font-normal text-muted-foreground transition-colors hover:text-foreground"
-        >
-          Leah works inside Faded Blue Lounge. Meet the rest of the team
-          <ExternalLink size={14} />
-        </a>
+        <div ref={teamRef} className="reveal-up">
+          <a
+            href={SHOP_TEAM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="arrow-link mt-8 inline-flex items-center gap-1 text-[15px] font-normal text-muted-foreground transition-colors hover:text-foreground"
+          >
+            Leah works inside Faded Blue Lounge. Meet the rest of the team
+            <ExternalLink size={14} className="btn-arrow" />
+          </a>
+        </div>
       </div>
     </section>
   );
 }
 
 export function Cta() {
+  const ref = useReveal<HTMLDivElement>();
+
   return (
     <section className="surface-dark relative overflow-hidden border-t border-border bg-background">
       {/* soft lavender glow behind the final call to action */}
@@ -127,7 +141,10 @@ export function Cta() {
             "radial-gradient(50% 60% at 80% 50%, color-mix(in oklab, #7A55A8 25%, transparent), transparent)",
         }}
       />
-      <div className="relative mx-auto max-w-4xl px-5 py-[clamp(48px,8vh,88px)] text-center sm:px-8">
+      <div
+        ref={ref}
+        className="reveal-up relative mx-auto max-w-4xl px-5 py-[clamp(48px,8vh,88px)] text-center sm:px-8"
+      >
         <SectionLabel>Your Next Appointment</SectionLabel>
         <h2 className="display-serif mt-5 text-[clamp(36px,5vw,56px)] font-semibold leading-tight text-foreground">
           Sit down. Walk out <span className="font-medium italic text-accent">sharp</span>.
@@ -140,7 +157,7 @@ export function Cta() {
           href={BOOKSY_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="btn-primary mt-9 inline-block rounded-none px-8 py-4 text-[12px] font-semibold tracking-wide-2 uppercase transition-colors"
+          className="btn-primary arrow-link mt-9 inline-block rounded-none px-8 py-4 text-[12px] font-semibold tracking-wide-2 uppercase transition-colors"
         >
           Reserve on Booksy
         </a>

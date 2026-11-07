@@ -1,11 +1,15 @@
 import { useMemo, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { BOOKSY_URL, FILTER_TABS, SERVICES, type ServiceCategory } from "@/lib/site-data";
+import { delay, useReveal } from "@/lib/motion";
 
 type FilterId = "all" | ServiceCategory;
 
 export function Services() {
   const [filter, setFilter] = useState<FilterId>("all");
+  const introRef = useReveal<HTMLDivElement>();
+  const gridRef = useReveal<HTMLDivElement>();
+  const footRef = useReveal<HTMLDivElement>();
 
   const visible = useMemo(
     () => (filter === "all" ? SERVICES : SERVICES.filter((s) => s.category === filter)),
@@ -19,37 +23,42 @@ export function Services() {
   return (
     <section id="services" className="border-t border-border bg-background">
       <div className="mx-auto max-w-7xl px-5 py-[clamp(48px,8vh,88px)] sm:px-8">
-        <SectionLabel>The Menu</SectionLabel>
-        <h2 className="display-serif mt-4 text-[clamp(36px,5vw,56px)] font-semibold text-foreground">
-          Services &amp; pricing
-        </h2>
-        <p className="mt-4 max-w-xl text-[17px] font-normal leading-[1.65] text-body-text">
-          Every service is by appointment, so your time in the chair is never rushed.
-        </p>
+        <div ref={introRef} className="reveal-up">
+          <SectionLabel>The Menu</SectionLabel>
+          <h2 className="display-serif mt-4 text-[clamp(36px,5vw,56px)] font-semibold text-foreground">
+            Services &amp; pricing
+          </h2>
+          <p className="mt-4 max-w-xl text-[17px] font-normal leading-[1.65] text-body-text">
+            Every service is by appointment, so your time in the chair is never rushed.
+          </p>
 
-        {/* Filter tabs */}
-        <div className="mt-10 flex flex-wrap gap-2 border-b border-border pb-4">
-          {FILTER_TABS.map((tab) => {
-            const active = filter === tab.id;
-            return (
-              <button
-                key={tab.id}
-                type="button"
-                onClick={() => setFilter(tab.id)}
-                className={`rounded-none px-4 py-2 text-[12px] font-semibold tracking-wide-2 uppercase transition-colors ${
-                  active
-                    ? "bg-primary text-primary-foreground"
-                    : "border border-border text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                {tab.label}
-              </button>
-            );
-          })}
+          {/* Filter tabs */}
+          <div className="mt-10 flex flex-wrap gap-2 border-b border-border pb-4">
+            {FILTER_TABS.map((tab) => {
+              const active = filter === tab.id;
+              return (
+                <button
+                  key={tab.id}
+                  type="button"
+                  onClick={() => setFilter(tab.id)}
+                  className={`rounded-none px-4 py-2 text-[12px] font-semibold tracking-wide-2 uppercase transition-colors ${
+                    active
+                      ? "bg-primary text-primary-foreground"
+                      : "border border-border text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              );
+            })}
+          </div>
         </div>
 
-        {/* Service grid */}
-        <div className="mt-8 grid grid-cols-1 gap-px border border-border bg-border sm:grid-cols-2">
+        {/* Service grid — rows reveal one after another, 50ms apart */}
+        <div
+          ref={gridRef}
+          className="reveal-stagger mt-8 grid grid-cols-1 gap-px border border-border bg-border sm:grid-cols-2"
+        >
           {visible.map((s, i) => {
             const isLastSpan = spanLast && i === visible.length - 1;
             return (
@@ -58,7 +67,7 @@ export function Services() {
                 className={`group flex flex-col bg-card transition-colors hover:bg-secondary ${
                   isLastSpan ? "sm:col-span-2" : ""
                 }`}
-                style={{ padding: "18px 24px" }}
+                style={{ ...delay(i * 50), padding: "18px 24px" }}
               >
                 <div className="flex items-baseline justify-between gap-4">
                   <div className="flex items-center gap-3">
@@ -82,9 +91,9 @@ export function Services() {
                     href={BOOKSY_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-[12px] font-semibold tracking-wide-2 text-foreground uppercase transition-colors hover:text-primary"
+                    className="book-link arrow-link inline-flex items-center gap-1 text-[12px] font-semibold tracking-wide-2 text-foreground uppercase transition-colors hover:text-primary"
                   >
-                    Book <ArrowUpRight size={12} />
+                    Book <ArrowUpRight size={12} className="btn-arrow" />
                   </a>
                 </div>
 
@@ -94,17 +103,19 @@ export function Services() {
           })}
         </div>
 
-        <p className="mt-6 text-[14px] font-normal text-muted-foreground">
-          Standard rates shown. Online booking specials may apply on Booksy.
-        </p>
-        <a
-          href={BOOKSY_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-6 inline-block border-b border-primary pb-0.5 text-[12px] font-semibold tracking-wide-2 text-primary uppercase"
-        >
-          Check Availability
-        </a>
+        <div ref={footRef} className="reveal-up mt-6">
+          <p className="text-[14px] font-normal text-muted-foreground">
+            Standard rates shown. Online booking specials may apply on Booksy.
+          </p>
+          <a
+            href={BOOKSY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="book-link arrow-link mt-6 inline-block border-b border-primary pb-0.5 text-[12px] font-semibold tracking-wide-2 text-primary uppercase"
+          >
+            Check Availability
+          </a>
+        </div>
       </div>
     </section>
   );

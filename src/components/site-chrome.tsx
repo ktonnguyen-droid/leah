@@ -77,7 +77,7 @@ export function Header() {
             <a
               key={item.href}
               href={item.href}
-              className="text-[12px] font-semibold tracking-wide-2 text-ink uppercase transition-colors hover:text-foreground"
+              className="nav-link text-[12px] font-semibold tracking-wide-2 text-ink uppercase transition-colors hover:text-foreground"
             >
               {item.label}
             </a>
