@@ -8,7 +8,7 @@ import { About } from "@/components/sections/about";
 import { Portfolio } from "@/components/sections/portfolio";
 import { Reviews } from "@/components/sections/reviews";
 import { Visit, Cta } from "@/components/sections/visit";
-import { ADDRESS, BOOKSY_URL, PHONE_DISPLAY, SHOP_TEAM_URL } from "@/lib/site-data";
+import { ADDRESS, BOOKSY_URL, HERO_IMAGE, PHONE_DISPLAY, SHOP_TEAM_URL } from "@/lib/site-data";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -31,7 +31,9 @@ export const Route = createFileRoute("/")({
           "Precision haircuts, razor line-ups, hot lather head shaves and Dermalogica facials by Leah Bernal at Faded Blue Lounge in Fort Worth, TX. 5.0 stars from 115 reviews. Book online.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: HERO_IMAGE },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: HERO_IMAGE },
     ],
     scripts: [
       {
