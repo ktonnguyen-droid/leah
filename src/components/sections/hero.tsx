@@ -9,29 +9,40 @@ export function Hero() {
   useEffect(() => {
     const root = document.documentElement;
     const has = (n: string) => root.classList.contains(n);
+    const start = () => setEntered(true);
 
     // Reduced motion: never wait, show the hero immediately.
     if (prefersReducedMotion()) {
-      setEntered(true);
+      start();
       return;
     }
     // The opening intro already opened (intro-open) or was skipped
     // (no-intro), or the intro script never ran at all (no
     // intro-on / no-intro present) — start the entrance right away.
     if (has("intro-open") || has("no-intro") || (!has("intro-on") && !has("no-intro"))) {
-      setEntered(true);
+      start();
       return;
     }
     // The intro is active (intro-on): reveal the hero the moment it
-    // opens, watched via a class mutation observer on <html>.
-    const mo = new MutationObserver(() => {
+    // opens, watched via a class mutation observer on <html>, plus a
+    // backup window event ("intro:open") dispatched by the intro script.
+    let done = false;
+    const maybeStart = () => {
+      if (done) return;
       if (has("intro-open") || has("no-intro")) {
-        setEntered(true);
+        done = true;
+        start();
         mo.disconnect();
+        window.removeEventListener("intro:open", maybeStart);
       }
-    });
+    };
+    const mo = new MutationObserver(maybeStart);
     mo.observe(root, { attributes: true, attributeFilter: ["class"] });
-    return () => mo.disconnect();
+    window.addEventListener("intro:open", maybeStart);
+    return () => {
+      mo.disconnect();
+      window.removeEventListener("intro:open", maybeStart);
+    };
   }, []);
 
   return (
@@ -45,6 +56,7 @@ export function Hero() {
         <img
           src={HERO_IMAGE}
           alt="Leah, barber at Faded Blue Lounge in Fort Worth, standing behind her barber chair."
+          data-hero-img
           fetchPriority="high"
           loading="eager"
           decoding="async"
