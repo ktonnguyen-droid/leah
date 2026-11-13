@@ -22,7 +22,7 @@ export function About() {
               alt="Leah Bernal, barber at Faded Blue Lounge in Fort Worth, TX"
               loading="lazy"
               className="h-full w-full object-cover"
-              style={{ objectPosition: "50% 15%" }}
+              style={{ objectPosition: "50% 20%" }}
             />
           </div>
         </div>

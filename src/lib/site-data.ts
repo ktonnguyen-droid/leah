@@ -134,9 +134,9 @@ export const PORTFOLIO = [
 export const HERO_IMAGE =
   "https://vibe.filesafe.space/1794001815039021537/attachments/391343f2-4216-4a16-bf60-9c9cf9ef9cf8.png";
 export const ABOUT_IMAGE =
-  "https://vibe.filesafe.space/1794001815039021537/attachments/d68eca9b-37bd-4a56-a5e0-1c02c29e544e.png";
+  "https://vibe.filesafe.space/1794001815039021537/attachments/9739de87-f924-4373-aa83-4545588ddc44.jpg";
 export const HEAD_SHAVE_IMAGE =
-  "https://vibe.filesafe.space/1794001815039021537/attachments/c547ebbb-a6a0-4d4c-8de8-2b1036b6c700.png";
+  "https://vibe.filesafe.space/1794001815039021537/attachments/9b348967-018b-47db-a534-7abb4e94fe37.jpg";
 export const FACIAL_IMAGE = "/leah-07-facial.jpg";
 
 export const REVIEWS = [

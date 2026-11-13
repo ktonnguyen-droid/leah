@@ -11,7 +11,7 @@ const SIGNATURE = [
     body: "A full straight razor head shave with warm lather, finished with a clean face shave. Smooth from crown to chin. Also offered as head shave only, or head shave with beard.",
     src: HEAD_SHAVE_IMAGE,
     alt: "Hot lather head shave by Leah the Barber in Fort Worth, TX",
-    pos: "50% 40%",
+    pos: "50% 25%",
   },
   {
     kicker: "Skin Care",
