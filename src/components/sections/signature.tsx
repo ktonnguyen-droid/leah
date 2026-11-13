@@ -53,13 +53,13 @@ export function Signature() {
               className="flex h-full flex-col border border-border bg-card p-6 sm:p-7"
               style={delay(i * 80)}
             >
-              <div className="photo-box aspect-[4/3] w-full max-h-[320px] overflow-hidden border border-border bg-card">
+              <div className="flex aspect-[4/3] w-full max-h-[320px] items-center justify-center overflow-hidden border border-border bg-card">
                 <img
                   src={s.src}
                   alt={s.alt}
                   loading="lazy"
-                  className="h-full w-full object-cover"
-                  style={{ objectPosition: s.pos }}
+                  className="h-full w-full object-contain"
+                  style={{ objectPosition: "center center" }}
                 />
               </div>
               <p className="mt-5 text-[12px] font-semibold tracking-mega text-primary uppercase">
