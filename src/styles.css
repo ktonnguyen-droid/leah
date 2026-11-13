@@ -345,12 +345,10 @@ html {
   transition: transform 600ms cubic-bezier(0.65, 0, 0.35, 1);
 }
 .js-anim .hero-photo {
-  transform: scale(1.06);
-  will-change: transform;
+  transform: none;
 }
 .js-anim .hero-in .hero-photo {
-  transform: scale(1);
-  transition: transform 1600ms ease-out;
+  transform: none;
 }
 
 /* ---- Scroll reveals ---- */

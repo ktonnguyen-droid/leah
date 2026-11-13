@@ -41,7 +41,7 @@ export function Hero() {
     >
       {/* DESKTOP / TABLET (md and up): Full-width background image with left-to-right
           readability gradient. Height = visible screen below trim bar + nav. */}
-      <div className="relative hidden w-full md:block md:h-[calc(100svh-102px)] md:min-h-[520px] md:max-h-[820px]">
+      <div className="relative hidden w-full md:block md:h-[calc(100svh-102px)] md:min-h-[560px] md:max-h-[820px]">
         <img
           src={HERO_IMAGE}
           alt="Leah, barber at Faded Blue Lounge in Fort Worth, standing behind her barber chair."
@@ -49,7 +49,7 @@ export function Hero() {
           loading="eager"
           decoding="async"
           className="hero-photo absolute inset-0 h-full w-full object-cover"
-          style={{ objectPosition: "70% center" }}
+          style={{ objectPosition: "70% 100%" }}
         />
 
         {/* Readability gradient overlay */}
@@ -145,7 +145,7 @@ export function Hero() {
 
       {/* MOBILE (under 768px): photo on top, text stacked below on ivory. */}
       <div className="md:hidden">
-        <div className="relative h-[420px] w-full overflow-hidden bg-secondary">
+        <div className="relative aspect-[4/3] w-full overflow-hidden bg-secondary">
           <img
             src={HERO_IMAGE}
             alt="Leah, barber at Faded Blue Lounge in Fort Worth, standing behind her barber chair."
@@ -153,7 +153,7 @@ export function Hero() {
             loading="eager"
             decoding="async"
             className="hero-photo h-full w-full object-cover"
-            style={{ objectPosition: "72% center" }}
+            style={{ objectPosition: "70% 100%" }}
           />
           <div
             aria-hidden
