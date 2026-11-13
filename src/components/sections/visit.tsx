@@ -1,19 +1,11 @@
-import { MapPin, Clock, Phone, Copy, ExternalLink } from "lucide-react";
-import {
-  ADDRESS,
-  BOOKSY_URL,
-  MAPS_URL,
-  PHONE_DISPLAY,
-  PHONE_HREF,
-  SHOP_TEAM_URL,
-} from "@/lib/site-data";
+import { MapPin, Clock, Phone, Copy } from "lucide-react";
+import { ADDRESS, BOOKSY_URL, MAPS_URL, PHONE_DISPLAY, PHONE_HREF } from "@/lib/site-data";
 import { delay, useReveal } from "@/lib/motion";
 import { SectionLabel } from "./services";
 
 export function Visit() {
   const introRef = useReveal<HTMLDivElement>();
   const cardsRef = useReveal<HTMLDivElement>();
-  const teamRef = useReveal<HTMLDivElement>();
 
   return (
     <section id="visit" className="border-t border-border bg-background">
@@ -123,18 +115,6 @@ export function Visit() {
               </a>
             </div>
           </div>
-        </div>
-
-        <div ref={teamRef} className="reveal-up">
-          <a
-            href={SHOP_TEAM_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="arrow-link mt-8 inline-flex items-center gap-1 text-[15px] font-normal text-muted-foreground transition-colors hover:text-foreground"
-          >
-            Leah works inside Faded Blue Lounge. Meet the rest of the team
-            <ExternalLink size={14} className="btn-arrow" />
-          </a>
         </div>
       </div>
     </section>

@@ -1,6 +1,6 @@
 import { Menu, X, ExternalLink } from "lucide-react";
 import { useEffect, useState } from "react";
-import { BOOKSY_URL, SHOP_URL } from "@/lib/site-data";
+import { BOOKSY_URL, SHOP_URL, SHOP_TEAM_URL } from "@/lib/site-data";
 
 const NAV = [
   { label: "Services", href: "#services" },
@@ -135,7 +135,7 @@ export function Header() {
 export function Footer() {
   return (
     <footer className="surface-dark border-t border-border bg-background">
-      <div className="mx-auto max-w-7xl px-5 py-10 sm:px-8">
+      <div className="mx-auto max-w-7xl px-5 py-8 sm:px-8">
         <div className="flex flex-col items-center gap-4 text-center">
           <div className="display-serif text-2xl font-semibold text-foreground">
             Leah the Barber
@@ -160,6 +160,15 @@ export function Footer() {
               Visit
             </a>
           </div>
+          <a
+            href={SHOP_TEAM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="arrow-link inline-flex items-center gap-1 text-[13px] font-semibold text-muted-foreground transition-colors hover:text-foreground"
+          >
+            Leah works inside Faded Blue Lounge. Meet the rest of the team
+            <ExternalLink size={11} className="btn-arrow" />
+          </a>
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[13px] font-semibold text-muted-foreground">
             <a
               href={SHOP_URL}
@@ -171,7 +180,7 @@ export function Footer() {
             </a>
             <span className="text-border">·</span>
             <a
-              href="https://fadedbluelounge.com/barbers/leah"
+              href={SHOP_TEAM_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="transition-colors hover:text-foreground"
@@ -179,15 +188,7 @@ export function Footer() {
               Leah's Shop Profile
             </a>
           </div>
-          <a
-            href={BOOKSY_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary mt-2 rounded-none px-6 py-3 text-[12px] font-semibold tracking-wide-2 uppercase"
-          >
-            Reserve on Booksy
-          </a>
-          <p className="mt-4 text-[12px] font-semibold tracking-wide-2 text-muted-foreground uppercase">
+          <p className="mt-2 text-[12px] font-semibold tracking-wide-2 text-muted-foreground uppercase">
             © 2026 Leah the Barber · Faded Blue Lounge · Fort Worth, Texas
           </p>
           <p className="text-[12px] font-semibold tracking-wide-2 text-muted-foreground uppercase">
