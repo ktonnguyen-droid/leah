@@ -41,24 +41,25 @@ export function Hero() {
     >
       {/* DESKTOP / TABLET (md and up): Full-width background image with left-to-right
           readability gradient. Height = visible screen below trim bar + nav. */}
-      <div className="relative hidden w-full md:block md:h-[calc(100svh-102px)] md:min-h-[560px] md:max-h-[820px]">
+      <div className="relative hidden w-full overflow-hidden md:block md:h-[calc(100svh-102px)] md:min-h-[560px] md:max-h-[820px]">
         <img
           src={HERO_IMAGE}
           alt="Leah, barber at Faded Blue Lounge in Fort Worth, standing behind her barber chair."
           fetchPriority="high"
           loading="eager"
           decoding="async"
-          className="hero-photo absolute inset-0 h-full w-full object-cover"
-          style={{ objectPosition: "70% 100%" }}
-        />
-
-        {/* Readability gradient overlay */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0"
+          className="hero-photo"
           style={{
-            background:
-              "linear-gradient(to right, rgba(251, 248, 243, 0.94) 0%, rgba(251, 248, 243, 0.88) 22%, rgba(251, 248, 243, 0.60) 38%, rgba(251, 248, 243, 0.15) 52%, transparent 62%)",
+            position: "absolute",
+            right: 0,
+            bottom: 0,
+            top: "auto",
+            left: "auto",
+            height: "136%",
+            width: "auto",
+            maxWidth: "none",
+            maskImage: "linear-gradient(to right, transparent 0%, #000 30%)",
+            WebkitMaskImage: "linear-gradient(to right, transparent 0%, #000 30%)",
           }}
         />
 
@@ -153,7 +154,7 @@ export function Hero() {
             loading="eager"
             decoding="async"
             className="hero-photo h-full w-full object-cover"
-            style={{ objectPosition: "70% 100%" }}
+            style={{ objectPosition: "70% 60%" }}
           />
           <div
             aria-hidden
