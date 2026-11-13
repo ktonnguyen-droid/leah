@@ -11,7 +11,7 @@ const SIGNATURE = [
     body: "A full straight razor head shave with warm lather, finished with a clean face shave. Smooth from crown to chin. Also offered as head shave only, or head shave with beard.",
     src: HEAD_SHAVE_IMAGE,
     alt: "Hot lather head shave by Leah the Barber in Fort Worth, TX",
-    pos: "50% 45%",
+    pos: "50% 30%",
   },
   {
     kicker: "Skin Care",
@@ -21,7 +21,7 @@ const SIGNATURE = [
     body: "A professional six-step facial using Dermalogica products. Deep cleanse, exfoliation and treatment that leaves your skin as sharp as your fade.",
     src: FACIAL_IMAGE,
     alt: "Dermalogica facial treatment by Leah the Barber in Fort Worth",
-    pos: "70% 30%",
+    pos: "60% 35%",
   },
 ];
 
@@ -53,7 +53,7 @@ export function Signature() {
               className="flex h-full flex-col border border-border bg-card p-6 sm:p-7"
               style={delay(i * 80)}
             >
-              <div className="photo-box aspect-[16/10] w-full max-h-[320px] overflow-hidden border border-border bg-muted">
+              <div className="photo-box aspect-[4/3] w-full max-h-[320px] overflow-hidden border border-border bg-card">
                 <img
                   src={s.src}
                   alt={s.alt}

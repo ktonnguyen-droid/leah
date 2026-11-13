@@ -19,9 +19,10 @@ export function About() {
           <div className="photo-box aspect-[4/5] w-full max-h-[520px] overflow-hidden border border-border bg-secondary">
             <img
               src={ABOUT_IMAGE}
-              alt="Leah performing a facial treatment at Faded Blue Lounge in Fort Worth"
+              alt="Leah Bernal, barber at Faded Blue Lounge in Fort Worth, TX"
+              loading="lazy"
               className="h-full w-full object-cover"
-              style={{ objectPosition: "60% center" }}
+              style={{ objectPosition: "50% 12%" }}
             />
           </div>
         </div>

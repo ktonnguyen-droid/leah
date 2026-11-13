@@ -22,7 +22,7 @@ export function Portfolio() {
           {PORTFOLIO.map((p, i) => (
             <figure
               key={p.label}
-              className="gallery-tile relative aspect-square w-full overflow-hidden border border-border bg-card"
+              className="gallery-tile relative aspect-[3/4] w-full overflow-hidden border border-border bg-card"
               style={delay(i * 90)}
               aria-label={p.alt}
             >
@@ -31,7 +31,7 @@ export function Portfolio() {
                 alt={p.alt}
                 loading="lazy"
                 className="h-full w-full object-cover"
-                style={{ objectPosition: (p as { pos?: string }).pos || "center center" }}
+                style={{ objectPosition: (p as { pos?: string }).pos || "50% 50%" }}
               />
               <figcaption className="sr-only">{p.label}</figcaption>
             </figure>
