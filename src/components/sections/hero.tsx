@@ -147,7 +147,7 @@ export function Hero() {
                   <Star key={i} size={14} className="fill-gold-star text-gold-star" />
                 ))}
               </div>
-              <span className="display-serif text-lg text-foreground">5.0</span>
+              <span className="text-lg font-medium text-foreground">5.0</span>
               <p className="text-[12px] font-semibold tracking-wide-2 text-ink uppercase">
                 from 115 verified client reviews
               </p>
@@ -234,7 +234,7 @@ export function Hero() {
                 <Star key={i} size={13} className="fill-gold-star text-gold-star" />
               ))}
             </div>
-            <span className="display-serif text-base text-foreground">5.0</span>
+            <span className="text-base font-medium text-foreground">5.0</span>
             <p className="text-[12px] font-semibold tracking-wide-2 text-ink uppercase">
               from 115 verified client reviews
             </p>

@@ -22,7 +22,7 @@ export function MobileBookBar() {
           <p className="text-[12px] font-semibold tracking-mega text-muted-foreground uppercase">
             Leah the Barber
           </p>
-          <p className="display-serif text-sm font-semibold text-foreground">Faded Blue Lounge</p>
+          <p className="text-sm font-semibold text-foreground">Faded Blue Lounge</p>
         </div>
         <a
           href={BOOKSY_URL}

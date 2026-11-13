@@ -71,7 +71,10 @@ export function Services() {
               >
                 <div className="flex items-baseline justify-between gap-4">
                   <div className="flex items-center gap-3">
-                    <h3 className="display-serif text-[19px] font-semibold text-foreground">
+                    <h3
+                      className="text-[17px] font-medium text-foreground"
+                      style={{ letterSpacing: "0.01em" }}
+                    >
                       {s.name}
                     </h3>
                     {s.badge && (
@@ -80,7 +83,12 @@ export function Services() {
                       </span>
                     )}
                   </div>
-                  <div className="display-serif text-xl font-semibold text-primary">${s.price}</div>
+                  <div
+                    className="text-[17px] font-semibold text-primary"
+                    style={{ fontVariantNumeric: "tabular-nums" }}
+                  >
+                    ${s.price}
+                  </div>
                 </div>
 
                 <div className="mt-2 flex items-center justify-between gap-4">

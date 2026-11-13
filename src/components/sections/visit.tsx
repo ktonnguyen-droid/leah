@@ -40,7 +40,7 @@ export function Visit() {
             </div>
             <div className="mt-4 flex flex-col gap-1 text-[16px] font-normal text-foreground">
               <div className="flex items-center justify-between gap-2">
-                <p className="font-semibold text-foreground">{ADDRESS.street}</p>
+                <p className="text-[17px] font-medium text-foreground">{ADDRESS.street}</p>
                 <button
                   type="button"
                   onClick={() =>
@@ -78,7 +78,7 @@ export function Visit() {
               <span className="text-[12px] font-semibold tracking-mega uppercase">Hours</span>
             </div>
             <div className="mt-4 flex flex-col gap-1 text-[16px] font-normal text-foreground">
-              <p className="font-semibold text-foreground">By appointment</p>
+              <p className="text-[17px] font-medium text-foreground">By appointment</p>
               <p className="text-muted-foreground">Open until 9 pm</p>
               <p className="mt-1 text-[14px] font-normal leading-[1.65] text-muted-foreground">
                 Live availability on Booksy. Booking online is the fastest way in.
@@ -105,7 +105,7 @@ export function Visit() {
             <div className="mt-4 flex flex-col gap-1 text-[16px] font-normal text-foreground">
               <a
                 href={PHONE_HREF}
-                className="font-semibold text-foreground transition-colors hover:text-primary"
+                className="text-[17px] font-medium text-foreground transition-colors hover:text-primary"
               >
                 {PHONE_DISPLAY}
               </a>

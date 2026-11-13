@@ -216,6 +216,7 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-body);
+    font-optical-sizing: auto;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
@@ -240,6 +241,7 @@
 
 @utility display-serif {
   font-family: var(--font-display);
+  font-optical-sizing: auto;
 }
 
 @utility tracking-mega {

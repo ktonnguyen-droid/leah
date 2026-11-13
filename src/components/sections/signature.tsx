@@ -65,13 +65,14 @@ export function Signature() {
               <p className="mt-5 text-[12px] font-semibold tracking-mega text-primary uppercase">
                 {s.kicker}
               </p>
-              <h3 className="display-serif mt-2 text-[19px] font-semibold text-foreground">
-                {s.title}
-              </h3>
+              <h3 className="mt-2 text-[22px] font-medium text-foreground">{s.title}</h3>
               <p className="mt-3 text-[16px] font-normal leading-[1.65] text-body-text">{s.body}</p>
               <div className="mt-auto flex items-end justify-between border-t border-border pt-5">
                 <div>
-                  <span className="display-serif text-3xl font-semibold text-primary">
+                  <span
+                    className="text-[22px] font-semibold text-primary"
+                    style={{ fontVariantNumeric: "tabular-nums" }}
+                  >
                     {s.price}
                   </span>
                   <span className="ml-3 text-[12px] font-semibold tracking-wide-2 text-duration uppercase">

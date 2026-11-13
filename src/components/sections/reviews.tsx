@@ -18,7 +18,7 @@ export function Reviews() {
           </h2>
 
           <div className="mt-6 flex items-center gap-4">
-            <span className="display-serif text-4xl font-semibold text-foreground">5.0</span>
+            <span className="text-4xl font-medium text-foreground">5.0</span>
             <div className="flex">
               {Array.from({ length: 5 }).map((_, i) => (
                 <Star key={i} size={16} className="fill-primary text-primary" />
@@ -42,7 +42,7 @@ export function Reviews() {
                   <Star key={j} size={12} className="fill-primary text-primary" />
                 ))}
               </div>
-              <blockquote className="display-serif mt-5 flex-1 text-lg font-medium italic leading-relaxed text-foreground">
+              <blockquote className="display-serif mt-5 flex-1 text-[24px] font-medium italic leading-relaxed text-foreground">
                 "{r.quote}"
               </blockquote>
               <figcaption className="mt-6 border-t border-border pt-4">
