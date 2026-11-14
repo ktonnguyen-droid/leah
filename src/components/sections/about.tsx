@@ -15,12 +15,13 @@ export function About() {
   return (
     <section id="about" className="border-t border-border bg-background">
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-5 py-[clamp(48px,8vh,88px)] sm:px-8 lg:grid-cols-[45fr_55fr] lg:gap-14">
-        <div ref={photoRef} className="reveal-photo">
+        <div ref={photoRef} className="reveal-up">
           <div className="aspect-[4/5] w-full max-h-[520px] overflow-hidden border border-border bg-secondary">
             <img
               src={ABOUT_IMAGE}
               alt="Leah Bernal, barber at Faded Blue Lounge in Fort Worth, TX"
-              loading="lazy"
+              loading="eager"
+              decoding="async"
               className="h-full w-full object-cover"
               style={{ objectPosition: "50% 20%" }}
             />
