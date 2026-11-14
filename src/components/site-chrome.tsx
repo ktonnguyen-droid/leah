@@ -57,10 +57,13 @@ export function Header() {
       }`}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8">
-        <a href="#top" className="flex flex-col leading-none">
-          <span className="display-serif text-xl font-semibold tracking-wide-2 text-foreground">
+        <div className="flex flex-col leading-none">
+          <a
+            href="#top"
+            className="display-serif text-xl font-semibold tracking-wide-2 text-foreground"
+          >
             Leah
-          </span>
+          </a>
           <a
             href={SHOP_URL}
             target="_blank"
@@ -70,7 +73,7 @@ export function Header() {
             A Faded Blue Lounge Barber
             <ExternalLink size={9} />
           </a>
-        </a>
+        </div>
 
         <nav className="hidden items-center gap-8 md:flex">
           {NAV.map((item) => (
