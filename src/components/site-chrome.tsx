@@ -27,10 +27,9 @@ export function TopTrim() {
         </span>
         {/* mobile */}
         <span className="flex items-center gap-[0.4em] sm:hidden">
-          <span className="text-primary">★★★★★</span>
-          <span>5.0</span>
+          <span>By appointment</span>
           <span className="text-primary">·</span>
-          <span>Book online 24/7</span>
+          <span>Open until 9 PM</span>
         </span>
       </p>
     </div>
