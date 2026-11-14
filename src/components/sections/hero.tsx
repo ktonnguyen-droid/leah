@@ -158,7 +158,7 @@ export function Hero() {
 
       {/* MOBILE (under 768px): photo on top, text stacked below on ivory. */}
       <div className="md:hidden">
-        <div className="relative aspect-[4/3] w-full overflow-hidden bg-secondary">
+        <div className="relative aspect-[16/11] w-full overflow-hidden bg-secondary">
           <img
             src={HERO_IMAGE}
             alt="Leah, barber at Faded Blue Lounge in Fort Worth, standing behind her barber chair."
@@ -166,7 +166,11 @@ export function Hero() {
             loading="eager"
             decoding="async"
             className="hero-photo h-full w-full object-cover"
-            style={{ objectPosition: "70% 60%" }}
+            style={{
+              objectPosition: "70% 60%",
+              transform: "scale(1.75)",
+              transformOrigin: "96% 58%",
+            }}
           />
           <div
             aria-hidden
@@ -190,7 +194,7 @@ export function Hero() {
           </div>
 
           <h1
-            className="hero-rise display-serif mt-3.5 text-[clamp(40px,12vw,72px)] font-semibold leading-[1] text-foreground"
+            className="hero-rise display-serif mt-[10px] text-[40px] font-semibold leading-[1] text-foreground"
             style={delay(150)}
           >
             Leah{" "}
@@ -203,7 +207,7 @@ export function Hero() {
           </h1>
 
           <p
-            className="hero-rise mt-[18px] max-w-[44ch] text-[16px] font-normal leading-[1.65] text-[#2e2240]"
+            className="hero-rise mt-[12px] max-w-[44ch] text-[16px] font-normal leading-[1.55] text-[#2e2240]"
             style={delay(350)}
           >
             Precision haircuts, razor line-ups, hot lather head shaves and Dermalogica facials at
@@ -211,31 +215,34 @@ export function Hero() {
             coming back for years.
           </p>
 
-          <div className="hero-rise mt-[26px] flex flex-col items-stretch gap-3" style={delay(430)}>
+          <div
+            className="hero-rise mt-[18px] flex flex-row items-stretch gap-[10px]"
+            style={delay(430)}
+          >
             <a
               href={BOOKSY_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary rounded-none px-[26px] py-[15px] text-center text-[12px] font-semibold tracking-wide-2 uppercase transition-colors"
+              className="btn-primary flex-1 rounded-none px-2 py-[15px] text-center text-[11px] font-semibold tracking-[0.12em] uppercase whitespace-nowrap transition-colors"
             >
               Reserve Your Chair
             </a>
             <a
               href="#services"
-              className="border border-border bg-card px-[26px] py-[15px] text-center text-[12px] font-semibold tracking-wide-2 text-foreground uppercase transition-colors hover:bg-secondary"
+              className="flex-1 border border-border bg-card px-2 py-[15px] text-center text-[11px] font-semibold tracking-[0.12em] text-foreground uppercase whitespace-nowrap transition-colors hover:bg-secondary"
             >
               View the Menu
             </a>
           </div>
 
-          <div className="hero-rise mt-[18px] flex items-center gap-x-2.5" style={delay(510)}>
-            <div className="flex">
+          <div className="hero-rise mt-[16px] flex items-center gap-x-2" style={delay(510)}>
+            <div className="flex shrink-0">
               {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} size={13} className="fill-gold-star text-gold-star" />
+                <Star key={i} size={11} className="fill-gold-star text-gold-star" />
               ))}
             </div>
-            <span className="text-base font-medium text-foreground">5.0</span>
-            <p className="text-[12px] font-semibold tracking-wide-2 text-ink uppercase">
+            <span className="shrink-0 text-[11px] font-medium text-foreground">5.0</span>
+            <p className="text-[11px] font-semibold tracking-[0.12em] text-ink uppercase">
               from 115 verified client reviews
             </p>
           </div>
