@@ -366,13 +366,12 @@ html {
   opacity: 1;
   transform: none;
 }
-.js-anim .reveal-photo {
-  clip-path: inset(100% 0 0 0);
-  transition: clip-path 700ms ease-out;
-  will-change: clip-path;
-}
-.js-anim .reveal-photo.is-revealed {
-  clip-path: inset(0 0 0 0);
+/* reveal-photo safety net — never hide an element waiting for an observer.
+   The @keyframes reveal-photo below is still used by .reveal-wipe, whose
+   container is NOT clipped (only its children animate), so the observer
+   always fires. This rule guarantees no element is ever stuck hidden. */
+.reveal-photo {
+  clip-path: none !important;
 }
 .js-anim .reveal-stagger > * {
   opacity: 0;
