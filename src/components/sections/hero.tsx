@@ -169,20 +169,25 @@ export function Hero() {
 
       {/* ============================================================
           MOBILE (under 768px)
-          Show the photo above the text in a frame with aspect-ratio 16/11,
-          object-fit: cover, object-position: 50% 40%.
-          No zoom or scale transform.
+          Show the photo above the text in a frame with aspect-ratio 5/4,
+          object-fit: cover, object-position: 50% 60%, with a soft 48px
+          fade at the bottom into the ivory background #fbf8f3.
           ============================================================ */}
       <div className="relative z-10 flex flex-col md:hidden">
-        {/* Photo on top: 16/11 aspect ratio, cover, 50% 40% */}
-        <div className="relative aspect-[16/11] w-full overflow-hidden bg-[#f3ece1]">
+        {/* Photo on top: 5/4 aspect ratio, cover, 50% 60% */}
+        <div className="relative aspect-[5/4] w-full overflow-hidden bg-[#f3ece1]">
           <img
             src={HERO_IMAGE}
             alt="Leah the Barber giving a hot lather head shave in Fort Worth, TX"
             loading="eager"
             decoding="async"
             className="h-full w-full object-cover"
-            style={{ objectPosition: "50% 40%" }}
+            style={{ objectPosition: "50% 60%" }}
+          />
+          {/* Soft fade at the bottom of the photo into the ivory background */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-[#fbf8f3] to-transparent"
           />
         </div>
 
