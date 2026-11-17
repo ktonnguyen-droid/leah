@@ -16,7 +16,7 @@ export function Visit() {
             Find the <span className="font-medium italic text-accent">chair</span>
           </h2>
           <p className="mt-4 max-w-xl text-[17px] font-normal leading-[1.65] text-body-text">
-            Inside Faded Blue Lounge, just off Sycamore School Road in southwest Fort Worth.
+            Just off Sycamore School Road in southwest Fort Worth.
           </p>
         </div>
 

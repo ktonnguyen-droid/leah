@@ -63,15 +63,9 @@ export function Header() {
           >
             Leah
           </a>
-          <a
-            href={SHOP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-0.5 inline-flex items-center gap-1 text-[12px] font-semibold tracking-wide-2 text-primary uppercase transition-opacity hover:opacity-80"
-          >
-            A Faded Blue Lounge Barber
-            <ExternalLink size={9} />
-          </a>
+          <span className="mt-0.5 text-[12px] font-semibold tracking-wide-2 text-primary uppercase">
+            Barber · Fort Worth, Texas
+          </span>
         </div>
 
         <nav className="hidden items-center gap-8 md:flex">

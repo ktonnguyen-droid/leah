@@ -19,7 +19,7 @@ export function About() {
           <div className="aspect-[4/5] w-full max-h-[520px] overflow-hidden border border-border bg-secondary">
             <img
               src={ABOUT_IMAGE}
-              alt="Leah Bernal, barber at Faded Blue Lounge in Fort Worth, TX"
+              alt="Leah Bernal, barber in Fort Worth, TX"
               loading="eager"
               decoding="async"
               className="h-full w-full object-cover"
@@ -35,10 +35,7 @@ export function About() {
           </h2>
 
           <p className="display-serif mt-4 text-lg font-medium italic text-accent">
-            Clients come to Faded Blue Lounge for a clean cut.
-          </p>
-          <p className="display-serif text-lg font-medium italic text-accent">
-            They stay for the experience in Leah's chair.
+            Clients come for a clean cut. They stay for the experience in Leah's chair.
           </p>
 
           <p className="mt-6 max-w-xl text-[17px] font-normal leading-[1.65] text-body-text">

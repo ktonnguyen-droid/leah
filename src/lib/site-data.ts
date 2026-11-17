@@ -132,7 +132,7 @@ export const PORTFOLIO = [
 ];
 
 export const HERO_IMAGE =
-  "https://vibe.filesafe.space/1794001815039021537/attachments/391343f2-4216-4a16-bf60-9c9cf9ef9cf8.png";
+  "https://vibe.filesafe.space/1794001815039021537/attachments/2bdb4fc4-ae3d-4612-8ded-0c2abfc2800f.jpg";
 export const ABOUT_IMAGE =
   "https://vibe.filesafe.space/1794001815039021537/attachments/9739de87-f924-4373-aa83-4545588ddc44.jpg";
 export const HEAD_SHAVE_IMAGE =

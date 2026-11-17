@@ -68,7 +68,7 @@ const INTRO_STYLE = `#intro{--bg:#24133b;--gold:#d8b062;--gold2:#e9cf94;--ink:#f
 @media (prefers-reduced-motion:reduce){#intro{display:none}}`;
 
 const INTRO_HTML = `<div class="half top"><div class="name">Leah <em>the Barber</em></div></div>
-  <div class="half bot"><div class="sub">Faded Blue Lounge</div></div>
+  <div class="half bot"><div class="sub">Fort Worth, Texas</div></div>
   <div class="cut"></div>
   <div class="strands">
     <i style="left:3.9%;height:20px;background:#e9cf94;--dx:24px;--fy:149px;--r:61deg;animation-delay:0.29s"></i>

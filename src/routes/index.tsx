@@ -22,7 +22,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Precision haircuts, razor line-ups, hot lather head shaves and Dermalogica facials by Leah Bernal at Faded Blue Lounge in Fort Worth, TX. 5.0 stars from 115 reviews. Book online.",
+          "Precision haircuts, razor line-ups, hot lather head shaves and Dermalogica facials by Leah Bernal in Fort Worth, TX. 5.0 stars from 115 reviews. Book online.",
       },
       {
         property: "og:title",
@@ -31,7 +31,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Precision haircuts, razor line-ups, hot lather head shaves and Dermalogica facials by Leah Bernal at Faded Blue Lounge in Fort Worth, TX. 5.0 stars from 115 reviews. Book online.",
+          "Precision haircuts, razor line-ups, hot lather head shaves and Dermalogica facials by Leah Bernal in Fort Worth, TX. 5.0 stars from 115 reviews. Book online.",
       },
       { property: "og:type", content: "website" },
       { property: "og:image", content: HERO_IMAGE },
@@ -44,9 +44,9 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "HairSalon",
-          name: "Leah the Barber at Faded Blue Lounge",
+          name: "Leah the Barber",
           description:
-            "Precision haircuts, razor line-ups, hot lather head shaves and Dermalogica facials by Leah Bernal at Faded Blue Lounge in Fort Worth, TX.",
+            "Precision haircuts, razor line-ups, hot lather head shaves and Dermalogica facials by Leah Bernal in Fort Worth, TX.",
           url: BOOKSY_URL,
           telephone: PHONE_DISPLAY,
           priceRange: "$$",
