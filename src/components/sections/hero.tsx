@@ -62,13 +62,38 @@ export function Hero() {
 
       {/* ============================================================
           DESKTOP (md: 768px+)
-          Two-column layout: text on left (55%), framed photo on right (45%),
-          vertically centered within viewport-filling container
+          Right-anchored photo fading into ivory on the left.
+          Text vertically centered on the left, not overlapping Leah.
           ============================================================ */}
       <div className="relative z-10 hidden min-h-[560px] max-h-[820px] md:flex md:h-[calc(100svh-38px-64px)] md:items-center">
-        <div className="mx-auto grid w-full max-w-7xl grid-cols-12 items-center gap-8 px-8 lg:gap-12 lg:px-12">
-          {/* Left Column: text + buttons + rating (7 cols / ~58%) */}
-          <div className="col-span-7 flex flex-col justify-center">
+        {/* Right-side photo fading left into ivory */}
+        <img
+          data-hero-img
+          src={HERO_IMAGE}
+          alt="Leah the Barber giving a hot lather head shave in Fort Worth, TX"
+          fetchPriority="high"
+          loading="eager"
+          decoding="async"
+          className="hero-photo pointer-events-none select-none"
+          style={{
+            position: "absolute",
+            right: 0,
+            top: 0,
+            bottom: 0,
+            left: "auto",
+            height: "100%",
+            width: "auto",
+            maxWidth: "none",
+            objectFit: "cover",
+            objectPosition: "center",
+            maskImage: "linear-gradient(to right, transparent 0%, #000 28%)",
+            WebkitMaskImage: "linear-gradient(to right, transparent 0%, #000 28%)",
+          }}
+        />
+
+        <div className="relative mx-auto flex h-full w-full max-w-7xl items-center px-8 lg:px-12">
+          {/* Left Column: text + buttons + rating */}
+          <div className="relative z-10 max-w-[580px]">
             {/* 1. Small label */}
             <div className="hero-rise flex items-center gap-3" style={delay(0)}>
               <span className="hero-line inline-block h-[1px] w-8 bg-primary" />
@@ -139,103 +164,84 @@ export function Hero() {
               <span>5.0 from 115 verified client reviews</span>
             </div>
           </div>
-
-          {/* Right Column: Framed portrait photo (5 cols / ~42%) */}
-          <div className="col-span-5 flex justify-end">
-            <div className="hero-rise relative w-full max-w-[440px]" style={delay(180)}>
-              {/* Outer gold double-line decorative frame */}
-              <div className="relative p-2.5 border border-primary/40 bg-card/40 shadow-xl backdrop-blur-sm">
-                <div className="relative aspect-[4/5] w-full overflow-hidden border border-primary/60 bg-[#f3ece1]">
-                  <img
-                    data-hero-img
-                    src={HERO_IMAGE}
-                    alt="Fresh haircut by Leah the Barber in Fort Worth, TX"
-                    fetchPriority="high"
-                    loading="eager"
-                    decoding="async"
-                    className="h-full w-full object-cover object-center"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 
       {/* ============================================================
           MOBILE (under 768px)
-          Text comes first, then the framed photo below the rating line
-          at full width with aspect-ratio 4/5
+          Show the photo above the text in a frame with aspect-ratio 16/11,
+          object-fit: cover, object-position: 50% 40%.
+          No zoom or scale transform.
           ============================================================ */}
-      <div className="relative z-10 flex flex-col px-5 pt-8 pb-12 md:hidden">
-        {/* Label */}
-        <div className="hero-rise flex items-center gap-2" style={delay(0)}>
-          <span className="hero-line inline-block h-[1px] w-6 bg-primary" />
-          <span className="text-[11px] font-semibold tracking-wide-2 text-primary uppercase">
-            Fort Worth, Texas
-          </span>
+      <div className="relative z-10 flex flex-col md:hidden">
+        {/* Photo on top: 16/11 aspect ratio, cover, 50% 40% */}
+        <div className="relative aspect-[16/11] w-full overflow-hidden bg-[#f3ece1]">
+          <img
+            src={HERO_IMAGE}
+            alt="Leah the Barber giving a hot lather head shave in Fort Worth, TX"
+            loading="eager"
+            decoding="async"
+            className="h-full w-full object-cover"
+            style={{ objectPosition: "50% 40%" }}
+          />
         </div>
 
-        {/* Headline: one line */}
-        <h1
-          className="display-serif hero-rise text-[40px] font-semibold tracking-tight text-foreground"
-          style={{ lineHeight: 1.05, marginTop: 10, ...delay(80) }}
-        >
-          Leah <span className="font-normal italic text-accent">the Barber</span>
-        </h1>
+        {/* Text stacked below */}
+        <div className="px-5 pt-8 pb-12">
+          {/* Label */}
+          <div className="hero-rise flex items-center gap-2" style={delay(0)}>
+            <span className="hero-line inline-block h-[1px] w-6 bg-primary" />
+            <span className="text-[11px] font-semibold tracking-wide-2 text-primary uppercase">
+              Fort Worth, Texas
+            </span>
+          </div>
 
-        {/* Intro paragraph */}
-        <p
-          className="hero-rise text-[16px] font-normal leading-[1.55] text-hero-body"
-          style={{ marginTop: 12, ...delay(160) }}
-        >
-          Master barber specializing in precision haircuts, hot lather head shaves, razor line-ups,
-          and Dermalogica facials in southwest Fort Worth.
-        </p>
-
-        {/* Buttons: side by side row */}
-        <div
-          className="hero-rise grid grid-cols-2 gap-[10px]"
-          style={{ marginTop: 18, ...delay(240) }}
-        >
-          <a
-            href={BOOKSY_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="arrow-link btn-primary flex items-center justify-center gap-1 rounded-none px-2 py-[14px] text-center text-[11px] font-semibold tracking-[0.12em] whitespace-nowrap uppercase shadow-sm"
+          {/* Headline: one line */}
+          <h1
+            className="display-serif hero-rise text-[40px] font-semibold tracking-tight text-foreground"
+            style={{ lineHeight: 1.05, marginTop: 10, ...delay(80) }}
           >
-            <span>Reserve your chair</span>
-            <ArrowRight size={11} className="btn-arrow shrink-0" />
-          </a>
-          <a
-            href="#services"
-            className="flex items-center justify-center rounded-none border border-border bg-card/60 px-2 py-[14px] text-center text-[11px] font-semibold tracking-[0.12em] whitespace-nowrap text-foreground uppercase backdrop-blur-sm"
+            Leah <span className="font-normal italic text-accent">the Barber</span>
+          </h1>
+
+          {/* Intro paragraph */}
+          <p
+            className="hero-rise text-[16px] font-normal leading-[1.55] text-hero-body"
+            style={{ marginTop: 12, ...delay(160) }}
           >
-            View the menu
-          </a>
-        </div>
+            Master barber specializing in precision haircuts, hot lather head shaves, razor
+            line-ups, and Dermalogica facials in southwest Fort Worth.
+          </p>
 
-        {/* Rating line */}
-        <div
-          className="hero-rise flex items-center gap-1.5 text-[11px] font-semibold tracking-[0.12em] text-ink uppercase"
-          style={{ marginTop: 16, ...delay(320) }}
-        >
-          <span className="text-[12px] text-gold-star">★★★★★</span>
-          <span className="truncate">5.0 from 115 verified client reviews</span>
-        </div>
+          {/* Buttons: side by side row */}
+          <div
+            className="hero-rise grid grid-cols-2 gap-[10px]"
+            style={{ marginTop: 18, ...delay(240) }}
+          >
+            <a
+              href={BOOKSY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="arrow-link btn-primary flex items-center justify-center gap-1 rounded-none px-2 py-[14px] text-center text-[11px] font-semibold tracking-[0.12em] whitespace-nowrap uppercase shadow-sm"
+            >
+              <span>Reserve your chair</span>
+              <ArrowRight size={11} className="btn-arrow shrink-0" />
+            </a>
+            <a
+              href="#services"
+              className="flex items-center justify-center rounded-none border border-border bg-card/60 px-2 py-[14px] text-center text-[11px] font-semibold tracking-[0.12em] whitespace-nowrap text-foreground uppercase backdrop-blur-sm"
+            >
+              View the menu
+            </a>
+          </div>
 
-        {/* Framed photo below the rating line, full width with aspect-ratio 4/5 */}
-        <div className="hero-rise mt-8 w-full" style={delay(380)}>
-          <div className="relative p-2 border border-primary/40 bg-card/40 shadow-lg">
-            <div className="relative aspect-[4/5] w-full overflow-hidden border border-primary/60 bg-[#f3ece1]">
-              <img
-                src={HERO_IMAGE}
-                alt="Fresh haircut by Leah the Barber in Fort Worth, TX"
-                loading="eager"
-                decoding="async"
-                className="h-full w-full object-cover object-center"
-              />
-            </div>
+          {/* Rating line */}
+          <div
+            className="hero-rise flex items-center gap-1.5 text-[11px] font-semibold tracking-[0.12em] text-ink uppercase"
+            style={{ marginTop: 16, ...delay(320) }}
+          >
+            <span className="text-[12px] text-gold-star">★★★★★</span>
+            <span className="truncate">5.0 from 115 verified client reviews</span>
           </div>
         </div>
       </div>
